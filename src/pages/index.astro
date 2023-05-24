@@ -1,0 +1,27 @@
+---
+import "../styles/main.css";
+import Layout from "../layouts/Layout.astro";
+import About from "../sections/About.astro";
+import Contact from "../sections/Contact.astro";
+import Nav from "../sections/Nav.astro";
+import Portfolio from "../sections/Portfolio.astro";
+import Skills from "../sections/Skills.astro";
+import Hero from "../sections/Hero.astro";
+---
+
+<Layout title="Jesse Pernilä">
+  <main class="flex flex-col items-center w-full">
+    <div class="h-32" />
+    <Nav />
+    <section class="w-11/12 border-gray-400 border-0.5 py-32">
+      <Hero />
+    </section>
+    
+    <section class="w-11/12 border-gray-400 border-0.5 border-t-0 py-8">
+    <Portfolio />
+  </section>
+    <About />
+    <Skills />
+    <Contact />
+  </main>
+</Layout>

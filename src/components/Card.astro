@@ -1,0 +1,26 @@
+---
+export interface Props {
+  title: string;
+  body: string;
+  href: string;
+}
+
+const { href, title, body } = Astro.props;
+---
+
+<li class="link-card">
+  <div class="content">
+    <a href={href}>
+      <h2>
+        {title}
+      </h2>
+    </a>
+    <p>
+      {body}
+    </p>
+  </div>
+  <img class="thumbnail" src="../public/thumbnails/tatu4_up.png" alt="webhog" />
+</li>
+<style>
+ 
+</style>
