@@ -11,15 +11,18 @@ import Hero from "../sections/Hero.astro";
 
 <Layout title="Jesse Pernilä">
   <main class="flex flex-col items-center w-full">
-    <div class="h-32" />
+    <div class="h-32"></div>
     <Nav />
-    <section class="w-11/12 border-gray-400 border-0.5 py-32">
+    <section id="HOME" class="w-11/12 border-gray-400 border-0.5 py-32">
       <Hero />
     </section>
-    
-    <section class="flex flex-col w-11/12 border-gray-400 border-0.5 border-t-0 py-8">
-    <Portfolio />
-  </section>
+
+    <section
+      id="PORTFOLIO"
+      class="flex flex-col w-11/12 border-gray-400 border-0.5 border-t-0 py-8"
+    >
+      <Portfolio />
+    </section>
     <About />
     <Skills />
     <Contact />
