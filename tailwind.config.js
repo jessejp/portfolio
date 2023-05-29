@@ -4,6 +4,9 @@ export default {
   theme: {
     
     extend: {
+      minHeight: {
+        halfScreen: "50vh",
+      },
       borderWidth: {
         0.5: "0.5px",
         1: "1px",

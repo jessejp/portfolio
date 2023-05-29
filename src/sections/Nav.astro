@@ -1,14 +1,29 @@
 ---
+const sections = ["HOME", "PORTFOLIO", "ABOUT JESSE", "CONTACT"];
 ---
 
 <nav class="flex justify-center w-full h-28 pt-3 fixed bg-white z-10">
-  <div class="w-5/6 flex justify-between items-center max-sm:w-full max-sm:justify-start">
+  <div
+    class="w-5/6 flex justify-between items-center max-sm:w-full max-sm:justify-start"
+  >
     <img src="https://place-puppy.com/80x100" />
-    <ul class="flex w-full justify-evenly list-none gap-4 font-brandFont text-3xl">
-      <li><button>HOME</button></li>
-      <li><button>PORTFOLIO</button></li>
-      <li><button>ABOUT JESSE</button></li>
-      <li><button>CONTACT</button></li>
-    </ul>
+    <div
+      class="flex w-full justify-evenly list-none gap-4 font-brandFont text-3xl"
+    >
+      {sections.map((section) => <button>{section}</button>)}
+    </div>
   </div>
 </nav>
+
+<script define:vars={{ sections }}>
+  const nav = document.querySelector("nav>div>div");
+
+  nav.addEventListener("click", (event) => {
+    const clicked = event.target.innerHTML;
+    console.log(clicked, clicked.replace(" ", "-"));
+    if (sections.includes(clicked)) {
+      const section = document.querySelector(`#${clicked.replace(" ", "-")}`);
+      section.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  });
+</script>
