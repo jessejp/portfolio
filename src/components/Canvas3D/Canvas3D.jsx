@@ -5,8 +5,8 @@ import Box from "./Box";
 const Canvas3D = () => {
   return (
     <Canvas>
-      <ambientLight />
-      <pointLight position={[10, 10, 10]} />
+      {/* <ambientLight />
+      <pointLight position={[10, 10, 10]} /> */}
       <Box />
     </Canvas>
   );

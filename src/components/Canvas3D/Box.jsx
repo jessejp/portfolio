@@ -1,8 +1,14 @@
-import React, { useRef } from "react";
+import React, { useMemo, useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
+import * as THREE from "three";
 
 const Box = () => {
   const boxRef = useRef();
+  const matcap = useMemo(
+    () => new THREE.TextureLoader().load("/matcap_256.png"),
+    []
+  );
+
   useFrame(({ clock }, delta) => {
     boxRef.current.rotation.x += 0.6 * delta;
   });
@@ -19,7 +25,7 @@ const Box = () => {
       }
     >
       <sphereGeometry args={[1, 12, 6]} />
-      <meshStandardMaterial color="#0000ff" wireframe={true} />
+      <meshMatcapMaterial matcap={matcap} />
     </mesh>
   );
 };
