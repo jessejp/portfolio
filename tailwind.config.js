@@ -5,7 +5,7 @@ export default {
     
     extend: {
       minHeight: {
-        halfScreen: "50vh",
+        halfScreen: ["50vh", "50svh"],
       },
       borderWidth: {
         0.5: "0.5px",

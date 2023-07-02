@@ -8,6 +8,4 @@
   stack: ["HTML", "CSS", "JavaScript", "Astro", "React-Three-Fiber", "Blender"]
 ---
 
-The goal was to create a landing page that looks fresh, including a 3D element for the hero section. 
-
-I used Astro, it's the best way to make a static website with modern web-dev techniques. I also used Blender and React-Three-Fiber to create the 3D element.
+Visually fresh landing page for a soda brand...

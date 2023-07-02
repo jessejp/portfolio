@@ -13,7 +13,10 @@ import Hero from "../sections/Hero.astro";
   <main class="flex flex-col items-center w-full">
     <div class="h-32"></div>
     <Nav />
-    <section id="HOME" class="w-11/12 border-gray-400 border-0.5 py-32">
+    <section
+      id="HOME"
+      class="flex w-11/12 border-gray-400 border-0.5 min-h-halfScreen"
+    >
       <Hero />
     </section>
 
@@ -28,3 +31,32 @@ import Hero from "../sections/Hero.astro";
     <Contact />
   </main>
 </Layout>
+
+<!-- <script>
+  const windowWidth = window.innerWidth;
+
+  if (windowWidth < 640) {
+    // set renderNav to true
+    document.querySelectorAll(".navElement").forEach((element) => {
+      element.classList.add("hidden");
+      element.classList.remove("visible");
+    });
+  }
+
+  // add event listener to window resize
+  window.addEventListener("resize", () => {
+    // get window width on resize
+    // if window width is less than 640px
+    if (windowWidth < 640) {
+      // set renderNav to true
+      document.querySelectorAll(".navElement").forEach((element) => {
+        element.classList.add("hidden");
+      });
+    } else {
+      // else set renderNav to false
+      document.querySelectorAll(".navElement").forEach((element) => {
+        element.classList.add("visible");
+      });
+    }
+  });
+</script> -->
