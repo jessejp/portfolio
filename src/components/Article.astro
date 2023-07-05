@@ -34,9 +34,11 @@ const { frontmatter } = Astro.props;
       }
     </div>
   </div>
-  <img
-    class="w-1/2 max-w-sm border-gray-400 border-1 hover:border-brandMain hover:border-2 max-md:w-full max-md:mt-6 max-md:self-start"
-    src={frontmatter.thumbnail}
-    alt={frontmatter.title}
-  />
+  <a class="w-1/2 max-w-sm border-gray-400 border-1 hover:border-brandMain hover:border-2 max-md:w-full max-md:mt-6 max-md:self-start" href={frontmatter.href} target="_blank">
+    <img
+      class=""
+      src={frontmatter.thumbnail}
+      alt={frontmatter.title}
+    /></a
+  >
 </div>

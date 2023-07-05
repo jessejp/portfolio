@@ -16,6 +16,8 @@ export default {
       },
       colors: {
         brandMain: "#0000ff",
+        link: "#0000ee",
+        visited: "#551A8B",
       },
       animation: {
         highlight: "highlight 1.5s linear 0.8s forwards",

@@ -11,11 +11,12 @@ export function RunningMan(props) {
   const group = useRef();
   const { nodes, animations } = useGLTF("/running_man.glb");
   const { actions } = useAnimations(animations, group);
+  
   const matcap = useMemo(
     () => new THREE.TextureLoader().load("/matcap_256.png"),
     []
   );
-  console.log(actions);
+
   useEffect(() => {
     actions.run.play();
   });
