@@ -5,31 +5,37 @@ import Canvas3D from "../components/Canvas3D/Canvas3D.jsx";
 <div
   class="flex w-full items-center justify-start gap-8 max-sm:gap-2 max-sm:flex-col"
 >
-  <div class="w-1/2 h-full min-h-halfScreen">
+  <div class="w-1/2 max-sm:w-full h-96 min-h-halfScreen">
     <Canvas3D client:load />
   </div>
-  <div class="flex flex-col w-72">
-    <h1 class="text-5xl">Jesse Pernilä</h1>
-    <div class="mt-6"></div>
-    <p>is a web developer and a 3D enthusiast.</p>
-    <div class="mt-6"></div>
+  <div class="flex flex-col w-72 max-sm:w-fit">
+    <h1 class="text-5xl max-sm:text-3xl">JESSE PERNILÄ</h1>
+    <div class="mt-4"></div>
+    <p class="text-lg">Web and 3D builder</p>
+    <div class="mt-4"></div>
     <button
-      class="w-fit py-1 px-8 bg-yellow-300 text-black border-black text-lg font-medium hover:bg-yellow-200"
+      class="w-fit py-1 px-8 font-brandFont text-brandMain border-brandMain border-2 text-3xl font-medium animate-bgSildeLeft hover:animate-bgSildeRight bg-no-repeat bg-x--10rem bg-gradient-to-r from-brandMain from-100% to-white to-200%"
       data-connect-button
     >
       Connect
     </button>
   </div>
 
-  <div class="mt-6"></div>
+  <div class="mt-4"></div>
 </div>
 <script>
   const connectButton = document.querySelector("[data-connect-button]");
 
   const scrollToContact = () => {
-    document.querySelector("#contact").scrollIntoView({
+    document.querySelector("#CONTACT").scrollIntoView({
       behavior: "smooth",
     });
+    document.querySelector("#CONTACT-EMAIL").classList.add("animate-highlight");
+    setTimeout(() => {
+      document
+        .querySelector("#CONTACT-EMAIL")
+        .classList.remove("animate-highlight");
+    }, 2400);
   };
 
   connectButton.addEventListener("click", scrollToContact);
