@@ -1,44 +1,45 @@
 ---
 import ThumbnailFrame from "/thumbnail_frame.svg?raw";
 const { frontmatter } = Astro.props;
+const title = frontmatter.title.toUpperCase();
 ---
 
 <div
   class="flex gap-6 w-11/12 items-center justify-center flex-col md:flex-row"
 >
   <div class="w-1/2 max-w-2xl max-md:self-start max-md:w-full max-md:order-2">
-    <h3 class="text-3xl font-semibold">{frontmatter.title}</h3>
+    <h3 class="text-3xl">{title}</h3>
     <div class="text-lg"><slot /></div>
-
+    <div class="mt-4" />
     <div class="flex gap-4">
-      <div
-        class="my-6 py-2 px-5 border-slate-900 bg-white border-2 w-fit hover:invert"
+      <a
+        class="h-fit w-fit py-1 px-8 font-brandFont text-brandMain border-brandMain border-2 text-2xl font-medium animate-bgSildeLeft hover:animate-bgSildeRight bg-no-repeat bg-x--10rem bg-gradient-to-r from-brandMain from-100% to-white to-200%"
+        href={frontmatter.href}
+        target="_blank">Visit Page</a
       >
-        <a class="text-xl" href={frontmatter.href} target="_blank">Visit Page</a
-        >
-      </div>
-      <div
-        class="my-6 py-2 px-5 border-slate-900 bg-white border-2 w-fit hover:invert"
+      <a
+        class="h-fit w-fit py-1 px-8 font-brandFont text-brandMain border-brandMain border-2 text-2xl font-medium animate-bgSildeLeft hover:animate-bgSildeRight bg-no-repeat bg-x--10rem bg-gradient-to-r from-brandMain from-100% to-white to-200%"
+        href={frontmatter.github}
+        target="_blank">GitHub</a
       >
-        <a class="text-xl" href={frontmatter.github} target="_blank">GitHub</a>
-      </div>
     </div>
-    <div class="flex flex-wrap gap-3 max-w-lg">
+    <div class="mt-4" />
+    <div class="flex flex-wrap gap-4 max-w-lg">
       {
         !!frontmatter.stack &&
           frontmatter.stack.map((item) => (
-            <span class="text-base px-2 py-1 rounded bg-gray-500 text-white">
+            <span class="text-sm text-black">
               {item}
             </span>
           ))
       }
     </div>
   </div>
-  <a class="w-1/2 max-w-sm border-gray-400 border-1 hover:border-brandMain hover:border-2 max-md:w-full max-md:mt-6 max-md:self-start" href={frontmatter.href} target="_blank">
-    <img
-      class=""
-      src={frontmatter.thumbnail}
-      alt={frontmatter.title}
-    /></a
+  <a
+    class="w-1/2 max-w-sm border-gray-400 border-1 hover:border-brandMain hover:border-2 max-md:w-full max-md:mt-6 max-md:self-start"
+    href={frontmatter.href}
+    target="_blank"
+  >
+    <img src={frontmatter.thumbnail} alt={frontmatter.title} /></a
   >
 </div>
