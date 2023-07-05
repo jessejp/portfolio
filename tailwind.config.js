@@ -2,7 +2,6 @@
 export default {
   content: ["./src/**/*.astro", "./src/**/*.jsx"],
   theme: {
-    
     extend: {
       minHeight: {
         halfScreen: ["50vh", "50svh"],
@@ -16,8 +15,17 @@ export default {
         brandBread: ["Roboto", "sans-serif"],
       },
       colors: {
-        "brandMain": "#0000ff",
-      }
+        brandMain: "#0000ff",
+      },
+      animation: {
+        highlight: "highlight 1.5s linear 0.8s forwards",
+      },
+      keyframes: {
+        highlight: {
+          "0%, 25%": { backgroundColor: "rgb(253 224 71 / 1)" },
+          "100%": { backgroundColor: "rgb(253 224 71 / 0)" },
+        },
+      },
     },
   },
   plugins: [],

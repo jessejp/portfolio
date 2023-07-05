@@ -8,4 +8,4 @@
   stack: ["HTML", "CSS", "JavaScript", "Astro", "React-Three-Fiber", "Blender"]
 ---
 
-Visually fresh landing page for a soda brand...
+Visually fresh landing page for a soda brand
