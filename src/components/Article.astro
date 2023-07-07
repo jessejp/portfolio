@@ -23,12 +23,12 @@ const title = frontmatter.title.toUpperCase();
         target="_blank">GitHub</a
       >
     </div>
-    <div class="mt-4" />
+    <div class="mt-8" />
     <div class="flex flex-wrap gap-4 max-w-lg">
       {
         !!frontmatter.stack &&
           frontmatter.stack.map((item) => (
-            <span class="text-sm text-black">
+            <span class="text-sm text-gray-600">
               {item}
             </span>
           ))

@@ -28,10 +28,10 @@ export default {
       },
       animation: {
         highlight: "highlight 1.5s linear 0.8s forwards",
-        bgSlideTop: "bgSlideTop 0.2s linear forwards",
-        bgSlideBottom: "bgSlideBottom 0.2s linear forwards",
-        bgSildeRight: "bgSildeRight 0.14s linear forwards",
-        bgSildeLeft: "bgSildeLeft 0.14s linear forwards",
+        bgSlideTop: "bgSlideTop 0.11s linear forwards",
+        bgSlideBottom: "bgSlideBottom 0.11s linear forwards",
+        bgSildeRight: "bgSildeRight 0.09s linear forwards",
+        bgSildeLeft: "bgSildeLeft 0.09s linear forwards",
       },
       keyframes: {
         highlight: {
