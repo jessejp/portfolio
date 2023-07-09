@@ -1,16 +1,44 @@
 ---
+const contactEmailAddress = "connect.jessep@gmail.com";
 ---
 
-<section id="CONTACT" class="flex flex-col items-center w-full py-10">
-  <div class="flex w-5/6 gap-4 items-center justify-center flex-col md:flex-row">
-    <div class="flex flex-col md:w-1/2">
-      <h2 class="text-3xl">CONTACT</h2>
-      <div id="CONTACT-EMAIL" class="w-fit py-2 px-4 -ml-4">
-        connect.jessep@gmail.com
+<section id="CONNECT" class="flex flex-col items-center w-full py-24">
+  <div
+    class="flex w-5/6 gap-4 items-center justify-center flex-col md:flex-row"
+  >
+    <div class="flex flex-col items-center md:w-1/2">
+      <h2 class="text-3xl">CONNECT W/ ME</h2>
+      <p>To get in touch, you can contact me at this email :)</p>
+      <div
+        id="CONTACT-EMAIL"
+        class="flex items-center relative gap-3 w-fit h-14 py-2 px-4 -ml-4"
+      >
+        {contactEmailAddress}
+        <button class="absolute -right-9" id="COPY-EMAIL"
+          ><img
+            class="w-8 h-fit"
+            src="/assets/icons/copy-to-clipboard.svg"
+          /></button
+        >
       </div>
-    </div>
-    <div class="flex justify-center w-80 max-sm:w-fit">
-      <img class="rounded-full" src="https://placedog.net/500/500?r&id=204" />
+      <div class="mt-4" />
+      <a
+        class="text-2xl font-brandFont text-brandMain border-3 border-brandMain px-4 py-1"
+        href=`mailto:${contactEmailAddress}`>Say Hello!</a
+      >
     </div>
   </div>
 </section>
+
+<script define:vars={{ contactEmailAddress }}>
+  const copyEmail = document.getElementById("COPY-EMAIL");
+  const email = document.getElementById("CONTACT-EMAIL");
+
+  copyEmail.addEventListener("click", () => {
+    navigator.clipboard.writeText(contactEmailAddress);
+    email.classList.add("animate-copied");
+    setTimeout(() => {
+      email.classList.remove("animate-copied");
+    }, 1600);
+  });
+</script>
