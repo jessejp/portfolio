@@ -10,6 +10,9 @@ export default {
         0.5: "0.5px",
         1: "1px",
       },
+      spacing: {
+        "1/5": "20%",
+      },
       fontFamily: {
         brandFont: ["VT323", "sans-serif"],
         brandBread: ["Roboto", "sans-serif"],
