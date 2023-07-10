@@ -88,6 +88,9 @@ export default {
           "100%": { backgroundPosition: "-10rem 0", color: "#ffffff" },
         }
       },
+      backgroundImage: {
+        "voxel-pattern": "url('assets/images/voxel-pattern.png')",
+      }
     },
   },
   plugins: [],

@@ -1,4 +1,5 @@
 ---
+import ModalDialog from "../components/ModalDialog.astro";
 const posts = await Astro.glob("../portfolio-article/*.md");
 
 // const colors = ["teal-200", "emerald-400", "yellow-200"];
@@ -26,3 +27,5 @@ const posts = await Astro.glob("../portfolio-article/*.md");
     </article>
   ))
 }
+
+<ModalDialog />
