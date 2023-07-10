@@ -1,0 +1,38 @@
+<dialog data-dialog open class="bg-white w-4/6 border-brandMain border-3 p-0">
+  <div
+    data-dialog-inner
+    class="w-full min-h-halfScreen bg-voxel-pattern bg-no-repeat bg-left-bottom bg-cover p-12"
+  >
+    <h4 class="text-3xl uppercase">Add New Category</h4>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
+      voluptates. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      Quisquam, voluptates. Lorem ipsum dolor sit amet consectetur adipisicing
+      elit. Quisquam, voluptates.
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
+      voluptates. Lorem ipsum dolor sit amet consectetur pisicing elit.
+      Quisquam, voluptates.
+    </p>
+    <form method="dialog">
+      <button data-dialog-close class="absolute -top-4 right-2">
+        <img src="assets/icons/cross.jpg" alt="close" class="w-8 h-8" />
+      </button>
+    </form>
+  </div>
+</dialog>
+
+<button data-open-modal>Open modal</button>
+
+
+<script>
+  const modal = document.querySelector("[data-open-modal]");
+  const modalDialog = document.querySelector("[data-dialog]");
+
+  modal.addEventListener("click", (event) => {
+    console.log(event);
+    console.log(modalDialog);
+    modalDialog.showModal();
+  });
+</script>
