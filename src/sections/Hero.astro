@@ -8,17 +8,35 @@ import Canvas3D from "../components/Canvas3D/Canvas3D.jsx";
   <div class="w-full max-sm:w-full h-96 min-h-halfScreen">
     <Canvas3D client:load />
   </div>
-  <div class="flex flex-col w-80 p-2 absolute right-1/5 bottom-1/3 bg-white max-sm:static">
-    <h1 class="text-5xl max-sm:text-3xl">JESSE PERNILÄ</h1>
-    <div class="mt-4"></div>
-    <p class="text-lg">Enthusiastic about building for the web and the future of 3D in web</p>
-    <div class="mt-4"></div>
-    <button
-      class="w-fit py-1 px-8 font-brandFont text-brandMain border-brandMain border-2 text-3xl font-medium animate-bgSildeLeft hover:animate-bgSildeRight bg-no-repeat bg-x--10rem bg-gradient-to-r from-brandMain from-100% to-white to-200%"
-      data-connect-button
+  <div
+    class="w-fit absolute bg-gradient-to-t from-violet-700 from-20% to-100% to-brandMain right-4 2xl:right-1/5 bottom-1/3 max-sm:relative max-sm:bottom-0 max-sm:right-0"
+  >
+    <div
+      class="absolute w-fit h-2 right-4 top-0 font-brandFont text-2xl bg-white p-1"
     >
-      Connect
-    </button>
+      <div class="bg-superYellow relative -top-1 z-0 w-full h-4"></div>
+      <div class="relative z-20 p-2 -top-11">Status: Open to work!</div>
+    </div>
+    <div
+      class="flex flex-col bg-white m-0.75 md:py-5 md:pl-5 md:pr-16 max-md:p-5"
+    >
+      <span class="font-brandFont text-2xl">Hi! I'm</span>
+      <h1 class="text-5xl max-sm:text-3xl">
+        JESSE PERNILÄ, <br /><span>A FRONT-END DEVELOPER.</span>
+      </h1>
+      <div class="mt-4"></div>
+      <p class="text-lg w-96 max-sm:w-fit">
+        I'm enthusiastic about building for the web and creating awesome user
+        experiences 🤩
+      </p>
+      <div class="mt-4"></div>
+      <button
+        class="w-fit py-1 px-8 font-brandFont text-white border-brandMain bg-brandMain border-2 text-3xl font-medium animate-bgSildeLeftAlt hover:animate-bgSildeRightAlt bg-no-repeat bg-x--10rem bg-gradient-to-r from-white from-100% to-200%"
+        data-connect-button
+      >
+        Connect
+      </button>
+    </div>
   </div>
 
   <div class="mt-4"></div>
@@ -27,7 +45,7 @@ import Canvas3D from "../components/Canvas3D/Canvas3D.jsx";
   const connectButton = document.querySelector("[data-connect-button]");
 
   const scrollToContact = () => {
-    document.querySelector("#CONTACT").scrollIntoView({
+    document.querySelector("#CONNECT").scrollIntoView({
       behavior: "smooth",
     });
     document.querySelector("#CONTACT-EMAIL").classList.add("animate-highlight");

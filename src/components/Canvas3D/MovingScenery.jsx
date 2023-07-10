@@ -11,7 +11,7 @@ const MovingScenery = (props) => {
 
   useFrame(({ clock }, delta) => {
     boxRef.current.position.z =
-      (-clock.getElapsedTime() % (props.spawnOffset+1)) * 3.5 +
+     ( (-clock.getElapsedTime() % (props.spawnOffset+1)) * 3.5 )+
       props.spawnOffset;
   });
 
