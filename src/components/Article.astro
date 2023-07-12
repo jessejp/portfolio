@@ -1,17 +1,15 @@
 ---
+import Duo from "./Duo.astro";
 import ThumbnailFrame from "/thumbnail_frame.svg?raw";
 const { frontmatter } = Astro.props;
 const title = frontmatter.title.toUpperCase();
 ---
 
-<div
-  class="flex gap-6 w-11/12 items-center justify-center flex-col md:flex-row"
->
   <div class="w-1/2 max-w-2xl max-md:self-start max-md:w-full max-md:order-2">
     <h3 class="text-3xl">{title}</h3>
-    <div class="text-lg"><slot /></div>
+    <div class="text-lg max-w-xl"><slot /></div>
     <div class="mt-4" />
-    <div class="flex gap-4">
+    <div class="flex flex-wrap gap-4">
       <a
         class="h-fit w-fit py-1 px-8 max-sm:px-4 font-brandFont text-brandMain border-brandMain border-2 text-2xl font-medium animate-bgSildeLeft hover:animate-bgSildeRight bg-no-repeat bg-x--10rem bg-gradient-to-r from-brandMain from-100% to-white to-200%"
         href={frontmatter.href}
@@ -42,4 +40,3 @@ const title = frontmatter.title.toUpperCase();
   >
     <img src={frontmatter.thumbnail} alt={frontmatter.title} /></a
   >
-</div>
