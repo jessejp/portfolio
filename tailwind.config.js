@@ -19,6 +19,7 @@ export default {
       },
       spacing: {
         "1/5": "20%",
+        "46": "11.5rem",
       },
       margin:{
         "0.75": "0.1875rem",

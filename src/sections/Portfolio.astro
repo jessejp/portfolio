@@ -1,28 +1,16 @@
 ---
+import Duo from "../components/Duo.astro";
+import SectionHeading from "../components/SectionHeading.astro";
 const posts = await Astro.glob("../portfolio-article/*.md");
 
 // const colors = ["teal-200", "emerald-400", "yellow-200"];
 ---
+<SectionHeading>Recent Projects</SectionHeading>
 
-<div class="flex flex-col items-center w-full text-zinc-900 order-first">
-  <div class="w-11/12">
-    <h2 class="text-4xl self-start">RECENT PROJECTS</h2>
-  </div>
-</div>
 {
   posts.map((post, index) => (
-    <article
-      class:list={[
-        `order-${post.frontmatter.order}`,
-        "flex flex-col items-center w-full pb-10 text-zinc-900",
-        // `bg-${colors[index % colors.length]}`,
-        // {"bg-teal-200": index % 3 === 0},
-        // {"bg-emerald-400": index % 3 === 1},
-        // {"bg-yellow-200": index % 3 === 2},
-        ,
-      ]}
-    >
+    <Duo order={`order-${post.frontmatter.order}`}>
       <post.Content />
-    </article>
+    </Duo>
   ))
 }

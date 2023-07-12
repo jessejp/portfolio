@@ -1,38 +1,41 @@
 ---
+import Duo from "../components/Duo.astro";
+import SectionHeading from "../components/SectionHeading.astro";
 ---
 
-<section
-  id="ABOUT-JESSE"
-  class="flex flex-col items-center justify-center w-full max-w-9xl py-8"
->
-  <div
-    class="flex w-5/6 gap-5 items-center justify-center flex-col md:flex-row"
-  >
-    <div class="md:w-1/2">
-      <h2 class="text-3xl mb-2">ABOUT JESSE</h2>
-      <p class="text-lg mb-2">
-        Jesse is a passionate front-end developer, who enjoys bringing his ideas
-        to life through his work.
+<section id="ABOUT-JESSE" class="w-11/12 max-w-9xl py-8 flex flex-col gap-16">
+  <SectionHeading>
+    About Jesse
+  </SectionHeading>
+  
+  <Duo>
+    <div class="w-1/2 max-w-2xl max-md:self-start max-md:w-full max-md:order-2">
+      <h3 class="text-3xl mb-2">BIO</h3>
+      <p class="text-lg mb-2 max-w-xl">
+        I'm a passionate front-end developer, who enjoys bringing ideas to life
+        through my work.
       </p>
-      <p class="text-lg mb-2">
+      <p class="text-lg mb-2 max-w-xl">
         Web development makes the combination of creativity, problem-solving and
-        collaboration into an exciting environment for him to work in.
+        collaboration into an exciting environment for me to work in.
       </p>
-      <p class="text-lg mb-2">
-        The ever-growing capabilities of the web keeps him busy learning and
-        developing. With an open-mind, he is ready to take on new challenges.
+      <p class="text-lg mb-2 max-w-xl">
+        The ever-growing capabilities of the web keeps me busy learning and
+        developing. With an open mind, I'm ready to take on new challenges!
       </p>
       <div class="w-full h-1 mt-2"></div>
     </div>
-    <div class="flex justify-center w-80 max-sm:w-56">
-      <div
-        class="w-80 h-80 max-sm:w-56 max-sm:h-56 bg-blue-600 absolute z-10 rounded-full opacity-60"
-      >
+    <div class="w-1/2 max-w-sm flex justify-center">
+      <div class="w-96 max-sm:w-56">
+       <!--  <div
+          class="w-96 h-96 max-sm:w-56 max-sm:h-56 bg-blue-600 absolute z-10 opacity-60"
+        >
+        </div> -->
+        <img
+          src="/assets/images/jesse_portrait.png"
+          class="border-gray-500"
+        />
       </div>
-      <img
-        src="/assets/images/jesse_portrait.png"
-        class="rounded-full border-gray-500"
-      />
     </div>
-  </div>
+  </Duo>
 </section>
