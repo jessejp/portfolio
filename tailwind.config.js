@@ -40,7 +40,7 @@ export default {
       },
       backgroundPosition: {
         "y-3rem": "0 3rem",
-        "x--10rem": "-10rem 0",
+        "x--12rem": "-12rem 0",
       },
       gradientColorStopPositions: {
         "200%": "200%",
@@ -65,28 +65,28 @@ export default {
           "100%": { backgroundColor: "rgb(0 255 0 / 0)" },
         },
         bgSlideTop: {
-          "0%": { backgroundPosition: "0 3rem", color: "#0000ff" },
-          "100%": { backgroundPosition: "0 0rem", color: "#ffffff" },
+          "0%": { backgroundPosition: "0 3rem", color: "#0000ff", fill: "#0000ff" },
+          "100%": { backgroundPosition: "0 0rem", color: "#ffffff", fill: "#ffffff" },
         },
         bgSlideBottom: {
-          "0%": { backgroundPosition: "0 0rem", color: "#ffffff" },
-          "100%": { backgroundPosition: "0 3rem", color: "#0000ff" },
+          "0%": { backgroundPosition: "0 0rem", color: "#ffffff", fill: "#ffffff" },
+          "100%": { backgroundPosition: "0 3rem", color: "#0000ff", fill: "#0000ff" },
         },
         bgSildeRight: {
-          "0%": { backgroundPosition: "-10rem 0", color: "#0000ff" },
-          "100%": { backgroundPosition: "0rem 0", color: "#ffffff" },
+          "0%": { backgroundPosition: "-12rem 0", color: "#0000ff", fill: "#0000ff" },
+          "100%": { backgroundPosition: "0rem 0", color: "#ffffff", fill: "#ffffff" },
         },
         bgSildeLeft: {
-          "0%": { backgroundPosition: "0rem 0", color: "#ffffff" },
-          "100%": { backgroundPosition: "-10rem 0", color: "#0000ff" },
+          "0%": { backgroundPosition: "0rem 0", color: "#ffffff", fill: "#ffffff" },
+          "100%": { backgroundPosition: "-12rem 0", color: "#0000ff", fill: "#0000ff" },
         },
         bgSildeRightAlt: {
-          "0%": { backgroundPosition: "-10rem 0", color: "#ffffff" },
-          "100%": { backgroundPosition: "0rem 0", color: "#0000ff" },
+          "0%": { backgroundPosition: "-12rem 0", color: "#ffffff", fill: "#ffffff" },
+          "100%": { backgroundPosition: "0rem 0", color: "#0000ff", fill: "#0000ff" },
         },
         bgSildeLeftAlt: {
           "0%": { backgroundPosition: "0rem 0", color: "#0000ff" },
-          "100%": { backgroundPosition: "-10rem 0", color: "#ffffff" },
+          "100%": { backgroundPosition: "-12rem 0", color: "#ffffff" },
         }
       },
     },
