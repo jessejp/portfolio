@@ -1,4 +1,5 @@
 ---
+import ModalDialog from "./ModalDialog.astro";
 const { frontmatter } = Astro.props;
 const title = frontmatter.title.toUpperCase();
 const githubIcon = await import("/assets/icons/github.svg?raw");
@@ -7,11 +8,12 @@ const externalIcon = await import("/assets/icons/open-external.svg?raw");
 
 <div class="w-1/2 max-w-2xl max-md:self-start max-md:w-full max-md:order-2">
   <h3 class="text-3xl">{title}</h3>
-  <div class="text-lg max-w-xl"><slot /></div>
+  <div class="text-lg max-w-xl">{frontmatter.description}</div>
   <div class="mt-4"></div>
   <div class="flex flex-wrap gap-4">
+    <ModalDialog id={frontmatter.slug} title={title}><slot /></ModalDialog>
     <a
-      class="relative flex items-center h-12 w-fit py-1 px-8 max-sm:px-4 font-brandFont text-brandMain border-brandMain fill-brandMain border-2 text-2xl font-medium animate-bgSildeLeft hover:animate-bgSildeRight bg-no-repeat bg-x--10rem bg-gradient-to-r from-brandMain from-100% to-white to-200%"
+      class="relative flex items-center h-12 w-fit py-1 px-8 max-sm:px-4 font-brandFont text-brandMain border-brandMain fill-brandMain border-2 text-2xl font-medium animate-bgSlideLeft hover:animate-bgSlideRight bg-no-repeat bg-x--10rem bg-gradient-to-r from-brandMain from-100% to-white to-200%"
       href={frontmatter.href}
       target="_blank"
       >Visit Page <svg
@@ -24,7 +26,7 @@ const externalIcon = await import("/assets/icons/open-external.svg?raw");
       /></a
     >
     <a
-      class="flex items-center h-12 w-fit py-1 px-8 max-sm:px-4 font-brandFont text-brandMain border-brandMain fill-brandMain border-2 text-2xl font-medium animate-bgSildeLeft hover:animate-bgSildeRight bg-no-repeat bg-x--10rem bg-gradient-to-r from-brandMain from-100% to-white to-200%"
+      class="flex items-center h-12 w-fit py-1 px-8 max-sm:px-4 font-brandFont text-brandMain border-brandMain fill-brandMain border-2 text-2xl font-medium animate-bgSlideLeft hover:animate-bgSlideRight bg-no-repeat bg-x--10rem bg-gradient-to-r from-brandMain from-100% to-white to-200%"
       href={frontmatter.github}
       target="_blank"
     >
