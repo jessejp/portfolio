@@ -6,10 +6,9 @@ import MovingScenery from "./MovingScenery";
 
 const Scene = () => {
   const state = useThree();
-  const responsiveCenter = state.size.width > 565;
+  const responsiveCenter = state.size.width > 750;
 
   useEffect(() => {
-    console.log(state.size.width, responsiveCenter);
     if (responsiveCenter) {
       state.camera.position.set(0.4, 0.45, 1.75);
       state.camera.lookAt(1.2, 0.25, 0);

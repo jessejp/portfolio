@@ -6,38 +6,39 @@ interface Skill {
 }
 
 const skills = [
+  { name: "Next.js", icon: "./assets/skills/nextjs.svg", invert: false },
+  { name: "React", icon: "./assets/skills/react.svg", invert: false },
+  { name: "TypeScript", icon: "./assets/skills/typescript.svg", invert: false },
   { name: "Three.js", icon: "./assets/skills/threejs.svg", invert: false },
   { name: "CSS", icon: "./assets/skills/css.svg", invert: false },
   { name: "HTML", icon: "./assets/skills/html.svg", invert: false },
   { name: "Blender", icon: "./assets/skills/blender.svg", invert: false },
   { name: "Git", icon: "./assets/skills/git.svg", invert: false },
-  { name: "Astro", icon: "./assets/skills/astro.svg", invert: true },
+  { name: "Astro", icon: "./assets/skills/astro.svg", invert: false },
   { name: "JavaScript", icon: "./assets/skills/javascript.svg", invert: false },
   {
     name: "Tailwind CSS",
     icon: "./assets/skills/tailwindcss.svg",
     invert: false,
   },
-  { name: "Next.js", icon: "./assets/skills/nextjs.svg", invert: false },
-  { name: "React", icon: "./assets/skills/react.svg", invert: false },
-  { name: "TypeScript", icon: "./assets/skills/typescript.svg", invert: false },
+  { name: "SQL", icon: "./assets/skills/sql.svg", invert: false },
 ];
 ---
 
 <section
-  class="flex flex-col items-center w-full relative gap-4 text-zinc-200 md:mt-4"
+  class="flex flex-col items-center w-11/12 max-w-9xl relative gap-4 text-zinc-200 md:mt-4"
 >
-  <div class="w-1/2 2xl:w-1/3 max-md:w-4/5 bg-gradient-to-t from-violet-700 from-20% to-100% to-brandMain">
+  <div
+    class="w-9/12 bg-gradient-to-t from-violet-700 from-20% to-100% to-brandMain"
+  >
     <div class="flex flex-col items-center bg-white pt-4 pb-10 m-0.75">
       <h2 class="text-3xl text-black">things I know</h2>
-      <div class="mt-4"></div>
-      <div
-        class="flex flex-wrap-reverse w-5/6 gap-6 justify-center flex-row max-w-6xl"
-      >
+      <div class="mt-8"></div>
+      <div class="flex flex-wrap w-5/6 gap-6 justify-center flex-row max-w-6xl">
         {
           skills.map((skill) => (
-            <div class="flex flex-col gap-2 items-center text-center w-32 max-sm:w-20">
-              <div class="h-14 overflow-clip">
+            <div class="flex flex-col gap-2 items-center text-center w-28 max-sm:w-20">
+              <div class="h-10 overflow-clip max-sm:h-10">
                 <img
                   class:list={["h-full", { invert: skill.invert }]}
                   src={skill.icon}
@@ -51,4 +52,4 @@ const skills = [
     </div>
   </div>
 </section>
-<div class="mt-4"></div>
+<div class="mt-16"></div>
