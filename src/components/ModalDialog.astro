@@ -1,0 +1,42 @@
+---
+const { title, id } = Astro.props;
+---
+
+<dialog
+  id={`dialog-${id}`}
+  class="bg-white w-11/12 border-brandMain border-3 p-0 overflow-visible"
+>
+  <div id={`dialog-inner-${id}`} class="flex flex-col gap-2 w-full h-max min-h-halfScreen p-12">
+    <h4 class="text-3xl uppercase">{title}</h4>
+    <slot />
+    <form method="dialog">
+      <button data-dialog-close class="absolute -top-4 right-4">
+        <img src="assets/icons/cross.jpg" alt="close modal" class="w-8 h-8" />
+      </button>
+    </form>
+  </div>
+</dialog>
+
+<button
+  id={`dialog-open-modal-${id}`}
+  class="flex items-center h-12 w-fit py-1 px-8 max-sm:px-4 font-brandFont text-brandMain border-brandMain fill-brandMain border-2 text-2xl font-medium animate-bgSlideTopAlt hover:animate-bgSlideBottomAlt bg-no-repeat bg-gradient-to-t from-brandMain from-100% to-white to-200%"
+  >Read More</button
+>
+
+<script define:vars={{ id }}>
+  const readMoreButton = document.querySelector(`#dialog-open-modal-${id}`);
+  const modalDialog = document.querySelector(`#dialog-${id}`);
+  const modalDialogInner = document.querySelector(`#dialog-inner-${id}`);
+
+  readMoreButton.addEventListener("click", (event) => {
+    modalDialog.showModal();
+  });
+
+  modalDialog.addEventListener("click", (event) => {
+      modalDialog.close();
+  });
+
+  modalDialogInner.addEventListener("click", (event) => {
+    event.stopPropagation();
+  });
+</script>
