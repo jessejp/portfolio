@@ -6,7 +6,7 @@ const { title, id } = Astro.props;
   id={`dialog-${id}`}
   class="bg-white w-11/12 border-brandMain border-3 p-0 overflow-visible"
 >
-  <div id={`dialog-inner-${id}`} class="w-full h-max min-h-halfScreen p-12">
+  <div id={`dialog-inner-${id}`} class="flex flex-col gap-2 w-full h-max min-h-halfScreen p-12">
     <h4 class="text-3xl uppercase">{title}</h4>
     <slot />
     <form method="dialog">
