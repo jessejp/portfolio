@@ -1,5 +1,6 @@
 ---
 import Duo from "../components/Duo.astro";
+import CurrentlyBuildingContainer from "../components/CurrentlyBuildingContainer.astro";
 import SectionHeading from "../components/SectionHeading.astro";
 const posts = await Astro.glob("../portfolio-article/*.md");
 
@@ -11,9 +12,19 @@ const posts = await Astro.glob("../portfolio-article/*.md");
 {
   posts
     .sort((a, b) => a.frontmatter.order - b.frontmatter.order)
-    .map((post, index) => (
-      <Duo>
-        <post.Content />
-      </Duo>
-    ))
+    .map((post, index) => {
+      if (!!post.frontmatter.currentlyBuilding) {
+        return (
+          <CurrentlyBuildingContainer>
+            <post.Content />
+          </CurrentlyBuildingContainer>
+        );
+      } else {
+        return (
+          <Duo>
+            <post.Content />
+          </Duo>
+        );
+      }
+    })
 }

@@ -1,0 +1,26 @@
+---
+import ModalDialog from "./ModalDialog.astro";
+const { frontmatter } = Astro.props;
+const title = frontmatter.title.toUpperCase();
+const githubIcon = await import("/assets/icons/github.svg?raw");
+const externalIcon = await import("/assets/icons/open-external.svg?raw");
+---
+
+<div class="w-1/2 max-w-2xl order-2 max-md:self-start max-md:w-full">
+  <h3 class="text-3xl">{title}</h3>
+  <div class="text-lg max-w-xl"><slot /></div>
+  <div class="mt-4"></div>
+  <div class="flex flex-wrap gap-x-4 gap-y-2 max-w-lg">
+    {
+      !!frontmatter.stack &&
+        frontmatter.stack.map((item) => (
+          <span class="text-sm text-gray-600">{item}</span>
+        ))
+    }
+  </div>
+</div>
+<div
+  class="w-1/2 max-w-sm max-md:w-full max-md:mt-6 max-md:self-start"
+>
+  <img class="h-56" src={frontmatter.thumbnail} alt={frontmatter.title} />
+</div>

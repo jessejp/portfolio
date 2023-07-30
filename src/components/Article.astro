@@ -20,17 +20,17 @@ const externalIcon = await import("/assets/icons/open-external.svg?raw");
         viewBox="0 0 512 512"
         class="w-6 h-full stroke-none fill-inherit relative left-2"
         set:html={`
-      <title>GitHub Link</title>
+      <title>External Page Link</title>
       ${externalIcon.default}
       `}
       /></a
     >
+    {!!frontmatter.github && (
     <a
       class="flex items-center h-12 w-fit py-1 px-8 max-sm:px-4 font-brandFont text-brandMain border-brandMain fill-brandMain border-2 text-2xl font-medium animate-bgSlideLeft hover:animate-bgSlideRight bg-no-repeat bg-x--10rem bg-gradient-to-r from-brandMain from-100% to-white to-200%"
       href={frontmatter.github}
       target="_blank"
     >
-      <!-- <img class="w-6 " src="/assets/icons/github.svg" alt="GitHub" /> -->
       <svg
         viewBox="0 0 24 24"
         class="w-6 h-full stroke-none fill-inherit"
@@ -39,10 +39,10 @@ const externalIcon = await import("/assets/icons/open-external.svg?raw");
         ${githubIcon.default}
         `}
       />
-    </a>
+    </a>)}
   </div>
   <div class="mt-8"></div>
-  <div class="flex flex-wrap gap-4 max-w-lg">
+  <div class="flex flex-wrap gap-x-4 gap-y-2 max-w-lg">
     {
       !!frontmatter.stack &&
         frontmatter.stack.map((item) => (
