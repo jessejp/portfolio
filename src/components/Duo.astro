@@ -1,12 +1,5 @@
----
-const { order } = Astro.props;
----
-
 <div
-  class:list={[
-    order,
-    "flex gap-6 w-11/12 items-center justify-center self-center flex-col md:flex-row",
-  ]}
+  class="flex gap-6 w-11/12 items-center justify-center self-center flex-col md:flex-row"
 >
   <slot />
 </div>

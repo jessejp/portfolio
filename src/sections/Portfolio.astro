@@ -5,12 +5,15 @@ const posts = await Astro.glob("../portfolio-article/*.md");
 
 // const colors = ["teal-200", "emerald-400", "yellow-200"];
 ---
+
 <SectionHeading>Recent Projects</SectionHeading>
 
 {
-  posts.map((post, index) => (
-    <Duo order={`order-${post.frontmatter.order}`}>
-      <post.Content />
-    </Duo>
-  ))
+  posts
+    .sort((a, b) => a.frontmatter.order - b.frontmatter.order)
+    .map((post, index) => (
+      <Duo>
+        <post.Content />
+      </Duo>
+    ))
 }
