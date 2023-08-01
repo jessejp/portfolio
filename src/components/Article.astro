@@ -1,5 +1,5 @@
 ---
-import ModalDialog from "./ModalDialog.astro";
+import ArticleModal from "./ArticleModal.astro";
 const { frontmatter } = Astro.props;
 const title = frontmatter.title.toUpperCase();
 const githubIcon = await import("/assets/icons/github.svg?raw");
@@ -11,7 +11,7 @@ const externalIcon = await import("/assets/icons/open-external.svg?raw");
   <div class="text-lg max-w-xl">{frontmatter.description}</div>
   <div class="mt-4"></div>
   <div class="flex flex-wrap gap-4">
-    <ModalDialog id={frontmatter.slug} title={title}><slot /></ModalDialog>
+    <ArticleModal id={frontmatter.slug} title={title}><slot /></ArticleModal>
     <a
       class="relative flex items-center h-12 w-fit py-1 px-8 max-sm:px-4 font-brandFont text-brandMain border-brandMain fill-brandMain border-2 text-2xl font-medium animate-bgSlideLeft hover:animate-bgSlideRight bg-no-repeat bg-x--10rem bg-gradient-to-r from-brandMain from-100% to-white to-200%"
       href={frontmatter.href}

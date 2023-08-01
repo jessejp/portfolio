@@ -1,9 +1,6 @@
 ---
-import ModalDialog from "./ModalDialog.astro";
 const { frontmatter } = Astro.props;
 const title = frontmatter.title.toUpperCase();
-const githubIcon = await import("/assets/icons/github.svg?raw");
-const externalIcon = await import("/assets/icons/open-external.svg?raw");
 ---
 
 <article class="w-1/2 max-w-2xl order-2 max-lg:self-start max-lg:w-full">

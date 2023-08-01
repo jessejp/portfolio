@@ -20,6 +20,7 @@ export default {
       },
       spacing: {
         "1/5": "20%",
+        18: "4.5rem",
         46: "11.5rem",
       },
       margin: {
@@ -40,8 +41,8 @@ export default {
         superYellow: "#ffff00",
       },
       backgroundPosition: {
-        "y-3rem": "0 3rem",
-        "y--6rem": "0 -3rem",
+        "y-6rem": "0 6rem",
+        "y--6rem": "0 -6rem",
         "x--12rem": "-12rem 0",
       },
       gradientColorStopPositions: {
@@ -70,7 +71,7 @@ export default {
         },
         bgSlideTop: {
           "0%": {
-            backgroundPosition: "0 3rem",
+            backgroundPosition: "0 6rem",
             color: "#0000ff",
             fill: "#0000ff",
           },
@@ -87,7 +88,7 @@ export default {
             fill: "#ffffff",
           },
           "100%": {
-            backgroundPosition: "0 3rem",
+            backgroundPosition: "0 6rem",
             color: "#0000ff",
             fill: "#0000ff",
           },

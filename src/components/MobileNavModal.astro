@@ -1,0 +1,68 @@
+---
+const { sections } = Astro.props;
+const menuIcon = await import("/assets/icons/menu.svg?raw");
+---
+
+<dialog id={`mobile-nav-modal`} class="p-0 m-0 overflow-visible">
+  <div
+    id={`mobile-nav-modal-inner`}
+    class="w-screen h-screen bg-white flex flex-col justify-center items-center gap-9"
+  >
+    <div class="fixed top-1 h-18 w-11/12 flex justify-between items-center">
+      <div class="font-brandFont text-3xl w-1/2 relative -left-0 -top-1">
+        jessep.fi
+      </div>
+      <form class="relative w-fit right-3 -top-0.5" method="dialog">
+        <button data-dialog-close class="">
+          <img src="assets/icons/cross.jpg" alt="close modal" class="w-8 h-8" />
+        </button>
+      </form>
+    </div>
+    <slot />
+  </div>
+</dialog>
+
+<button id={`open-mobile-nav-modal`} class="flex items-center h-12 w-fit"
+  ><svg
+    viewBox="0 0 64 64"
+    class="h-full"
+    set:html={`
+  <title>Navigation Menu</title>
+  ${menuIcon.default}
+  `}
+  /></button
+>
+
+<script define:vars={{ sections }}>
+  const hamburgerIcon = document.querySelector(`#open-mobile-nav-modal`);
+  const mobileNavModal = document.querySelector(`#mobile-nav-modal`);
+  const mobileNavModalInner = document.querySelector(`#mobile-nav-modal-inner`);
+
+  hamburgerIcon.addEventListener("click", () => {
+    mobileNavModal.showModal();
+  });
+
+  mobileNavModal.addEventListener("click", () => {
+    mobileNavModal.close();
+  });
+
+  mobileNavModalInner.addEventListener("click", (event) => {
+    event.stopPropagation();
+  });
+
+  const mobileNavLinks = document.querySelectorAll(
+    "#mobile-nav-modal-inner>button"
+  );
+
+  mobileNavModalInner.addEventListener("click", (event) => {
+    const clicked = event.target.innerText;
+    mobileNavLinks.forEach((link) => link.classList.remove("text-visited"));
+    event.target.classList.add("text-visited");
+
+    if (sections.includes(clicked)) {
+      const section = document.querySelector(`#${clicked.replace(" ", "-")}`);
+      section.scrollIntoView({ behavior: "smooth", block: "start" });
+      mobileNavModal.close();
+    }
+  });
+</script>

@@ -9,6 +9,7 @@ const posts = await Astro.glob("../portfolio-article/*.md");
 
 <SectionHeading>Recent Projects</SectionHeading>
 
+<div class="mt-4 md:mt-8 w-full"></div>
 {
   posts
     .sort((a, b) => a.frontmatter.order - b.frontmatter.order)
