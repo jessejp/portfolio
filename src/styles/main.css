@@ -19,3 +19,10 @@
     font-display: block;
   }
 }
+
+article a:hover {
+  text-decoration: underline;
+  /* color: #fff;
+  background: #0000ff;
+  font-weight: bold; */
+}

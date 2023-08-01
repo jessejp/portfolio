@@ -4,19 +4,22 @@ const sections = ["HOME", "WORKS", "ABOUT JESSE", "CONNECT"];
 
 <div class="h-28 max-sm:h-0"></div>
 <nav
-  class="flex justify-between items-center w-11/12 h-24 max-w-9xl fixed max-sm:relative bg-white border-gray-400 z-50"
+  class="flex justify-between items-center w-full 2xl:w-11/12 h-24 max-w-9xl fixed max-sm:relative bg-white border-gray-400 z-50"
 >
-  <div class="font-brandFont text-3xl">jessep.fi</div>
+  <div class="font-brandFont text-3xl text-center ml-4 2xl:m-0 max-sm:w-full">
+    jessep.fi
+  </div>
+  <div class="w-1/2 hidden max-sm:block">ham</div>
   <div
-    class="w-5/6 flex justify-between items-center max-sm:w-full max-sm:justify-evenly"
+    class="w-3/6 min-w-fit mr-6 xl:mr-46 flex justify-between items-center max-sm:hidden"
   >
     <div
       id="nav-links"
-      class="flex w-full justify-evenly gap-4 font-brandFont text-3xl max-sm:hidden"
+      class="flex w-full gap-4 justify-between font-brandFont text-3xl"
     >
       {
         sections.map((section) => (
-          <button class="px-2 pb-1 underline text-link hover:text-blue-500 animate-bgSlideBottom hover:animate-bgSlideTop bg-no-repeat bg-y-3rem bg-gradient-to-t from-brandMain from-100% to-white to-200%">
+          <button class="px-2 pb-1 min-w-fit underline text-link hover:text-blue-500 animate-bgSlideBottom hover:animate-bgSlideTop bg-no-repeat bg-y-3rem bg-gradient-to-t from-brandMain from-100% to-white to-200%">
             {section}
           </button>
         ))

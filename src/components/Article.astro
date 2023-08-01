@@ -27,7 +27,7 @@ const externalIcon = await import("/assets/icons/open-external.svg?raw");
     >
     {!!frontmatter.github && (
     <a
-      class="flex items-center h-12 w-fit py-1 px-8 max-sm:px-4 font-brandFont text-brandMain border-brandMain fill-brandMain border-2 text-2xl font-medium animate-bgSlideLeft hover:animate-bgSlideRight bg-no-repeat bg-x--10rem bg-gradient-to-r from-brandMain from-100% to-white to-200%"
+      class="flex items-center h-12 w-fit py-1 px-3 font-brandFont text-brandMain border-brandMain fill-brandMain border-2 text-2xl font-medium animate-bgSlideLeft hover:animate-bgSlideRight bg-no-repeat bg-x--10rem bg-gradient-to-r from-brandMain from-100% to-white to-200%"
       href={frontmatter.github}
       target="_blank"
     >
@@ -56,5 +56,5 @@ const externalIcon = await import("/assets/icons/open-external.svg?raw");
   href={frontmatter.href}
   target="_blank"
 >
-  <img src={frontmatter.thumbnail} alt={frontmatter.title} /></a
+  <img src={frontmatter.thumbnail} alt={frontmatter.alt} /></a
 >
