@@ -60,6 +60,7 @@ export default {
         bgSlideRightAlt: "bgSlideRightAlt 0.09s linear forwards",
         bgSlideLeftAlt: "bgSlideLeftAlt 0.09s linear forwards",
         mobileMenuSlideFromTop: "mobileMenuSlideFromTop 0.3s ease-in-out",
+        mobileMenuSlideToTop: "mobileMenuSlideToTop 0.3s ease-in-out",
       },
       keyframes: {
         highlight: {
@@ -161,6 +162,10 @@ export default {
         mobileMenuSlideFromTop: {
           "0%": { transform: "translateY(-100%)" },
           "100%": { transform: "translateY(0)" },
+        },
+        mobileMenuSlideToTop: {
+          "0%": { transform: "translateY(0)" },
+          "100%": { transform: "translateY(-100%)" },
         },
       },
     },
