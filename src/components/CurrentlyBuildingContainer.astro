@@ -1,11 +1,15 @@
 <div
-  class="flex gap-6 w-11/12 relative border-brandMain border-3 p-6 items-center justify-center self-center flex-col md:flex-row"
+    class="w-9/12 self-center max-xl:w-10/12 max-lg:w-fit min-h-56 bg-gradient-to-t from-violet-700 from-20% to-100% to-brandMain"
+  >
+<div
+  class="flex m-0.75 relative p-6 pt-8 bg-white items-center justify-center self-center flex-col lg:flex-row"
 >
   <div
-    class="absolute w-fit h-2 left-4 -top-2 font-brandFont text-2xl bg-white p-2"
+    class="absolute w-fit h-2 left-6 -top-1 font-brandFont text-2xl bg-white p-1"
   >
     <div class="bg-superYellow relative -top-1 z-0 w-full h-4"></div>
-    <h2 class="relative z-20 p-1 -top-10">Currently Building</h2>
+    <div class="relative z-20 p-2 -top-11">Currently Building</div>
   </div>
   <slot />
+</div>
 </div>

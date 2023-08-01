@@ -6,9 +6,9 @@ const githubIcon = await import("/assets/icons/github.svg?raw");
 const externalIcon = await import("/assets/icons/open-external.svg?raw");
 ---
 
-<div class="w-1/2 max-w-2xl order-2 max-md:self-start max-md:w-full">
+<article class="w-1/2 max-w-2xl order-2 max-lg:self-start max-lg:w-full">
   <h3 class="text-3xl">{title}</h3>
-  <div class="text-lg max-w-xl"><slot /></div>
+  <div class="flex flex-col gap-4 text-lg max-w-xl"><slot /></div>
   <div class="mt-4"></div>
   <div class="flex flex-wrap gap-x-4 gap-y-2 max-w-lg">
     {
@@ -18,9 +18,9 @@ const externalIcon = await import("/assets/icons/open-external.svg?raw");
         ))
     }
   </div>
-</div>
+</article>
 <div
-  class="w-1/2 max-w-sm max-md:w-full max-md:mt-6 max-md:self-start"
+  class="w-1/2 h-56 max-w-sm max-lg:w-full max-lg:mt-6 max-lg:self-start"
 >
-  <img class="h-56" src={frontmatter.thumbnail} alt={frontmatter.title} />
+  <img class="absolute top-auto left-10 h-56 max-lg:top-8 max-lg:left-6" src={frontmatter.thumbnail} alt={frontmatter.title} />
 </div>
