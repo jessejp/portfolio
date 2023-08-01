@@ -3,7 +3,8 @@
   slug: progress-journal
   title: Progress Journal
   href: http://progress-journal.vercel.app/
-  thumbnail: /assets/thumbnails/progress-journal-v2.webp
+  thumbnail: /assets/thumbnails/progress-journal-v3.webp
+  alt: "smartphone with progress journal web app open"
   github: https://github.com/jessejp/progress-journal
   order: 2
   stack: ["React", "TypeScript", "Next.js", "Prisma", "trpc", "zod", "TailwindCSS", "React Hook Form", "Recharts"]

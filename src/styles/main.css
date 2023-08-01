@@ -20,7 +20,9 @@
   }
 }
 
-
-article p {
-  margin: 0.75rem 0 0 0;
+article a:hover {
+  text-decoration: underline;
+  /* color: #fff;
+  background: #0000ff;
+  font-weight: bold; */
 }

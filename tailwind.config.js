@@ -5,6 +5,7 @@ export default {
     extend: {
       minHeight: {
         halfScreen: ["50vh", "50svh"],
+        56: "14rem",
       },
       borderWidth: {
         0.5: "0.5px",
@@ -19,6 +20,7 @@ export default {
       },
       spacing: {
         "1/5": "20%",
+        18: "4.5rem",
         46: "11.5rem",
       },
       margin: {
@@ -39,12 +41,16 @@ export default {
         superYellow: "#ffff00",
       },
       backgroundPosition: {
-        "y-3rem": "0 3rem",
-        "y--6rem": "0 -3rem",
+        "y-6rem": "0 6rem",
+        "y--6rem": "0 -6rem",
         "x--12rem": "-12rem 0",
       },
       gradientColorStopPositions: {
         "200%": "200%",
+      },
+      boxShadow: {
+        "hard-left": "-4px 4px",
+        "hard-right": "4px 4px",
       },
       animation: {
         highlight: "highlight 1.5s linear 0.8s forwards",
@@ -57,6 +63,8 @@ export default {
         bgSlideLeft: "bgSlideLeft 0.09s linear forwards",
         bgSlideRightAlt: "bgSlideRightAlt 0.09s linear forwards",
         bgSlideLeftAlt: "bgSlideLeftAlt 0.09s linear forwards",
+        mobileMenuSlideFromTop: "mobileMenuSlideFromTop 0.3s ease-in-out",
+        mobileMenuSlideToTop: "mobileMenuSlideToTop 0.3s ease-in-out",
       },
       keyframes: {
         highlight: {
@@ -69,7 +77,7 @@ export default {
         },
         bgSlideTop: {
           "0%": {
-            backgroundPosition: "0 3rem",
+            backgroundPosition: "0 6rem",
             color: "#0000ff",
             fill: "#0000ff",
           },
@@ -86,7 +94,7 @@ export default {
             fill: "#ffffff",
           },
           "100%": {
-            backgroundPosition: "0 3rem",
+            backgroundPosition: "0 6rem",
             color: "#0000ff",
             fill: "#0000ff",
           },
@@ -154,6 +162,14 @@ export default {
         bgSlideLeftAlt: {
           "0%": { backgroundPosition: "0rem 0", color: "#0000ff" },
           "100%": { backgroundPosition: "12rem 0", color: "#ffffff" },
+        },
+        mobileMenuSlideFromTop: {
+          "0%": { transform: "translateY(-100%)" },
+          "100%": { transform: "translateY(0)" },
+        },
+        mobileMenuSlideToTop: {
+          "0%": { transform: "translateY(0)" },
+          "100%": { transform: "translateY(-100%)" },
         },
       },
     },
