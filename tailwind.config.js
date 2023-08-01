@@ -48,6 +48,10 @@ export default {
       gradientColorStopPositions: {
         "200%": "200%",
       },
+      boxShadow: {
+        "hard-left": "-4px 4px",
+        "hard-right": "4px 4px",
+      },
       animation: {
         highlight: "highlight 1.5s linear 0.8s forwards",
         copied: "copied 0.6s linear 0s forwards",
