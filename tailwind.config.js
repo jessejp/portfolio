@@ -59,6 +59,7 @@ export default {
         bgSlideLeft: "bgSlideLeft 0.09s linear forwards",
         bgSlideRightAlt: "bgSlideRightAlt 0.09s linear forwards",
         bgSlideLeftAlt: "bgSlideLeftAlt 0.09s linear forwards",
+        mobileMenuSlideFromTop: "mobileMenuSlideFromTop 0.3s ease-in-out",
       },
       keyframes: {
         highlight: {
@@ -156,6 +157,10 @@ export default {
         bgSlideLeftAlt: {
           "0%": { backgroundPosition: "0rem 0", color: "#0000ff" },
           "100%": { backgroundPosition: "12rem 0", color: "#ffffff" },
+        },
+        mobileMenuSlideFromTop: {
+          "0%": { transform: "translateY(-100%)" },
+          "100%": { transform: "translateY(0)" },
         },
       },
     },

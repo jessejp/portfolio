@@ -7,14 +7,19 @@ const sections = ["HOME", "WORKS", "ABOUT JESSE", "CONNECT"];
 <nav
   class="flex justify-between max-sm:justify-center items-center w-full 2xl:w-11/12 h-24 max-sm:h-18 max-w-9xl fixed bg-white z-50"
 >
-  <div class="flex justify-between items-center w-11/12 max-xl:w-full max-sm:w-11/12">
+  <div
+    class="flex justify-between items-center w-11/12 max-xl:w-full max-sm:w-11/12"
+  >
     <div class="font-brandFont text-3xl sm:ml-12 2xl:m-0 max-sm:w-1/2">
       jessep.fi
     </div>
     <div
       class="w-3/6 min-w-fit mr-12 flex justify-between items-center max-sm:hidden"
     >
-      <div id="nav-links" class="flex w-full gap-4 justify-between relative -right-2">
+      <div
+        id="nav-links"
+        class="flex w-full gap-4 justify-between relative -right-2"
+      >
         {
           sections.map((section) => (
             <button class="px-2 pb-1 min-w-fit font-brandFont text-3xl underline text-link hover:text-blue-500 animate-bgSlideBottom hover:animate-bgSlideTop bg-no-repeat bg-y-3rem bg-gradient-to-t from-brandMain from-100% to-white to-200%">
@@ -41,13 +46,9 @@ const sections = ["HOME", "WORKS", "ABOUT JESSE", "CONNECT"];
 
 <script define:vars={{ sections }}>
   const nav = document.querySelector("#nav-links");
-  const navLinks = document.querySelectorAll("#nav-links>button");
-
+  
   nav.addEventListener("click", (event) => {
     const clicked = event.target.innerText;
-    navLinks.forEach((link) => link.classList.remove("text-visited"));
-    event.target.classList.add("text-visited");
-
     if (sections.includes(clicked)) {
       const section = document.querySelector(`#${clicked.replace(" ", "-")}`);
       section.scrollIntoView({ behavior: "smooth", block: "start" });

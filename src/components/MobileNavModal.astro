@@ -3,7 +3,10 @@ const { sections } = Astro.props;
 const menuIcon = await import("/assets/icons/menu.svg?raw");
 ---
 
-<dialog id={`mobile-nav-modal`} class="p-0 m-0 overflow-visible">
+<dialog
+  id={`mobile-nav-modal`}
+  class="p-0 m-0 overflow-visible animate-mobileMenuSlideFromTop"
+>
   <div
     id={`mobile-nav-modal-inner`}
     class="w-screen h-screen bg-white flex flex-col justify-center items-center gap-9"
@@ -50,15 +53,8 @@ const menuIcon = await import("/assets/icons/menu.svg?raw");
     event.stopPropagation();
   });
 
-  const mobileNavLinks = document.querySelectorAll(
-    "#mobile-nav-modal-inner>button"
-  );
-
   mobileNavModalInner.addEventListener("click", (event) => {
     const clicked = event.target.innerText;
-    mobileNavLinks.forEach((link) => link.classList.remove("text-visited"));
-    event.target.classList.add("text-visited");
-
     if (sections.includes(clicked)) {
       const section = document.querySelector(`#${clicked.replace(" ", "-")}`);
       section.scrollIntoView({ behavior: "smooth", block: "start" });
