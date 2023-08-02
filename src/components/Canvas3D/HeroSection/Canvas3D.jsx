@@ -32,6 +32,7 @@ const Canvas3D = () => {
       camera={{
         far: 7.5,
       }}
+      flat={true}
     >
       {/* <ambientLight />
       <pointLight position={[10, 10, 10]} /> */}
