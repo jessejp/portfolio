@@ -3,17 +3,21 @@ import { useThree } from "@react-three/fiber";
 import { RunningMan } from "./Running_man";
 import MovingScenery from "./MovingScenery";
 
-const Scene = () => {
+const Scene = ({ enableCharacter, meshScale }) => {
   const state = useThree();
   const responsiveCenter = state.size.width > 750;
 
   useEffect(() => {
+    if (!enableCharacter) return;
+
     if (responsiveCenter) {
-      state.camera.position.set(0.4, 0.45, 1.75);
-      state.camera.lookAt(1.2, 0.25, 0);
+      state.camera.position.set(0.3, 0.4, 1.85);
+      // state.camera.lookAt(1.2, 0.25, 0);
+      state.camera.rotation.set(-0.1, -0.4, 0);
     } else {
-      state.camera.position.set(0, 0.8, 2);
-      state.camera.lookAt(0, 0, 0);
+      state.camera.position.set(-0.1, 0.6, 1.8);
+      // state.camera.lookAt(0, 0, 0);
+      state.camera.rotation.set(-0.2, -0.0, 0);
     }
   }, [responsiveCenter]);
 
@@ -25,18 +29,21 @@ const Scene = () => {
         meshRotation={[Math.PI * 2, 1.2, 2.3]}
         shape={<coneGeometry args={[2, 2, 8, 1]} />}
         spawnOffset={9}
+        meshScale={meshScale}
       />
       <MovingScenery
         position={[1.4, 0, 0]}
         rotation={[0, Math.PI * 0.2, 0]}
         shape={<dodecahedronGeometry args={[1]} />}
         spawnOffset={4}
+        meshScale={meshScale}
       />
       <MovingScenery
         position={[1.4, 0, 0]}
         rotation={[0, Math.PI * 0.2, 0]}
         shape={<boxGeometry args={[1, 2, 1]} />}
         spawnOffset={7}
+        meshScale={meshScale}
       />
       <MovingScenery
         position={[-1.4, -0.1, 0]}
@@ -44,6 +51,7 @@ const Scene = () => {
         meshRotation={[0, 1, 0]}
         shape={<coneGeometry args={[0.8, 1.5, 8, 1]} />}
         spawnOffset={6}
+        meshScale={meshScale}
       />
       <MovingScenery
         position={[0, -0.5, 0]}
@@ -73,7 +81,9 @@ const Scene = () => {
         shape={<planeGeometry args={[2, 2]} />}
         spawnOffset={9}
       />
-      <RunningMan rotation={[0, Math.PI * 0.2, 0]} position={[0, -1, -0.5]} />
+      {!!enableCharacter && (
+        <RunningMan rotation={[0, Math.PI * 0.2, 0]} position={[0, -1, -0.5]} />
+      )}
     </>
   );
 };

@@ -3,9 +3,16 @@ import { Canvas } from "@react-three/fiber";
 import { PresentationControls } from "@react-three/drei";
 import Scene from "./Scene";
 
-const Canvas3D = () => {
+const Canvas3D = ({
+  enablePresentation = true,
+  enableCharacter = true,
+  cameraPosition,
+  cameraRotation,
+  cameraFov,
+  cameraFar,
+  meshScale
+}) => {
   const presentationProps = {
-    enabled: true,
     global: true,
     cursor: true,
     speed: 0.5,
@@ -30,15 +37,16 @@ const Canvas3D = () => {
   return (
     <Canvas
       camera={{
-        far: 7.5,
+        fov: cameraFov || 75,
+        far: cameraFar || 7.5,
+        position: cameraPosition || [0.3, 0.45, 1.75],
+        rotation: cameraRotation || [-0.1, -0.4, 0],
       }}
       flat={true}
     >
-      {/* <ambientLight />
-      <pointLight position={[10, 10, 10]} /> */}
-      <PresentationControls {...presentationProps}>
+      <PresentationControls enabled={enablePresentation} {...presentationProps}>
         <Suspense fallback={null}>
-          <Scene />
+          <Scene enableCharacter={enableCharacter} meshScale={meshScale} />
         </Suspense>
       </PresentationControls>
     </Canvas>

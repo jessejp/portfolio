@@ -17,7 +17,7 @@ const MovingScenery = (props) => {
 
   return (
     <group position={props.position} rotation={props.rotation}>
-      <mesh ref={boxRef} scale={0.5} rotation={props.meshRotation}>
+      <mesh ref={boxRef} scale={props.meshScale || 0.5} rotation={props.meshRotation}>
         {props.shape}
         <meshMatcapMaterial matcap={matcap} wireframe />
       </mesh>
