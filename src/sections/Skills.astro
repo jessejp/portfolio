@@ -1,4 +1,6 @@
 ---
+import SubHBoxLeft from "../components/ui/SubHBoxLeft.astro";
+
 interface Skill {
   name: string;
   icon: string;
@@ -31,8 +33,8 @@ const skills = [
   <div
     class="w-9/12 self-center max-xl:w-10/12 max-lg:w-11/12 bg-gradient-to-t from-violet-700 from-20% to-100% to-brandMain"
   >
-    <div class="flex flex-col items-center bg-white pt-4 pb-10 m-0.75">
-      <h2 class="text-3xl text-black">things I know</h2>
+    <div class="relative flex flex-col items-center bg-white pt-4 pb-10 m-0.75">
+      <SubHBoxLeft>things I know</SubHBoxLeft>
       <div class="mt-8"></div>
       <div class="flex flex-wrap w-5/6 gap-6 justify-center flex-row max-w-6xl">
         {

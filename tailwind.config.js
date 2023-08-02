@@ -3,6 +3,10 @@ export default {
   content: ["./src/**/*.astro", "./src/**/*.jsx"],
   theme: {
     extend: {
+      screens: {
+        xs: "480px",
+        xxs: "320px",
+      },
       minHeight: {
         halfScreen: ["50vh", "50svh"],
         56: "14rem",

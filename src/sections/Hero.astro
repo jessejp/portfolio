@@ -1,5 +1,6 @@
 ---
 import Canvas3D from "../components/Canvas3D/Canvas3D.jsx";
+import SubHBoxRight from "../components/ui/SubHBoxRight.astro";
 ---
 
 <div
@@ -11,18 +12,11 @@ import Canvas3D from "../components/Canvas3D/Canvas3D.jsx";
   <div
     class="w-fit absolute bg-gradient-to-t from-violet-700 from-20% to-100% to-brandMain right-4 xl:right-46 bottom-1/5 max-md:relative max-md:bottom-0 max-md:right-0 max-md:w-11/12"
   >
-    <div
-      class="absolute w-fit h-2 right-6 -top-1 font-brandFont text-2xl bg-white p-1"
-    >
-      <div
-        class="relative z-20 py-2 px-6 -top-7 shadow-hard-right shadow-brandMain bg-white text-brandMain border-brandMain border-3"
-      >
-        Status: Open to work!
-      </div>
-    </div>
+    <SubHBoxRight>Status: Open to work!</SubHBoxRight>
     <div
       class="flex flex-col bg-white m-0.75 md:py-5 md:pl-5 md:pr-16 max-md:p-5"
     >
+      <div class="max-xs:mt-4"></div>
       <span class="font-brandFont text-2xl">Hi! I'm</span>
       <h1 class="text-5xl max-md:text-3xl">
         JESSE PERNILÄ, <br /><span>A FRONT-END DEVELOPER.</span>
