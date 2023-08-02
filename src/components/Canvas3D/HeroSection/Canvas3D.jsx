@@ -1,8 +1,6 @@
 import React, { Suspense } from "react";
-import { Canvas, useThree } from "@react-three/fiber";
-import { RunningMan } from "./Running_man";
-import { PresentationControls, Center } from "@react-three/drei";
-import MovingScenery from "./MovingScenery";
+import { Canvas } from "@react-three/fiber";
+import { PresentationControls } from "@react-three/drei";
 import Scene from "./Scene";
 
 const Canvas3D = () => {

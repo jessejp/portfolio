@@ -1,7 +1,6 @@
-import React, { Suspense, useEffect } from "react";
-import { Canvas, useThree } from "@react-three/fiber";
+import React, { useEffect } from "react";
+import { useThree } from "@react-three/fiber";
 import { RunningMan } from "./Running_man";
-import { PresentationControls, Center } from "@react-three/drei";
 import MovingScenery from "./MovingScenery";
 
 const Scene = () => {
