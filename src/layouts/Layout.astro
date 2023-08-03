@@ -15,10 +15,16 @@ const { title } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body class="preload flex flex-col justify-center text-zinc-900 text-xl leading-tight font-vt323 w-full">
+  <body
+    class="preload flex flex-col justify-center text-zinc-900 text-xl leading-tight font-vt323 w-full"
+  >
     <slot />
     <footer class="flex justify-center items-center w-full h-24">
-      <p class="text-sm">Jesse Pernilä 2023</p>
+      <p class="text-sm">
+        Jesse Pernilä 2023 - <a class="text-brandMain hover:underline"
+          href="https://github.com/jessejp/portfolio"
+          target="_blank">Portfolio Github Repo</a>
+      </p>
     </footer>
   </body>
 </html>
