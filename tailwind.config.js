@@ -11,6 +11,10 @@ export default {
         halfScreen: ["50vh", "50svh"],
         56: "14rem",
       },
+      maxHeight: {
+        100: "25rem",
+        112: "28rem",
+      },
       borderWidth: {
         0.5: "0.5px",
         1: "1px",
