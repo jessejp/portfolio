@@ -10,6 +10,7 @@ export default {
       minHeight: {
         halfScreen: ["50vh", "50svh"],
         56: "14rem",
+        132: "33rem",
       },
       maxHeight: {
         100: "25rem",
@@ -22,6 +23,9 @@ export default {
       },
       width: {
         inherit: "inherit",
+      },
+      height: {
+        halfScreen: ["50vh", "50svh"],
       },
       maxWidth: {
         "9xl": "90rem",
