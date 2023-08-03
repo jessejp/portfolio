@@ -35,51 +35,89 @@ const Scene = ({ enableCharacter, meshScale }) => {
         position={[1.4, 0, 0]}
         rotation={[0, Math.PI * 0.2, 0]}
         shape={<dodecahedronGeometry args={[1]} />}
-        spawnOffset={4}
+        spawnOffset={5}
         meshScale={meshScale}
       />
       <MovingScenery
-        position={[1.4, 0, 0]}
+        position={[1.6, 0, 0]}
         rotation={[0, Math.PI * 0.2, 0]}
-        shape={<boxGeometry args={[1, 2, 1]} />}
-        spawnOffset={7}
+        shape={<boxGeometry args={[1, 2, 2]} />}
+        spawnOffset={3.2}
+        meshScale={meshScale}
+      />
+      <MovingScenery
+        position={[1.6, 0, 0]}
+        rotation={[0, Math.PI * 0.2, 0]}
+        shape={<boxGeometry args={[1, 2, 2]} />}
+        spawnOffset={9.9}
+        meshRotation={[0, 1, 0]}
+        meshScale={meshScale}
+      />
+      <MovingScenery
+        position={[-1.5, 0, 0]}
+        rotation={[0, Math.PI * 0.2, 0]}
+        shape={<boxGeometry args={[2, 2, 2]} />}
+        spawnOffset={6.6}
         meshScale={meshScale}
       />
       <MovingScenery
         position={[-1.4, -0.1, 0]}
         rotation={[0, Math.PI * 0.2, 0]}
         meshRotation={[0, 1, 0]}
-        shape={<coneGeometry args={[0.8, 1.5, 8, 1]} />}
-        spawnOffset={6}
+        shape={<coneGeometry args={[0.8, 1.7, 8, 1]} />}
+        spawnOffset={8.4}
+        meshScale={meshScale}
+      />
+      <MovingScenery
+        position={[-1.9, 0, 0]}
+        rotation={[0, Math.PI * 0.2, 0]}
+        shape={<boxGeometry args={[1, 2, 3]} />}
+        spawnOffset={5}
+        meshRotation={[0, 1, 0]}
+        meshScale={meshScale}
+      />
+      <MovingScenery
+        position={[2, -0.1, 0]}
+        rotation={[0, Math.PI * 0.2, 0]}
+        meshRotation={[0, 1, 0]}
+        shape={<coneGeometry args={[1.2, 1.5, 8, 1]} />}
+        spawnOffset={7.7}
         meshScale={meshScale}
       />
       <MovingScenery
         position={[0, -0.5, 0]}
         rotation={[0, Math.PI * 0.2, 0]}
         meshRotation={[Math.PI / 2, 0, 0]}
-        shape={<planeGeometry args={[2, 2]} />}
+        shape={<planeGeometry args={[2.5, 2.5]} />}
         spawnOffset={3}
       />
       <MovingScenery
         position={[0, -0.5, 0]}
         rotation={[0, Math.PI * 0.2, 0]}
         meshRotation={[Math.PI / 2, 0, 0]}
-        shape={<planeGeometry args={[2, 2]} />}
+        shape={<planeGeometry args={[2.5, 2.5]} />}
         spawnOffset={5}
       />
       <MovingScenery
         position={[0, -0.5, 0]}
         rotation={[0, Math.PI * 0.2, 0]}
         meshRotation={[Math.PI / 2, 0, 0]}
-        shape={<planeGeometry args={[2, 2]} />}
+        shape={<planeGeometry args={[2.5, 2.5]} />}
         spawnOffset={7}
       />
       <MovingScenery
         position={[0, -0.5, 0]}
         rotation={[0, Math.PI * 0.2, 0]}
         meshRotation={[Math.PI / 2, 0, 0]}
-        shape={<planeGeometry args={[2, 2]} />}
+        shape={<planeGeometry args={[2.5, 2.5]} />}
         spawnOffset={9}
+      />
+      <MovingScenery
+        position={[0, -0.5, 0]}
+        rotation={[0, Math.PI * 0.2, 0]}
+        meshRotation={[Math.PI / 2, 0, 0]}
+        shape={<planeGeometry args={[2.5, 2.5]} />}
+        spawnOffset={11}
       />
       {!!enableCharacter && (
         <RunningMan rotation={[0, Math.PI * 0.2, 0]} position={[0, -1, -0.5]} />

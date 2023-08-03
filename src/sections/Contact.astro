@@ -1,5 +1,8 @@
 ---
 import Canvas3D from "../components/Canvas3D/Canvas3D.jsx";
+import SubHBoxLeft from "../components/ui/SubHBoxLeft.astro";
+const githubIcon = await import("/assets/icons/github.svg?raw");
+const externalIcon = await import("/assets/icons/open-external.svg?raw");
 const contactEmailAddress = "connect.jessep@gmail.com";
 ---
 
@@ -8,8 +11,8 @@ const contactEmailAddress = "connect.jessep@gmail.com";
   class="relative flex justify-center items-center w-full min-h-halfScreen max-w-9xl"
 >
   <Canvas3D
-    cameraPosition={[2, 0, 2.4]}
-    cameraRotation={[-0.1, 0.69, 0.15]}
+    cameraPosition={[2, -0.1, 2.4]}
+    cameraRotation={[-0.1, 0.69, 0.16]}
     cameraFar={10}
     cameraFov={22}
     enableCharacter={false}
@@ -17,26 +20,61 @@ const contactEmailAddress = "connect.jessep@gmail.com";
     meshScale={0.2}
     client:visible
   />
-  <div class="absolute flex flex-col items-center bg-white border-brandMain border-2 px-4 pt-4 pb-10 m-0.75">
-    <h3 class="text-3xl mb-2">Connect</h3>
-    <p class="text-lg">To get in touch, you can contact me at this email 😊</p>
+  <div
+    class="absolute w-10/12 max-xs:w-11/12 self-center max-sm:self-end max-sm:mb-10 min-h-56 max-w-lg bg-gradient-to-t from-violet-700 from-20% to-100% to-brandMain"
+  >
+    <SubHBoxLeft>Connect</SubHBoxLeft>
     <div
-      id="CONTACT-EMAIL"
-      class="flex items-center relative gap-3 w-fit h-14 py-2 px-4 -ml-4"
+      class="flex m-0.75 relative p-6 pt-8 bg-white min-h-56 items-center justify-center self-center flex-col"
     >
-      <span class="text-lg text-brandMain"> {contactEmailAddress}</span>
-      <button class="absolute -right-3" id="COPY-EMAIL"
-        ><img
-          class="w-6 h-fit"
-          src="/assets/icons/copy-to-clipboard.svg"
-        /></button
+      <div class="mt-4"></div>
+      <p class="text-lg">
+        To get in touch, you can contact me at this email 😊
+      </p>
+      <div
+        id="CONTACT-EMAIL"
+        class="flex items-center relative gap-3 w-fit h-14 py-2 px-4 -ml-4"
       >
+        <span class="text-lg max-xs:text-base text-brandMain">
+          {contactEmailAddress}</span
+        >
+        <button class="absolute -right-3" id="COPY-EMAIL"
+          ><img
+            class="w-6 h-fit"
+            src="/assets/icons/copy-to-clipboard.svg"
+          /></button
+        >
+      </div>
+      <div class="mt-4"></div>
+      <div class="flex justify-center flex-wrap gap-4 w-full">
+        <a
+          class="relative flex items-center h-12 w-fit py-1 px-8 max-sm:px-4 font-brandFont text-brandMain border-brandMain fill-brandMain border-2 text-2xl font-medium animate-bgSlideLeft hover:animate-bgSlideRight bg-no-repeat bg-x--10rem bg-gradient-to-r from-brandMain from-100% to-white to-200%"
+          href=""
+          target="_blank"
+          >LinkedIn <svg
+            viewBox="0 0 512 512"
+            class="w-6 h-full stroke-none fill-inherit relative left-2"
+            set:html={`
+      <title>External Page Link</title>
+      ${externalIcon.default}
+      `}
+          /></a
+        >
+        <a
+          class="relative flex items-center h-12 w-fit py-1 px-8 max-sm:px-4 font-brandFont text-brandMain border-brandMain fill-brandMain border-2 text-2xl font-medium animate-bgSlideLeft hover:animate-bgSlideRight bg-no-repeat bg-x--10rem bg-gradient-to-r from-brandMain from-100% to-white to-200%"
+          href="https://github.com/jessejp"
+          target="_blank"
+          >GitHub Profile <svg
+            viewBox="0 0 24 24"
+            class="w-6 h-full stroke-none fill-inherit relative left-2"
+            set:html={`
+  <title>GitHub Link</title>
+  ${githubIcon.default}
+  `}
+          /></a
+        >
+      </div>
     </div>
-    <div class="mt-4"></div>
-    <a
-      class="h-fit w-fit py-1 px-8 max-sm:px-4 font-brandFont text-brandMain border-brandMain border-2 text-2xl font-medium animate-bgSlideLeft hover:animate-bgSlideRight bg-no-repeat bg-x--10rem bg-gradient-to-r from-brandMain from-100% to-white to-200%"
-      href=`mailto:${contactEmailAddress}`>Say Hello!</a
-    >
   </div>
 </section>
 

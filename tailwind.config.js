@@ -51,7 +51,7 @@ export default {
       backgroundPosition: {
         "y-6rem": "0 6rem",
         "y--6rem": "0 -6rem",
-        "x--12rem": "-12rem 0",
+        "x--15rem": "-15rem 0",
       },
       gradientColorStopPositions: {
         "200%": "200%",
@@ -133,7 +133,7 @@ export default {
         },
         bgSlideRight: {
           "0%": {
-            backgroundPosition: "-12rem 0",
+            backgroundPosition: "-15rem 0",
             color: "#0000ff",
             fill: "#0000ff",
           },
@@ -150,14 +150,14 @@ export default {
             fill: "#ffffff",
           },
           "100%": {
-            backgroundPosition: "-12rem 0",
+            backgroundPosition: "-15rem 0",
             color: "#0000ff",
             fill: "#0000ff",
           },
         },
         bgSlideRightAlt: {
           "0%": {
-            backgroundPosition: "12rem 0",
+            backgroundPosition: "15rem 0",
             color: "#ffffff",
             fill: "#ffffff",
           },
@@ -169,7 +169,7 @@ export default {
         },
         bgSlideLeftAlt: {
           "0%": { backgroundPosition: "0rem 0", color: "#0000ff" },
-          "100%": { backgroundPosition: "12rem 0", color: "#ffffff" },
+          "100%": { backgroundPosition: "15rem 0", color: "#ffffff" },
         },
         mobileMenuSlideFromTop: {
           "0%": { transform: "translateY(-100%)" },

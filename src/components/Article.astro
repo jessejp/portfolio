@@ -85,6 +85,7 @@ const externalIcon = await import("/assets/icons/open-external.svg?raw");
   const viewportHeight =
     window.innerHeight || document.documentElement.clientHeight;
   const mobileScreenWidth = viewportWidth <= 768;
+  let animationPlaying = false;
 
   function isInViewport(el) {
     const rect = el.getBoundingClientRect();
@@ -111,15 +112,19 @@ const externalIcon = await import("/assets/icons/open-external.svg?raw");
     "scroll",
     function () {
       if (!mobileScreenWidth) return;
-      console.log("scrolling");
+      let timeout;
       if (isInViewport(thumbnailContainer)) {
-        setTimeout(() => {
+        if (animationPlaying) return;
+        animationPlaying = true;
+        timeout = setTimeout(() => {
           thumbnail.classList.add("hidden");
           thumbnailAnimated.classList.remove("hidden");
         }, 750);
       } else {
         thumbnail.classList.remove("hidden");
         thumbnailAnimated.classList.add("hidden");
+        animationPlaying = false;
+        clearTimeout(timeout);
       }
     },
     {
