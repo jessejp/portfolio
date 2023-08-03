@@ -37,6 +37,7 @@ export default {
       scale: {
         101: "1.01",
         "101h": "1.01",
+        114: "1.14",
       },
       fontFamily: {
         brandFont: ["VT323", "monospace"],
