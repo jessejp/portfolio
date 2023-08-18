@@ -1,6 +1,8 @@
 ---
 const { sections } = Astro.props;
 const menuIcon = await import("/assets/icons/menu.svg?raw");
+const githubIcon = await import("/assets/icons/github.svg?raw");
+const linkedinIcon = await import("/assets/icons/linkedin.svg?raw");
 ---
 
 <dialog
@@ -9,7 +11,7 @@ const menuIcon = await import("/assets/icons/menu.svg?raw");
 >
   <div
     id={`mobile-nav-modal-inner`}
-    class="w-screen h-screen bg-white flex flex-col justify-center items-center gap-9"
+    class="w-screen h-screen bg-white flex flex-col justify-end items-center gap-9"
   >
     <div class="absolute top-1 h-18 w-11/12 flex justify-between items-center">
       <div class="font-brandFont text-3xl w-1/2 relative -left-5 -top-1">
@@ -21,6 +23,35 @@ const menuIcon = await import("/assets/icons/menu.svg?raw");
       </button>
     </div>
     <slot />
+    <div class="max-h-15vh h-1/6"></div>
+    <div class="mb-12 flex flex-wrap gap-4">
+      <a
+        class="relative flex items-center h-12 w-fit py-1 px-8 max-sm:px-4 font-brandFont text-brandMain fill-brandMain text-3xl font-medium animate-bgSlideLeft hover:animate-bgSlideRight bg-no-repeat bg-x--10rem bg-gradient-to-r from-brandMain from-100% to-white to-200%"
+        href="https://www.linkedin.com/in/jesse-pernil%C3%A4-52a9b8192/"
+        target="_blank"
+        >LinkedIn <svg
+          viewBox="0 0 24 24"
+          class="w-10 h-full stroke-none fill-inherit relative left-2"
+          set:html={`
+  <title>Linkedin Profile Link</title>
+  ${linkedinIcon.default}
+  `}
+        /></a
+      >
+      <a
+        class="relative flex items-center h-12 w-fit py-1 px-8 max-sm:px-4 font-brandFont text-brandMain fill-brandMain text-3xl font-medium animate-bgSlideLeft hover:animate-bgSlideRight bg-no-repeat bg-x--10rem bg-gradient-to-r from-brandMain from-100% to-white to-200%"
+        href="https://github.com/jessejp"
+        target="_blank"
+        >GitHub <svg
+          viewBox="0 0 24 24"
+          class="w-8 h-full stroke-none fill-inherit relative left-2"
+          set:html={`
+<title>GitHub Profile Link</title>
+${githubIcon.default}
+`}
+        /></a
+      >
+    </div>
   </div>
 </dialog>
 
@@ -69,5 +100,9 @@ const menuIcon = await import("/assets/icons/menu.svg?raw");
         mobileNavModal.classList.remove("animate-mobileMenuSlideToTop");
       }, 300);
     }
+  });
+
+  window.addEventListener("resize", (event) => {
+    if (window.innerWidth > 640) mobileNavModal.close();
   });
 </script>

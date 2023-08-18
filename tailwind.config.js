@@ -18,6 +18,7 @@ export default {
         132: "33rem",
       },
       maxHeight: {
+        "15vh": ["15vh", "15svh"],
         100: "25rem",
         112: "28rem",
       },

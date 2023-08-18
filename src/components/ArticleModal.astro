@@ -11,7 +11,7 @@ const { title, id } = Astro.props;
     class="flex flex-col gap-2 w-full p-12 max-sm:p-8"
   >
     <h4 class="text-3xl uppercase">{title}</h4>
-    <div class="flex flex-col gap-2 text-lg max-w-4xl max-h-112 overflow-scroll">
+    <div class="flex flex-col gap-2 text-lg max-w-4xl max-h-112 overflow-y-scroll">
       <slot />
     </div>
     <form method="dialog">
