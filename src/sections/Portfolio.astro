@@ -1,6 +1,6 @@
 ---
 import Duo from "../components/Duo.astro";
-import CurrentlyBuildingContainer from "../components/CurrentlyBuildingContainer.astro";
+import CustomBorderContainer from "../components/CustomBorderContainer.astro";
 import SectionHeading from "../components/SectionHeading.astro";
 const posts = await Astro.glob("../portfolio-article/*.md");
 
@@ -16,9 +16,9 @@ const posts = await Astro.glob("../portfolio-article/*.md");
     .map((post, index) => {
       if (!!post.frontmatter.currentlyBuilding) {
         return (
-          <CurrentlyBuildingContainer>
+          <CustomBorderContainer subheading="Currently Building">
             <post.Content />
-          </CurrentlyBuildingContainer>
+          </CustomBorderContainer>
         );
       } else {
         return (

@@ -2,7 +2,7 @@
 import Canvas3D from "../components/Canvas3D/Canvas3D.jsx";
 import SubHBoxLeft from "../components/ui/SubHBoxLeft.astro";
 const githubIcon = await import("/assets/icons/github.svg?raw");
-const externalIcon = await import("/assets/icons/open-external.svg?raw");
+const linkedinIcon = await import("/assets/icons/linkedin.svg?raw");
 const contactEmailAddress = "connect.jessep@gmail.com";
 ---
 
@@ -54,11 +54,11 @@ const contactEmailAddress = "connect.jessep@gmail.com";
           href="https://www.linkedin.com/in/jesse-pernil%C3%A4-52a9b8192/"
           target="_blank"
           >LinkedIn <svg
-            viewBox="0 0 512 512"
-            class="w-6 h-full stroke-none fill-inherit relative left-2"
+            viewBox="0 0 24 24"
+            class="w-8 h-full stroke-none fill-inherit relative left-2"
             set:html={`
-      <title>External Page Link</title>
-      ${externalIcon.default}
+      <title>Linkedin Profile Link</title>
+      ${linkedinIcon.default}
       `}
           /></a
         >
@@ -66,11 +66,11 @@ const contactEmailAddress = "connect.jessep@gmail.com";
           class="relative flex items-center h-12 w-fit py-1 px-8 max-sm:px-4 font-brandFont text-brandMain border-brandMain fill-brandMain border-2 text-2xl font-medium animate-bgSlideLeft hover:animate-bgSlideRight bg-no-repeat bg-x--10rem bg-gradient-to-r from-brandMain from-100% to-white to-200%"
           href="https://github.com/jessejp"
           target="_blank"
-          >GitHub Profile <svg
+          >GitHub <svg
             viewBox="0 0 24 24"
             class="w-6 h-full stroke-none fill-inherit relative left-2"
             set:html={`
-  <title>GitHub Link</title>
+  <title>GitHub Profile Link</title>
   ${githubIcon.default}
   `}
           /></a

@@ -23,3 +23,23 @@
 article a:hover {
   text-decoration: underline;
 }
+
+/* width */
+dialog ::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+dialog ::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+dialog ::-webkit-scrollbar-thumb {
+  background: #00000022;
+}
+
+/* Handle on hover */
+dialog ::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
