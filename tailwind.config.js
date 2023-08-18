@@ -7,9 +7,14 @@ export default {
         xs: "480px",
         xxs: "320px",
       },
+      height: {
+        halfScreen: ["50vh", "50svh"],
+      },
       minHeight: {
         halfScreen: ["50vh", "50svh"],
         56: "14rem",
+        96: "24rem",
+        112: "28rem",
         132: "33rem",
       },
       maxHeight: {
@@ -24,10 +29,11 @@ export default {
       width: {
         inherit: "inherit",
       },
-      height: {
-        halfScreen: ["50vh", "50svh"],
+      minWidth: {
+        "6xl": "72rem",
       },
       maxWidth: {
+        "6xl": "72rem",
         "9xl": "90rem",
       },
       spacing: {
