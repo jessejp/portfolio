@@ -8,6 +8,7 @@ export default {
         xxs: "320px",
       },
       height: {
+        0.75: "0.1875rem",
         halfScreen: ["50vh", "50svh"],
       },
       minHeight: {
