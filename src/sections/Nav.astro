@@ -63,12 +63,6 @@ const sections = ["HOME", "WORKS", "ABOUT JESSE", "CONNECT"];
   });
 
   const addBorderOnScrollDown = () => {
-    console.log(
-      window.scrollY,
-      448,
-      window.innerHeight / 2.5,
-      window.scrollY > Math.max(448, window.innerHeight / 2)
-    );
     if (window.scrollY > Math.max(448, window.innerHeight / 2)) {
       navBorder.classList.remove("scale-x-0");
       navBorder.classList.add("scale-x-100");
