@@ -44,10 +44,16 @@ const sections = ["HOME", "WORKS", "ABOUT JESSE", "CONNECT"];
     </div>
   </div>
 </nav>
+<div
+  id="nav-border"
+  class="h-0.75 bg-brandMain w-screen fixed top-24 max-sm:top-18 left-0 z-50 origin-left transition-transform duration-300 scale-x-100"
+>
+</div>
 
 <script define:vars={{ sections }}>
+  const navBorder = document.getElementById("nav-border");
   const nav = document.querySelector("#nav-links");
-  
+
   nav.addEventListener("click", (event) => {
     const clicked = event.target.innerText;
     if (sections.includes(clicked)) {
@@ -55,4 +61,24 @@ const sections = ["HOME", "WORKS", "ABOUT JESSE", "CONNECT"];
       section.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   });
+
+  const addBorderOnScrollDown = () => {
+    console.log(
+      window.scrollY,
+      448,
+      window.innerHeight / 2.5,
+      window.scrollY > Math.max(448, window.innerHeight / 2)
+    );
+    if (window.scrollY > Math.max(448, window.innerHeight / 2)) {
+      navBorder.classList.remove("scale-x-0");
+      navBorder.classList.add("scale-x-100");
+    } else {
+      navBorder.classList.remove("scale-x-100");
+      navBorder.classList.add("scale-x-0");
+    }
+  };
+
+  window.addEventListener("scroll", addBorderOnScrollDown);
+
+  addBorderOnScrollDown();
 </script>
