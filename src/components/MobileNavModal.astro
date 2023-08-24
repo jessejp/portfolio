@@ -11,7 +11,7 @@ const linkedinIcon = await import("/assets/icons/linkedin.svg?raw");
 >
   <div
     id={`mobile-nav-modal-inner`}
-    class="w-screen h-screen bg-white flex flex-col justify-end items-center gap-9"
+    class="w-screen h-screen bg-white flex flex-col justify-center items-center gap-9"
   >
     <div class="absolute top-1 h-18 w-11/12 flex justify-between items-center">
       <div class="font-brandFont text-3xl w-1/2 relative -left-5 -top-1">
@@ -23,8 +23,8 @@ const linkedinIcon = await import("/assets/icons/linkedin.svg?raw");
       </button>
     </div>
     <slot />
-    <div class="max-h-15vh h-1/6"></div>
-    <div class="mb-12 flex flex-wrap gap-4">
+
+    <div class="absolute flex flex-wrap justify-center gap-4 bottom-0">
       <a
         class="relative flex items-center h-12 w-fit py-1 px-8 max-sm:px-4 font-brandFont text-brandMain fill-brandMain text-3xl font-medium animate-bgSlideLeft hover:animate-bgSlideRight bg-no-repeat bg-x--10rem bg-gradient-to-r from-brandMain from-100% to-white to-200%"
         href="https://www.linkedin.com/in/jesse-pernil%C3%A4-52a9b8192/"
@@ -33,9 +33,9 @@ const linkedinIcon = await import("/assets/icons/linkedin.svg?raw");
           viewBox="0 0 24 24"
           class="w-10 h-full stroke-none fill-inherit relative left-2"
           set:html={`
-  <title>Linkedin Profile Link</title>
-  ${linkedinIcon.default}
-  `}
+<title>Linkedin Profile Link</title>
+${linkedinIcon.default}
+`}
         /></a
       >
       <a
