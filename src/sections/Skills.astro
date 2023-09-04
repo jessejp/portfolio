@@ -30,22 +30,26 @@ const skills = [
 <section
   class="flex flex-col items-center w-11/12 max-w-9xl relative gap-4 text-zinc-200 md:mt-4"
 >
-<CustomBorderContainer subheading="Things I Know">
-      <div class="flex flex-wrap w-5/6 gap-6 justify-center flex-row max-w-6xl mt-4">
-        {
-          skills.map((skill) => (
-            <div class="flex flex-col gap-2 items-center text-center w-28 max-sm:w-20">
-              <div class="h-10 overflow-clip max-sm:h-10">
-                <img
-                  class:list={["h-full", { invert: skill.invert }]}
-                  src={skill.icon}
-                />
-              </div>
-              <span class="text-lg text-black">{skill.name}</span>
+  <CustomBorderContainer subheading="Things I Know">
+    <div
+      class="flex flex-wrap w-5/6 gap-6 justify-center flex-row max-w-6xl mt-4"
+    >
+      {
+        skills.map((skill) => (
+          <div class="flex flex-col gap-2 items-center text-center w-28 max-sm:w-20">
+            <div class="h-10 overflow-clip max-sm:h-10">
+              <img
+                class:list={["h-full", { invert: skill.invert }]}
+                src={skill.icon}
+                role="presentation"
+                alt=""
+              />
             </div>
-          ))
-        }
-      </div>
-</CustomBorderContainer>
+            <span class="text-lg text-black">{skill.name}</span>
+          </div>
+        ))
+      }
+    </div>
+  </CustomBorderContainer>
 </section>
 <div class="mt-16 max-sm:mt-0"></div>
