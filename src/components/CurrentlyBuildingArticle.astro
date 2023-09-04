@@ -1,6 +1,9 @@
 ---
+import ArticleModal from "./ArticleModal.astro";
 const { frontmatter } = Astro.props;
 const title = frontmatter.title.toUpperCase();
+const githubIcon = await import("/assets/icons/github.svg?raw");
+const externalIcon = await import("/assets/icons/open-external.svg?raw");
 ---
 
 <article class="w-1/2 max-w-2xl order-2 max-lg:self-start max-lg:w-full">
@@ -8,6 +11,40 @@ const title = frontmatter.title.toUpperCase();
   <h3 class="text-3xl">{title}</h3>
   <div class="flex flex-col gap-4 text-lg max-w-xl"><slot /></div>
   <div class="mt-4"></div>
+  <div class="flex flex-wrap gap-4 max-xs:gap-2">
+    <a
+      class="relative flex items-center h-12 w-fit py-1 px-8 max-sm:px-4 font-brandFont text-brandMain border-brandMain fill-brandMain border-2 text-2xl font-medium animate-bgSlideLeft hover:animate-bgSlideRight bg-no-repeat bg-x--10rem bg-gradient-to-r from-brandMain from-100% to-white to-200%"
+      href={frontmatter.href}
+      target="_blank"
+      >Visit Page <svg
+        viewBox="0 0 512 512"
+        class="w-6 h-full stroke-none fill-inherit relative left-2"
+        set:html={`
+      <title>External Page Link</title>
+      ${externalIcon.default}
+      `}
+      /></a
+    >
+    {
+      !!frontmatter.github && (
+        <a
+          class="flex items-center h-12 w-fit py-1 px-3 font-brandFont text-brandMain border-brandMain fill-brandMain border-2 text-2xl font-medium animate-bgSlideLeft hover:animate-bgSlideRight bg-no-repeat bg-x--10rem bg-gradient-to-r from-brandMain from-100% to-white to-200%"
+          href={frontmatter.github}
+          target="_blank"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            class="w-6 h-full stroke-none fill-inherit"
+            set:html={`
+        <title>GitHub Link</title>
+        ${githubIcon.default}
+        `}
+          />
+        </a>
+      )
+    }
+  </div>
+  <div class="mt-8"></div>
   <div class="flex flex-wrap gap-x-4 gap-y-2 max-w-lg">
     {
       !!frontmatter.stack &&
@@ -18,7 +55,7 @@ const title = frontmatter.title.toUpperCase();
   </div>
 </article>
 <div
-  class="w-1/2 h-56 max-lg:h-fit max-w-sm max-lg:w-full max-lg:mt-6 max-lg:self-start"
+  class="w-1/2 h-[19rem] max-lg:h-fit max-w-sm max-lg:w-full max-lg:mt-6 max-lg:self-start"
 >
-  <img class="absolute max-lg:relative sm:top-auto lg:left-10 max-h-56 w-auto shadow-hard-right shadow-superYellow" src={frontmatter.thumbnail} alt={frontmatter.title} />
+  <img class="absolute max-lg:relative sm:top-auto lg:left-10 max-h-[19rem] w-auto shadow-hard-right shadow-superYellow" src={frontmatter.thumbnail} alt={frontmatter.alt} />
 </div>
