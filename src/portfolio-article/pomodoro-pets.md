@@ -2,9 +2,10 @@
   layout: ../components/CurrentlyBuildingArticle.astro
   slug: pomodoro-pets
   title: Pomodoro Pets
-  href: ""
-  thumbnail: "/assets/thumbnails/pomodoropets2.webp"
-  alt: "cartoony 3D study room screenshot from blender 3D software"
+  href: https://pomodoro-pet.vercel.app/
+  github: https://github.com/jessejp/pomodoro-pet
+  thumbnail: /assets/thumbnails/pomodoropets.webp
+  alt: "cartoony 3D study room screenshot"
   order: 3
   description: "Study timer app"
   stack: ["HTML", "TailwindCSS", "Vite", "React", "TypeScript", "React-Three-Fiber", "Blender"]
