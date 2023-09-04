@@ -3,6 +3,7 @@ export interface Props {
   title: string;
 }
 
+const githubIcon = await import("/assets/icons/github.svg?raw");
 const { title } = Astro.props;
 ---
 
@@ -19,15 +20,45 @@ const { title } = Astro.props;
     class="preload flex flex-col justify-center text-zinc-900 text-xl leading-tight font-vt323 w-full"
   >
     <slot />
-    <footer class="flex justify-center items-center w-full h-24">
-      <p class="text-sm">
-        Jesse Pernilä 2023 - <a class="text-brandMain hover:underline"
+    <footer
+      class="flex gap-6 justify-center items-center text-base w-full h-32"
+    >
+      <div>
+        <p>
+          Built with <a
+            class="text-brandMain hover:underline"
+            href="https://astro.build/"
+            target="_blank">Astro</a
+          > and <a
+            class="text-brandMain hover:underline"
+            href="https://tailwindcss.com/"
+            target="_blank">Tailwind CSS</a
+          >, deployed with <a
+            class="text-brandMain hover:underline"
+            href="https://vercel.com/"
+            target="_blank">Vercel</a
+          >
+        </p>
+      </div>
+      <div>|</div>
+      <div class="flex gap-1 items-center">
+        <svg
+          viewBox="0 0 24 24"
+          class="w-5 h-full stroke-none fill-inherit mr-1"
+          set:html={`
+    <title>GitHub</title>
+    ${githubIcon.default}
+    `}
+        /> jessejp /<a
+          class="text-brandMain hover:underline"
           href="https://github.com/jessejp/portfolio"
-          target="_blank">Portfolio Github Repo</a>
-      </p>
+          target="_blank">portfolio</a
+        >
+      </div>
     </footer>
   </body>
 </html>
+
 <style is:global>
   canvas {
     margin: 0;

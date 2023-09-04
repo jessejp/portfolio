@@ -20,6 +20,11 @@
   }
 }
 
+::selection {
+  color: #ffffff;
+  background-color: #0000ff;
+}
+
 article a:hover {
   text-decoration: underline;
 }
