@@ -10,6 +10,7 @@ export default {
       height: {
         0.75: "0.1875rem",
         halfScreen: ["50vh", "50svh"],
+        fullScreen: ["100vh", "100svh"],
       },
       minHeight: {
         halfScreen: ["50vh", "50svh"],
