@@ -54,25 +54,31 @@ const externalIcon = await import("/assets/icons/open-external.svg?raw");
     }
   </div>
 </div>
-<a
-  id=`thumbnain-container-${frontmatter.slug}`
-  class="aspect-square flex items-center overflow-hidden max-w-sm shadow-hard-right shadow-superYellow border-transparent border-1 hover:border-superYellow hover:border-2 max-md:w-full max-md:mt-6 max-md:self-start"
-  href={frontmatter.href}
-  target="_blank"
->
-  <img
-    id=`img-thumbnail-${frontmatter.slug}`
-    class="w-96 h-auto block"
-    src={frontmatter.thumbnail}
-    alt={frontmatter.alt}
-  />
-  <img
-    id=`img-animation-${frontmatter.slug}`
-    class="w-96 h-min scale-114 hidden"
-    src={frontmatter.thumbnailAnimated}
-    alt={frontmatter.alt}
-  />
-</a>
+<div class="relative max-md:self-start max-w-sm max-md:w-full max-md:mt-6">
+  <a
+    id=`thumbnain-container-${frontmatter.slug}`
+    class="relative aspect-square flex items-center overflow-hidden"
+    href={frontmatter.href}
+    target="_blank"
+  >
+    <img
+      id=`img-thumbnail-${frontmatter.slug}`
+      class="w-96 h-auto block"
+      src={frontmatter.thumbnail}
+      alt={frontmatter.alt}
+    />
+    <img
+      id=`img-animation-${frontmatter.slug}`
+      class="w-96 h-min scale-114 hidden"
+      src={frontmatter.thumbnailAnimated}
+      alt={frontmatter.alt}
+    />
+  </a>
+  <div
+    class="absolute -top-2 left-2 -z-10 aspect-square bg-transparent border-brandMain border-2 w-full h-full"
+  >
+  </div>
+</div>
 
 <script define:vars={{ slug: frontmatter.slug }}>
   const thumbnailContainer = document.getElementById(
