@@ -7,7 +7,7 @@ const externalIcon = await import("/assets/icons/open-external.svg?raw");
 ---
 
 <article class="w-1/2 max-w-2xl order-2 max-lg:self-start max-lg:w-full">
-  <div class="max-lg:mt-4" />
+  <div class="max-lg:mt-4"></div>
   <h3 class="text-3xl">{title}</h3>
   <div class="flex flex-col gap-4 text-lg max-w-xl"><slot /></div>
   <div class="mt-4"></div>
@@ -55,7 +55,11 @@ const externalIcon = await import("/assets/icons/open-external.svg?raw");
   </div>
 </article>
 <div
-  class="w-1/2 h-[19rem] max-lg:h-fit max-w-sm max-lg:w-full max-lg:mt-6 max-lg:self-start"
+  class="relative w-1/2 h-[19rem] max-lg:h-fit max-w-sm max-lg:w-full max-lg:self-start"
 >
-  <img class="absolute max-lg:relative sm:top-auto lg:left-10 max-h-[19rem] w-auto shadow-hard-right shadow-superYellow" src={frontmatter.thumbnail} alt={frontmatter.alt} />
+  <img
+    class="z-10 relative sm:top-auto aspect-square max-h-[19rem] shadow-hard-right shadow-superYellow"
+    src={frontmatter.thumbnail}
+    alt={frontmatter.alt}
+  />
 </div>
