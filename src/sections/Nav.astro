@@ -5,17 +5,17 @@ const sections = ["HOME", "ABOUT JESSE", "PROJECTS", "CONNECT"];
 
 <div id="HOME" class="h-28"></div>
 <nav
-  class="flex justify-between max-sm:justify-center items-center w-full 2xl:w-11/12 h-24 max-sm:h-18 max-w-9xl fixed bg-white z-50"
+  class="flex justify-between max-md:justify-center items-center w-full 2xl:w-11/12 h-24 max-md:h-18 max-w-9xl fixed bg-white z-40"
 >
   <div
-    class="flex justify-between items-center w-11/12 max-xl:w-full max-sm:w-11/12"
+    class="flex justify-between items-center w-11/12 max-xl:w-full max-md:w-11/12"
   >
-    <div class="font-brandFont text-3xl sm:ml-12 2xl:m-0 max-sm:w-1/2">
+    <div class="font-brandFont text-3xl sm:ml-12 2xl:m-0 max-md:w-1/2">
       <img alt="logo" src="/logo_spin.gif" class="w-8 inline-block" />
       jessep.fi
     </div>
     <div
-      class="w-3/6 min-w-fit mr-12 flex justify-between items-center max-sm:hidden"
+      class="w-3/6 min-w-fit mr-12 flex justify-between items-center max-md:hidden"
     >
       <div
         id="nav-links"
@@ -31,7 +31,7 @@ const sections = ["HOME", "ABOUT JESSE", "PROJECTS", "CONNECT"];
       </div>
     </div>
 
-    <div class="w-fit hidden max-sm:block">
+    <div class="w-fit hidden max-md:block">
       <MobileNavModal sections={sections}>
         {
           sections.map((section) => (
@@ -46,7 +46,7 @@ const sections = ["HOME", "ABOUT JESSE", "PROJECTS", "CONNECT"];
 </nav>
 <div
   id="nav-border"
-  class="h-0.75 bg-brandMain w-screen fixed top-24 max-sm:top-18 left-0 z-50 origin-left transition-transform duration-300 scale-x-100"
+  class="h-0.75 bg-brandMain w-screen fixed top-24 max-md:top-18 left-0 z-30 origin-left transition-transform duration-300 scale-x-100"
 >
 </div>
 
