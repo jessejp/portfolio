@@ -67,12 +67,13 @@ const externalIcon = await import("/assets/icons/open-external.svg?raw");
       src={frontmatter.thumbnail}
       alt={frontmatter.alt}
     />
-    <img
-      id=`img-animation-${frontmatter.slug}`
-      class="w-96 h-min scale-114 hidden"
-      src={frontmatter.thumbnailAnimated}
-      alt={frontmatter.alt}
-    />
+    <video
+      id=`video-thumbnail-${frontmatter.slug}`
+      class="w-96 h-auto scale-114 hidden"
+      loop
+    >
+    <source src={frontmatter.thumbnailAnimated} type="video/webm">
+  </video>
   </a>
   <div
     class="absolute -top-2 left-2 -z-10 aspect-square bg-transparent border-brandMain border-2 w-full h-full"
@@ -83,9 +84,9 @@ const externalIcon = await import("/assets/icons/open-external.svg?raw");
 <script define:vars={{ slug: frontmatter.slug }}>
   const thumbnailContainer = document.getElementById(
     `thumbnain-container-${slug}`
-  );
-  const thumbnail = document.getElementById(`img-thumbnail-${slug}`);
-  const thumbnailAnimated = document.getElementById(`img-animation-${slug}`);
+  );  
+  const videoThumbnail = document.getElementById(`video-thumbnail-${slug}`);
+  const imgThumbnail = document.getElementById(`img-thumbnail-${slug}`);
   const viewportWidth =
     window.innerWidth || document.documentElement.clientWidth;
   const viewportHeight =
@@ -104,14 +105,35 @@ const externalIcon = await import("/assets/icons/open-external.svg?raw");
     );
   }
 
+  function playVideo() {
+    videoThumbnail.play();
+    animationPlaying = true;
+    imgThumbnail.classList.add("hidden");
+    videoThumbnail.classList.remove("hidden");
+  }
+
+  function pauseVideo() {
+    videoThumbnail.pause();
+    animationPlaying = false;
+    videoThumbnail.currentTime = 0;
+    imgThumbnail.classList.remove("hidden");
+    videoThumbnail.classList.add("hidden");
+  }
+  
   thumbnailContainer.addEventListener("mouseenter", () => {
-    thumbnail.classList.add("hidden");
-    thumbnailAnimated.classList.remove("hidden");
+    if (!animationPlaying && videoThumbnail.canPlayType("video/webm") !== "") {
+      playVideo();
+    } else {
+      imgThumbnail.classList.remove("hidden");
+    }
   });
 
   thumbnailContainer.addEventListener("mouseleave", () => {
-    thumbnail.classList.remove("hidden");
-    thumbnailAnimated.classList.add("hidden");
+    if (animationPlaying) {
+      pauseVideo();
+    } else {
+      imgThumbnail.classList.add("hidden");
+    }
   });
 
   document.addEventListener(
@@ -123,12 +145,18 @@ const externalIcon = await import("/assets/icons/open-external.svg?raw");
         if (animationPlaying) return;
         animationPlaying = true;
         timeout = setTimeout(() => {
-          thumbnail.classList.add("hidden");
-          thumbnailAnimated.classList.remove("hidden");
+          if (!animationPlaying && videoThumbnail.canPlayType("video/webm") !== "") {
+            playVideo();
+          } else {
+            imgThumbnail.classList.remove("hidden");
+          }
         }, 750);
       } else {
-        thumbnail.classList.remove("hidden");
-        thumbnailAnimated.classList.add("hidden");
+        if (animationPlaying) {
+          pauseVideo();
+        } else {
+          imgThumbnail.classList.add("hidden");
+        }
         animationPlaying = false;
         clearTimeout(timeout);
       }
