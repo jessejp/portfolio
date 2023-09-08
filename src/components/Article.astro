@@ -67,12 +67,15 @@ const externalIcon = await import("/assets/icons/open-external.svg?raw");
       src={frontmatter.thumbnail}
       alt={frontmatter.alt}
     />
-    <img
-      id=`img-animation-${frontmatter.slug}`
-      class="w-96 h-min scale-114 hidden"
-      src={frontmatter.thumbnailAnimated}
-      alt={frontmatter.alt}
-    />
+    <video
+      id=`video-thumbnail-${frontmatter.slug}`
+      class="w-96 h-auto scale-114 hidden"
+      autoplay
+      loop
+      muted
+    >
+      <source src={frontmatter.thumbnailAnimated} type="video/webm" />
+    </video>
   </a>
   <div
     class="absolute -top-2 left-2 -z-10 aspect-square bg-transparent border-brandMain border-2 w-full h-full"
@@ -81,60 +84,77 @@ const externalIcon = await import("/assets/icons/open-external.svg?raw");
 </div>
 
 <script define:vars={{ slug: frontmatter.slug }}>
-  const thumbnailContainer = document.getElementById(
-    `thumbnain-container-${slug}`
+const thumbnailContainer = document.getElementById(
+  `thumbnain-container-${slug}`
+);
+const videoThumbnail = document.getElementById(`video-thumbnail-${slug}`);
+const imgThumbnail = document.getElementById(`img-thumbnail-${slug}`);
+const viewportWidth =
+  window.innerWidth || document.documentElement.clientWidth;
+const mobileScreenWidth = viewportWidth <= 768;
+let animationPlaying = false;
+
+function isInViewport(el) {
+  const rect = el.getBoundingClientRect();
+  return (
+    rect.top >= 0 &&
+    rect.left >= 0 &&
+    rect.bottom <=
+    (window.innerHeight || document.documentElement.clientHeight) &&
+    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
   );
-  const thumbnail = document.getElementById(`img-thumbnail-${slug}`);
-  const thumbnailAnimated = document.getElementById(`img-animation-${slug}`);
-  const viewportWidth =
-    window.innerWidth || document.documentElement.clientWidth;
-  const viewportHeight =
-    window.innerHeight || document.documentElement.clientHeight;
-  const mobileScreenWidth = viewportWidth <= 768;
-  let animationPlaying = false;
+}
 
-  function isInViewport(el) {
-    const rect = el.getBoundingClientRect();
-    return (
-      rect.top >= 0 &&
-      rect.left >= 0 &&
-      rect.bottom <=
-        (window.innerHeight || document.documentElement.clientHeight) &&
-      rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-    );
+function playVideo() {
+  animationPlaying = true;
+  videoThumbnail.play();
+  imgThumbnail.classList.add("hidden");
+  videoThumbnail.classList.remove("hidden");
+  console.log("playVideo", animationPlaying);
+}
+
+function pauseVideo() {
+  animationPlaying = false;
+  videoThumbnail.pause();
+  videoThumbnail.currentTime = 0;
+  imgThumbnail.classList.remove("hidden");
+  videoThumbnail.classList.add("hidden");
+  console.log("pauseVideo", animationPlaying);
+}
+
+thumbnailContainer.addEventListener("mouseenter", () => {
+  if (!animationPlaying && videoThumbnail.canPlayType("video/webm") !== "") {
+    playVideo();
   }
+});
 
-  thumbnailContainer.addEventListener("mouseenter", () => {
-    thumbnail.classList.add("hidden");
-    thumbnailAnimated.classList.remove("hidden");
-  });
+thumbnailContainer.addEventListener("mouseleave", () => {
+  if (animationPlaying && videoThumbnail.canPlayType("video/webm") !== "") {
+    pauseVideo();
+  }
+});
 
-  thumbnailContainer.addEventListener("mouseleave", () => {
-    thumbnail.classList.remove("hidden");
-    thumbnailAnimated.classList.add("hidden");
-  });
-
-  document.addEventListener(
-    "scroll",
-    function () {
-      if (!mobileScreenWidth) return;
-      let timeout;
-      if (isInViewport(thumbnailContainer)) {
-        if (animationPlaying) return;
-        animationPlaying = true;
-        timeout = setTimeout(() => {
-          thumbnail.classList.add("hidden");
-          thumbnailAnimated.classList.remove("hidden");
-        }, 750);
-      } else {
-        thumbnail.classList.remove("hidden");
-        thumbnailAnimated.classList.add("hidden");
-        animationPlaying = false;
+document.addEventListener(
+  "scroll",
+  function () {
+    if (!mobileScreenWidth) return;
+    let timeout;
+    if (isInViewport(thumbnailContainer)) {
+      if (animationPlaying) return;
+      timeout = setTimeout(() => {
+        if (videoThumbnail.canPlayType("video/webm") !== "") {
+          playVideo();
+        }
+      }, 750);
+    } else {
+      if (animationPlaying) {
+        pauseVideo();
         clearTimeout(timeout);
       }
-    },
-    {
-      passive: true,
     }
-  );
+  },
+  {
+    passive: true,
+  }
+);
 </script>

@@ -4,7 +4,7 @@
   title: Progress Journal
   href: http://progress-journal.vercel.app/
   thumbnail: /assets/thumbnails/progress-journal-v3.webp
-  thumbnailAnimated: "/assets/thumbnails/progress-journal-animated.gif"
+  thumbnailAnimated: "/assets/thumbnails/progress-journal-video.webm"
   alt: "smartphone with progress journal web app open"
   github: https://github.com/jessejp/progress-journal
   order: 2
