@@ -14,9 +14,9 @@ const linkedinIcon = await import("/assets/icons/linkedin.svg?raw");
     class="w-screen h-screen bg-white flex flex-col justify-center items-center gap-9"
   >
     <div class="absolute top-1 h-18 w-11/12 flex justify-between items-center">
-      <div class="font-brandFont text-3xl w-1/2 relative -left-5 -top-1">
+      <div class="font-brandFont text-3xl whitespace-nowrap 2xl:m-0 max-md:w-1/2">
         <img alt="logo" src="/logo_spin.gif" class="w-8 inline-block" />
-         jessep.fi
+        jessep.fi
       </div>
       <button data-dialog-close>
         <img src="assets/icons/cross.jpg" alt="close modal" class="w-8 h-8" />
@@ -24,7 +24,7 @@ const linkedinIcon = await import("/assets/icons/linkedin.svg?raw");
     </div>
 
     <slot />
-    
+
     <div class="flex flex-wrap justify-center gap-4 absolute bottom-4">
       <a
         class="relative flex items-center h-12 w-fit py-1 px-8 max-sm:px-4 font-brandFont text-brandMain fill-brandMain text-3xl font-medium animate-bgSlideLeft hover:animate-bgSlideRight bg-no-repeat bg-x--10rem bg-gradient-to-r from-brandMain from-100% to-white to-200%"
@@ -73,6 +73,11 @@ const mobileNavModal = document.querySelector(`#mobile-nav-modal`);
 const mobileNavModalClose = document.querySelector("[data-dialog-close]");
 const mobileNavModalInner = document.querySelector(`#mobile-nav-modal-inner`);
 
+const closeModal = () => {
+  mobileNavModal.classList.add("hidden");
+  mobileNavModal.classList.remove("animate-mobileMenuSlideToTop");
+};
+
 hamburgerIcon.addEventListener("click", () => {
   // mobileNavModal.showModal();
   mobileNavModal.classList.remove("hidden");
@@ -81,9 +86,7 @@ hamburgerIcon.addEventListener("click", () => {
 mobileNavModalClose.addEventListener("click", () => {
   mobileNavModal.classList.add("animate-mobileMenuSlideToTop");
   setTimeout(() => {
-    // mobileNavModal.close();
-    mobileNavModal.classList.add("hidden");
-    mobileNavModal.classList.remove("animate-mobileMenuSlideToTop");
+    closeModal();
   }, 300);
 });
 
@@ -99,13 +102,12 @@ mobileNavModalInner.addEventListener("click", (event) => {
     mobileNavModal.classList.add("animate-mobileMenuSlideToTop");
 
     setTimeout(() => {
-      mobileNavModal.classList.add("hidden");
-      mobileNavModal.classList.remove("animate-mobileMenuSlideToTop");
+      closeModal();
     }, 300);
   }
 });
 
 window.addEventListener("resize", (event) => {
-  if (window.innerWidth > 640) mobileNavModal.close();
+  if (window.innerWidth > 640) closeModal();
 });
 </script>
