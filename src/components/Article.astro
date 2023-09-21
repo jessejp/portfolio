@@ -110,7 +110,6 @@ function playVideo() {
   videoThumbnail.play();
   imgThumbnail.classList.add("hidden");
   videoThumbnail.classList.remove("hidden");
-  console.log("playVideo", animationPlaying);
 }
 
 function pauseVideo() {
@@ -119,7 +118,6 @@ function pauseVideo() {
   videoThumbnail.currentTime = 0;
   imgThumbnail.classList.remove("hidden");
   videoThumbnail.classList.add("hidden");
-  console.log("pauseVideo", animationPlaying);
 }
 
 thumbnailContainer.addEventListener("mouseenter", () => {
