@@ -25,29 +25,37 @@ const contactEmailAddress = "connect.jessep@gmail.com";
   >
     <SubHBoxLeft>Connect</SubHBoxLeft>
     <div
-      class="flex m-0.75 relative p-6 pt-8 bg-white min-h-56 items-center justify-center self-center flex-col"
+      class="flex flex-col m-0.75 relative p-6 pt-8 bg-white min-h-56 items-center justify-center self-center"
     >
-      <div class="mt-4"></div>
+      <div class="mt-8"></div>
       <p class="text-lg">
         To get in touch, you can contact me at this email 😊
       </p>
+      <div class="mt-4"></div>
       <div
+        title="Copy to clipboard"
         id="CONTACT-EMAIL"
-        class="flex items-center relative gap-3 w-fit h-14 py-2 px-4 -ml-4"
+        class="relative cursor-pointer"
       >
-        <span class="text-lg max-xs:text-base text-brandMain">
-          {contactEmailAddress}</span
+        <button
+          class="text-lg max-xs:text-base text-brandMain flex items-center gap-3 w-fit hover:font-bold"
+          id="COPY-EMAIL"
         >
-        <button class="absolute -right-3" id="COPY-EMAIL"
-          ><img
+          <span>{contactEmailAddress}</span>
+          <img
             title="Copy to clipboard"
             alt="Copy to clipboard"
-            class="w-6 h-fit"
+            class="w-6 h-fit select-none"
             src="/assets/icons/copy-to-clipboard.svg"
-          /></button
-        >
+          /><span
+            role="presentation"
+            id="COPY-ANIMATION-TEXT"
+            class="absolute -top-4 right-4 text-green-500 font-bold font-brandFont text-3xl block whitespace-nowrap opacity-0 select-none"
+            >Copied to Clipboard!</span
+          >
+        </button>
       </div>
-      <div class="mt-4"></div>
+      <div class="mt-8"></div>
       <div class="flex justify-center flex-wrap gap-4 w-full">
         <a
           class="relative flex items-center h-12 w-fit py-1 px-8 max-sm:px-4 font-brandFont text-brandMain border-brandMain fill-brandMain border-2 text-2xl font-medium animate-bgSlideLeft hover:animate-bgSlideRight bg-no-repeat bg-x--10rem bg-gradient-to-r from-brandMain from-100% to-white to-200%"
@@ -81,14 +89,20 @@ const contactEmailAddress = "connect.jessep@gmail.com";
 </section>
 
 <script define:vars={{ contactEmailAddress }}>
-  const copyEmail = document.getElementById("COPY-EMAIL");
-  const email = document.getElementById("CONTACT-EMAIL");
+const copyEmail = document.getElementById("COPY-EMAIL");
+const email = document.getElementById("CONTACT-EMAIL");
+const copyAnimation = document.getElementById("COPY-ANIMATION-TEXT");
+let animationRemoveTimeout = null;
 
-  copyEmail.addEventListener("click", () => {
-    navigator.clipboard.writeText(contactEmailAddress);
-    email.classList.add("animate-copied");
-    setTimeout(() => {
-      email.classList.remove("animate-copied");
-    }, 1600);
-  });
+copyEmail.addEventListener("click", () => {
+  clearTimeout(animationRemoveTimeout);
+  navigator.clipboard.writeText(contactEmailAddress);
+  email.classList.add("animate-copied");
+  copyAnimation.classList.add("animate-copiedFloatingText");
+
+  animationRemoveTimeout = setTimeout(() => {
+    email.classList.remove("animate-copied");
+    copyAnimation.classList.remove("animate-copiedFloatingText");
+  }, 800);
+});
 </script>
