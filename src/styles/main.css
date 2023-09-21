@@ -25,8 +25,14 @@
   background-color: #0000ff;
 }
 
-article a:hover {
+a.accessible {
+  color: #2929ff;
   text-decoration: underline;
+}
+a.accessible:hover {
+  text-decoration: none;
+  border-bottom: 2px #2929ff solid;
+  font-weight: bold;
 }
 
 /* width */

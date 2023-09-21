@@ -72,7 +72,8 @@ export default {
       },
       animation: {
         highlight: "highlight 1.5s linear 0.8s forwards",
-        copied: "copied 0.6s linear 0s forwards",
+        copied: "copied 0.7s linear 0s forwards",
+        copiedFloatingText: "copiedFloatingText 0.7s ease-in 0s normal",
         bgSlideTop: "bgSlideTop 0.11s linear forwards",
         bgSlideBottom: "bgSlideBottom 0.11s linear forwards",
         bgSlideTopAlt: "bgSlideTopAlt 0.11s linear forwards",
@@ -92,6 +93,10 @@ export default {
         copied: {
           "0%, 25%": { backgroundColor: "rgb(0 255 0 / 1)" },
           "100%": { backgroundColor: "rgb(0 255 0 / 0)" },
+        },
+        copiedFloatingText: {
+          "0%": { top: "-1rem", opacity: "1" },
+          "100%": { top: "-6rem", opacity: "0" },
         },
         bgSlideTop: {
           "0%": {
