@@ -7,7 +7,7 @@
   thumbnailAnimated: "/assets/thumbnails/sodipop-video.webm"
   alt: "sodipop landing page screenshot"
   github: "https://github.com/jessejp/beverage-landingpage"
-  order: 1
+  order: 2
   stack: ["HTML", "CSS", "JavaScript", "Astro", "React-Three-Fiber", "Blender"]
   description: "Prototype landing page for a made-up soda brand."
 ---
