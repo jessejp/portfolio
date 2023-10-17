@@ -8,7 +8,7 @@
   alt: "cartoony 3D study room screenshot"
   order: 3
   description: "Study timer app"
-  stack: ["HTML", "TailwindCSS", "Vite", "React", "TypeScript", "React-Three-Fiber", "Blender"]
+  stack: ["React (Vite)","TailwindCSS", "TypeScript", "React-Three-Fiber", "Blender", "Figma"]
   currentlyBuilding: true
 ---
 
