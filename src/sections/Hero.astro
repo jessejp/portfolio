@@ -4,17 +4,17 @@ import SubHBoxRight from "../components/ui/SubHBoxRight.astro";
 ---
 
 <div
-  class="flex w-full relative items-center justify-start min-h-112 max-md:gap-2 max-md:flex-col"
+  class="relative flex min-h-112 w-full items-center justify-start max-md:flex-col max-md:gap-2"
 >
-  <div class="w-full h-96 min-h-halfScreen">
+  <div class="h-96 min-h-halfScreen w-full">
     <Canvas3D client:load />
   </div>
   <div
-    class="w-fit absolute bg-gradient-to-t from-violet-700 from-20% to-100% to-brandMain right-4 xl:right-46 bottom-1/5 max-md:relative max-md:bottom-0 max-md:right-0 max-md:w-11/12"
+    class="absolute bottom-1/5 right-4 w-fit bg-gradient-to-t from-violet-700 from-20% to-brandMain to-100% max-md:relative max-md:bottom-0 max-md:right-0 max-md:w-11/12 xl:right-46"
   >
     <SubHBoxRight>Status: Open to work!</SubHBoxRight>
     <div
-      class="flex flex-col bg-white m-0.75 md:py-5 md:pl-5 md:pr-16 max-md:p-5"
+      class="m-0.75 flex flex-col bg-white max-md:p-5 md:py-6 md:pl-5 md:pr-16"
     >
       <div class="max-xs:mt-4"></div>
       <span class="font-brandFont text-2xl">Hi! I'm</span>
@@ -22,13 +22,13 @@ import SubHBoxRight from "../components/ui/SubHBoxRight.astro";
         JESSE PERNILÄ, <br /><span>A FRONTEND DEVELOPER.</span>
       </h1>
       <div class="mt-4"></div>
-      <p class="text-lg w-96 max-md:w-fit">
+      <p class="w-96 text-lg max-md:w-fit">
         I'm enthusiastic about building for the web and creating awesome user
         experiences 🤩
       </p>
       <div class="mt-4"></div>
       <button
-        class="w-fit py-1 px-8 font-brandFont text-white border-brandMain bg-brandMain border-2 text-3xl font-medium animate-bgSlideLeftAlt hover:animate-bgSlideRightAlt bg-no-repeat bg-x--10rem bg-gradient-to-r from-white from-100% to-200%"
+        class="bg-x--10rem w-fit animate-bgSlideLeftAlt border-2 border-brandMain bg-brandMain bg-gradient-to-r from-white from-100% to-200% bg-no-repeat px-8 py-1 font-brandFont text-3xl font-medium text-white hover:animate-bgSlideRightAlt"
         data-connect-button
       >
         Connect

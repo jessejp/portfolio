@@ -10,16 +10,17 @@ import Hero from "../sections/Hero.astro";
 ---
 
 <Layout title="Jesse Pernilä – Frontend Developer">
-  <main class="flex flex-col items-center w-full">
-    <Nav />
-    <section class="flex w-full border-gray-400 min-h-halfScreen max-w-9xl">
+  <div class="flex w-full flex-col items-center">
+    <Nav transition:persist currentPath="/" />
+  </div>
+  <main class="flex w-full flex-col items-center" transition:animate="slide">
+    <div id="HOME"></div>
+    <section class="flex min-h-halfScreen w-full max-w-9xl">
       <Hero />
     </section>
-
     <About />
     <Skills />
-
-    <section id="PROJECTS" class="flex flex-col w-11/12 max-w-9xl py-8">
+    <section id="PROJECTS" class="flex w-11/12 max-w-9xl flex-col py-8">
       <Portfolio />
     </section>
     <Contact />
