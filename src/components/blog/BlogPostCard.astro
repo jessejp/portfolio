@@ -18,12 +18,10 @@ const cutDescription =
   description.length > 60
     ? description.slice(0, 60).split(" ").slice(0, -1).join(" ") + "..."
     : description;
-
-const id = title.replace(/\s/g, "-").toLowerCase();
 ---
 
 <div
-  id={id}
+  id={slug}
   class="relative flex w-72 scale-100 cursor-pointer flex-col gap-6 border-3 border-brandMain transition-transform duration-75 hover:scale-105"
 >
   <SubHBox side="right" variant="smallgap">23 months ago</SubHBox>
@@ -34,7 +32,7 @@ const id = title.replace(/\s/g, "-").toLowerCase();
     <h3 class="h-18 overflow-hidden text-3xl">{cutTitle}</h3>
     <p class="h-12 overflow-hidden">{cutDescription}</p>
     <a
-      href="#"
+      href={`/blog/${slug}`}
       class="flex h-8 w-fit items-end gap-2 border-b-2 border-transparent font-brandFont text-2xl text-brandMain hover:border-brandMain"
     >
       Start Reading <svg
@@ -49,8 +47,8 @@ const id = title.replace(/\s/g, "-").toLowerCase();
   </div>
 </div>
 
-<script define:vars={{ id, slug }}>
-  const blogContainer = document.querySelector(`#${id}`);
+<script define:vars={{ slug }}>
+  const blogContainer = document.querySelector(`#${slug}`);
 
   blogContainer.addEventListener("click", () => {
     window.location.href = `/blog/${slug}`;

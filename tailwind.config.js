@@ -197,5 +197,5 @@ export default {
       },
     },
   },
-  plugins: ["prettier-plugin-tailwindcss"],
+  plugins: ["@tailwindcss/typography", "prettier-plugin-tailwindcss"],
 };

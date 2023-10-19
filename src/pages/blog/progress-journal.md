@@ -4,7 +4,7 @@ slug: "progress-journal"
 title: "My Markdown page"
 ---
 
-<h1 class="text-5xl">Progress Journal</h1>
+# Progress Journal
 
 I made the <a class="text-brandMain" href="https://www.figma.com/file/PVcrJV05Z5n0GSwusOl4jN/Progress-Journal---%40shadcn%2Fui?type=design&node-id=103-985&mode=design" target="_blank">Figma layout</a> for this project using the @shadcn/ui design system. The components I built myself instead of using the ui library.
 

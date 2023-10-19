@@ -1,4 +1,7 @@
 ---
+import { ViewTransitions } from "astro:transitions";
+import "../styles/main.css";
+import Nav from "../sections/Nav.astro";
 import type { MarkdownLayoutProps } from "astro";
 
 type Props = MarkdownLayoutProps<{
@@ -9,6 +12,7 @@ type Props = MarkdownLayoutProps<{
 }>;
 
 const { frontmatter, url } = Astro.props;
+console.log(frontmatter, url);
 ---
 
 <!doctype html>
@@ -17,14 +21,16 @@ const { frontmatter, url } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{frontmatter.title}</title>
+    <ViewTransitions />
   </head>
   <body>
-    <header>
-      <h1>{frontmatter.title}</h1>
-      <p>By {frontmatter.author}</p>
-      <p>Published on {frontmatter.date}</p>
-    </header>
-    <main>
+    <div class="flex w-full flex-col items-center">
+      <Nav transition:persist currentPath={url} />
+    </div>
+    <main
+      class="prose prose-headings:font-brandFont"
+      transition:animate="slide"
+    >
       <slot />
     </main>
     <footer>
@@ -32,5 +38,18 @@ const { frontmatter, url } = Astro.props;
         <a href="/">Home</a>
       </p>
     </footer>
+    <style>
+      body {
+        margin: 0;
+        font-family: "Inter", sans-serif;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: "VT323", monospace;
+      }
+    </style>
   </body>
 </html>
