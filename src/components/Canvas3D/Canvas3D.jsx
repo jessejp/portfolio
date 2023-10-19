@@ -6,11 +6,11 @@ import Scene from "./Scene";
 const Canvas3D = ({
   enablePresentation = true,
   enableCharacter = true,
-  cameraPosition,
-  cameraRotation,
-  cameraFov,
-  cameraFar,
-  meshScale
+  cameraPosition = [0.3, 0.45, 1.75],
+  cameraRotation = [-0.1, -0.4, 0],
+  cameraFov = 75,
+  cameraFar = 7.5,
+  meshScale = 0,
 }) => {
   const presentationProps = {
     global: true,
@@ -37,10 +37,10 @@ const Canvas3D = ({
   return (
     <Canvas
       camera={{
-        fov: cameraFov || 75,
-        far: cameraFar || 7.5,
-        position: cameraPosition || [0.3, 0.45, 1.75],
-        rotation: cameraRotation || [-0.1, -0.4, 0],
+        fov: cameraFov,
+        far: cameraFar,
+        position: cameraPosition,
+        rotation: cameraRotation,
       }}
       flat={true}
     >

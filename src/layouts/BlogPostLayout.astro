@@ -1,0 +1,36 @@
+---
+import type { MarkdownLayoutProps } from "astro";
+
+type Props = MarkdownLayoutProps<{
+  // Define frontmatter props here
+  title: string;
+  author: string;
+  date: string;
+}>;
+
+const { frontmatter, url } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{frontmatter.title}</title>
+  </head>
+  <body>
+    <header>
+      <h1>{frontmatter.title}</h1>
+      <p>By {frontmatter.author}</p>
+      <p>Published on {frontmatter.date}</p>
+    </header>
+    <main>
+      <slot />
+    </main>
+    <footer>
+      <p>
+        <a href="/">Home</a>
+      </p>
+    </footer>
+  </body>
+</html>

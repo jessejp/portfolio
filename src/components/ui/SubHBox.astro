@@ -1,0 +1,23 @@
+---
+import clsx from "clsx";
+type Props = {
+  side: "left" | "right";
+  variant?: "smallgap";
+};
+const { side, variant } = Astro.props as Props;
+---
+
+<div
+  class={clsx("absolute -top-1 w-fit", {
+    "right-6 max-xxs:right-1": side === "right" && variant === undefined,
+    "right-2 max-xxs:right-1": side === "right" && variant === "smallgap",
+    "left-6 max-xxs:left-1": side === "left" && variant === undefined,
+    "left-2 max-xxs:left-1": side === "left" && variant === "smallgap",
+  })}
+>
+  <div
+    class="shadow-hard-right relative -top-7 z-20 whitespace-nowrap border-3 border-brandMain bg-white px-6 py-2 font-brandFont text-2xl capitalize text-brandMain shadow-brandMain"
+  >
+    <slot />
+  </div>
+</div>
