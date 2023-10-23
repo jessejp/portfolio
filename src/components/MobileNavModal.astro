@@ -25,7 +25,7 @@ const linkedinIcon = await import("/assets/icons/linkedin.svg?raw");
         />jessep.fi
       </a>
       <button data-dialog-close>
-        <img src="assets/icons/cross.jpg" alt="close modal" class="h-8 w-8" />
+        <img src="/assets/icons/cross.jpg" alt="close modal" class="h-8 w-8" />
       </button>
     </div>
 
@@ -85,7 +85,6 @@ ${githubIcon.default}
   };
 
   hamburgerIcon.addEventListener("click", () => {
-    // mobileNavModal.showModal();
     mobileNavModal.classList.remove("hidden");
   });
 
