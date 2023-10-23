@@ -3,15 +3,14 @@ import { ViewTransitions } from "astro:transitions";
 import "../styles/main.css";
 import Nav from "../sections/Nav.astro";
 import type { MarkdownLayoutProps } from "astro";
+const githubIcon = await import("/assets/icons/github.svg?raw");
 
 type Props = MarkdownLayoutProps<{
   // Define frontmatter props here
   title: string;
-  author: string;
-  date: string;
 }>;
 
-const { frontmatter, url } = Astro.props;
+const { frontmatter, url } = Astro.props as Props;
 console.log(frontmatter, url);
 ---
 
@@ -19,24 +18,58 @@ console.log(frontmatter, url);
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
     <title>{frontmatter.title}</title>
     <ViewTransitions />
   </head>
-  <body>
+  <body class="flex w-full flex-col items-center">
     <div class="flex w-full flex-col items-center">
       <Nav transition:persist currentPath={url} />
     </div>
     <main
-      class="prose prose-headings:font-brandFont"
+      class="prose flex w-11/12 max-w-6xl flex-col prose-headings:font-brandFont"
       transition:animate="slide"
     >
-      <slot />
+      <article>
+        <h1>{frontmatter.title}</h1>
+        <slot />
+      </article>
     </main>
-    <footer>
-      <p>
-        <a href="/">Home</a>
+    <footer
+      class="flex h-36 w-full items-center justify-center gap-6 text-center text-base max-sm:mt-20 max-sm:flex-col"
+    >
+      <p class="max-sm:w-11/12">
+        Built with <a
+          class="accessible"
+          href="https://astro.build/"
+          target="_blank">Astro</a
+        > and <a
+          class="accessible"
+          href="https://tailwindcss.com/"
+          target="_blank">Tailwind CSS</a
+        >, deployed with <a
+          class="accessible"
+          href="https://vercel.com/"
+          target="_blank">Vercel</a
+        >
       </p>
+      <div class="block max-sm:hidden">|</div>
+      <div class="flex items-center gap-1">
+        <svg
+          viewBox="0 0 24 24"
+          class="mr-1 h-full w-5 fill-inherit stroke-none"
+          set:html={`
+  <title>GitHub</title>
+  ${githubIcon.default}
+  `}
+        /> jessejp /<a
+          class="accessible"
+          href="https://github.com/jessejp/portfolio"
+          target="_blank">portfolio</a
+        >
+      </div>
     </footer>
     <style>
       body {

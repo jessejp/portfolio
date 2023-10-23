@@ -18,6 +18,7 @@ const {
   title,
   description,
   slug,
+  blogLink,
   projectLink,
   gitLink,
   techStack,
@@ -34,6 +35,11 @@ title.toUpperCase();
   <div class="flex max-w-xl flex-col gap-4 text-lg">{description}</div>
   <div class="mt-4"></div>
   <div class="flex flex-wrap gap-4 max-xs:gap-2">
+    <a
+      href={blogLink}
+      class="flex h-12 w-fit animate-bgSlideTopAlt items-center border-2 border-brandMain bg-gradient-to-t from-brandMain from-100% to-white to-200% bg-no-repeat fill-brandMain px-8 py-1 font-brandFont text-2xl font-medium text-brandMain hover:animate-bgSlideBottomAlt max-sm:px-4"
+      >Read More</a
+    >
     <a
       class="bg-x--10rem relative flex h-12 w-fit animate-bgSlideLeft items-center border-2 border-brandMain bg-gradient-to-r from-brandMain from-100% to-white to-200% bg-no-repeat fill-brandMain px-8 py-1 font-brandFont text-2xl font-medium text-brandMain hover:animate-bgSlideRight max-sm:px-4"
       href={projectLink}
