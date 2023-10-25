@@ -58,7 +58,7 @@ export default {
       },
       colors: {
         brandMain: "#0000ff",
-        link: "#0000ee",
+        link: "#2929ff",
         visited: "#551A8B",
         superYellow: "#ffff00",
       },
