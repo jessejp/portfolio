@@ -29,9 +29,9 @@ const { title, frontmatter, url } = Astro.props as Props;
       !!frontmatter && (
         <>
           <Nav currentPath={url} />
-          <main class="prose flex w-11/12 max-w-6xl flex-col prose-headings:font-brandFont prose-h1:text-5xl prose-h2:text-4xl prose-h3:text-3xl prose-a:text-link">
+          <main class="prose flex w-11/12 max-w-6xl flex-col prose-headings:font-brandFont prose-h1:text-5xl prose-h2:my-4 prose-h2:text-4xl prose-h3:text-3xl prose-a:text-link">
             <article>
-              <h1 class="m-0 leading-none">{frontmatter.title}</h1>
+              <h1 class="my-4 leading-none">{frontmatter.title}</h1>
               <slot />
             </article>
           </main>
