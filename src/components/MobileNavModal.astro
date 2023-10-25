@@ -7,32 +7,38 @@ const linkedinIcon = await import("/assets/icons/linkedin.svg?raw");
 
 <div
   id={`mobile-nav-modal`}
-  class="p-0 m-0 fixed left-0 bottom-0 inset-0 z-50 w-screen h-screen overflow-visible animate-mobileMenuSlideFromTop hidden backdrop:bg-transparent"
+  class="fixed inset-0 bottom-0 left-0 z-50 m-0 hidden h-screen w-screen animate-mobileMenuSlideFromTop overflow-visible p-0 backdrop:bg-transparent"
 >
   <div
     id={`mobile-nav-modal-inner`}
-    class="w-screen h-screen bg-white flex flex-col justify-center items-center gap-9"
+    class="flex h-screen w-screen flex-col items-center justify-center gap-9 bg-white"
   >
-    <div class="absolute top-1 h-18 w-11/12 flex justify-between items-center">
-      <div class="font-brandFont text-3xl whitespace-nowrap 2xl:m-0 max-md:w-1/2">
-        <img alt="logo" src="/logo_spin.gif" class="w-8 inline-block" />
-        jessep.fi
-      </div>
+    <div class="absolute top-1 flex h-18 w-11/12 items-center justify-between">
+      <a
+        href="/"
+        class="flex items-end gap-2 whitespace-nowrap font-brandFont text-3xl max-md:w-1/2 2xl:m-0"
+      >
+        <img
+          alt="logo"
+          src="/logo_spin.gif"
+          class="inline-block h-8 w-8"
+        />jessep.fi
+      </a>
       <button data-dialog-close>
-        <img src="assets/icons/cross.jpg" alt="close modal" class="w-8 h-8" />
+        <img src="/assets/icons/cross.jpg" alt="close modal" class="h-8 w-8" />
       </button>
     </div>
 
     <slot />
 
-    <div class="flex flex-wrap justify-center gap-4 absolute bottom-4">
+    <div class="absolute bottom-4 flex flex-wrap justify-center gap-4">
       <a
-        class="relative flex items-center h-12 w-fit py-1 px-8 max-sm:px-4 font-brandFont text-brandMain fill-brandMain text-3xl font-medium animate-bgSlideLeft hover:animate-bgSlideRight bg-no-repeat bg-x--10rem bg-gradient-to-r from-brandMain from-100% to-white to-200%"
+        class="bg-x--10rem relative flex h-12 w-fit animate-bgSlideLeft items-center bg-gradient-to-r from-brandMain from-100% to-white to-200% bg-no-repeat fill-brandMain px-8 py-1 font-brandFont text-3xl font-medium text-brandMain hover:animate-bgSlideRight max-sm:px-4"
         href="https://www.linkedin.com/in/jesse-pernil%C3%A4-52a9b8192/"
         target="_blank"
         >LinkedIn <svg
           viewBox="0 0 24 24"
-          class="w-10 h-full stroke-none fill-inherit relative left-2"
+          class="relative left-2 h-full w-10 fill-inherit stroke-none"
           set:html={`
 <title>Linkedin Profile Link</title>
 ${linkedinIcon.default}
@@ -40,12 +46,12 @@ ${linkedinIcon.default}
         /></a
       >
       <a
-        class="relative flex items-center h-12 w-fit py-1 px-8 max-sm:px-4 font-brandFont text-brandMain fill-brandMain text-3xl font-medium animate-bgSlideLeft hover:animate-bgSlideRight bg-no-repeat bg-x--10rem bg-gradient-to-r from-brandMain from-100% to-white to-200%"
+        class="bg-x--10rem relative flex h-12 w-fit animate-bgSlideLeft items-center bg-gradient-to-r from-brandMain from-100% to-white to-200% bg-no-repeat fill-brandMain px-8 py-1 font-brandFont text-3xl font-medium text-brandMain hover:animate-bgSlideRight max-sm:px-4"
         href="https://github.com/jessejp"
         target="_blank"
         >GitHub <svg
           viewBox="0 0 24 24"
-          class="w-8 h-full stroke-none fill-inherit relative left-2"
+          class="relative left-2 h-full w-8 fill-inherit stroke-none"
           set:html={`
 <title>GitHub Profile Link</title>
 ${githubIcon.default}
@@ -56,7 +62,7 @@ ${githubIcon.default}
   </div>
 </div>
 
-<button id={`open-mobile-nav-modal`} class="flex items-center h-12 w-fit"
+<button id={`open-mobile-nav-modal`} class="flex h-12 w-fit items-center"
   ><svg
     viewBox="0 0 64 64"
     class="h-full"
@@ -68,46 +74,45 @@ ${githubIcon.default}
 >
 
 <script define:vars={{ sections }}>
-const hamburgerIcon = document.querySelector(`#open-mobile-nav-modal`);
-const mobileNavModal = document.querySelector(`#mobile-nav-modal`);
-const mobileNavModalClose = document.querySelector("[data-dialog-close]");
-const mobileNavModalInner = document.querySelector(`#mobile-nav-modal-inner`);
+  const hamburgerIcon = document.querySelector(`#open-mobile-nav-modal`);
+  const mobileNavModal = document.querySelector(`#mobile-nav-modal`);
+  const mobileNavModalClose = document.querySelector("[data-dialog-close]");
+  const mobileNavModalInner = document.querySelector(`#mobile-nav-modal-inner`);
 
-const closeModal = () => {
-  mobileNavModal.classList.add("hidden");
-  mobileNavModal.classList.remove("animate-mobileMenuSlideToTop");
-};
+  const closeModal = () => {
+    mobileNavModal.classList.add("hidden");
+    mobileNavModal.classList.remove("animate-mobileMenuSlideToTop");
+  };
 
-hamburgerIcon.addEventListener("click", () => {
-  // mobileNavModal.showModal();
-  mobileNavModal.classList.remove("hidden");
-});
+  hamburgerIcon.addEventListener("click", () => {
+    mobileNavModal.classList.remove("hidden");
+  });
 
-mobileNavModalClose.addEventListener("click", () => {
-  mobileNavModal.classList.add("animate-mobileMenuSlideToTop");
-  setTimeout(() => {
-    closeModal();
-  }, 300);
-});
-
-mobileNavModalInner.addEventListener("click", (event) => {
-  event.stopPropagation();
-});
-
-mobileNavModalInner.addEventListener("click", (event) => {
-  const clicked = event.target.innerText;
-  if (sections.includes(clicked)) {
-    const section = document.querySelector(`#${clicked.replace(" ", "-")}`);
-    section.scrollIntoView({ behavior: "smooth", block: "start" });
+  mobileNavModalClose.addEventListener("click", () => {
     mobileNavModal.classList.add("animate-mobileMenuSlideToTop");
-
     setTimeout(() => {
       closeModal();
     }, 300);
-  }
-});
+  });
 
-window.addEventListener("resize", (event) => {
-  if (window.innerWidth > 640) closeModal();
-});
+  mobileNavModalInner.addEventListener("click", (event) => {
+    event.stopPropagation();
+  });
+
+  mobileNavModalInner.addEventListener("click", (event) => {
+    const clicked = event.target.innerText;
+    if (sections.includes(clicked)) {
+      const section = document.querySelector(`#${clicked.replace(" ", "-")}`);
+      section.scrollIntoView({ behavior: "smooth", block: "start" });
+      mobileNavModal.classList.add("animate-mobileMenuSlideToTop");
+
+      setTimeout(() => {
+        closeModal();
+      }, 300);
+    }
+  });
+
+  window.addEventListener("resize", (event) => {
+    if (window.innerWidth > 640) closeModal();
+  });
 </script>

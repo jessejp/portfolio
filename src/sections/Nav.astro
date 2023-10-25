@@ -1,74 +1,88 @@
 ---
 import MobileNavModal from "../components/MobileNavModal.astro";
-const sections = ["HOME", "ABOUT JESSE", "PROJECTS", "CONNECT"];
+import NavLinks from "../components/NavLinks.astro";
+const { currentPath } = Astro.props;
+const sections = [
+  { value: "HOME", redirect: "/" },
+  { value: "ABOUT_JESSE", redirect: "/" },
+  { value: "PROJECTS", redirect: "/" },
+  { value: "BLOG", redirect: "/blog" },
+  { value: "CONNECT", redirect: "/" },
+];
 ---
 
-<div id="HOME" class="h-28"></div>
+<div class="h-28"></div>
 <nav
-  class="flex justify-center items-center w-full 2xl:w-11/12 h-24 max-md:h-18 max-w-9xl fixed bg-white z-40"
+  class="fixed z-50 flex h-24 w-full max-w-9xl items-center justify-center bg-white max-md:h-18 2xl:w-11/12"
 >
-  <div
-    class="flex justify-between items-center w-11/12"
-  >
-    <div class="font-brandFont text-3xl whitespace-nowrap 2xl:m-0 max-md:w-1/2">
-      <img alt="logo" src="/logo_spin.gif" class="w-8 inline-block" />
-      jessep.fi
-    </div>
+  <div class="flex w-11/12 items-center justify-between">
+    <a
+      href="/"
+      class="flex items-end gap-2 whitespace-nowrap font-brandFont text-3xl max-md:w-1/2 2xl:m-0"
+    >
+      <img
+        alt="logo"
+        src="/logo_spin.gif"
+        class="inline-block h-8 w-8"
+      />jessep.fi
+    </a>
     <div
-      class="w-3/6 min-w-fit flex justify-between items-center max-md:hidden"
+      class="flex w-3/6 min-w-fit items-center justify-between max-md:hidden"
     >
       <div
         id="nav-links"
-        class="flex w-full gap-4 justify-between relative -right-2"
+        class="relative -right-2 flex w-full justify-between gap-4"
       >
-        {
-          sections.map((section) => (
-            <button class="px-2 pb-1 min-w-fit font-brandFont text-3xl underline text-link hover:text-blue-500 animate-bgSlideBottom hover:animate-bgSlideTop bg-no-repeat bg-y-3rem bg-gradient-to-t from-brandMain from-100% to-white to-200%">
-              {section}
-            </button>
-          ))
-        }
+        <NavLinks sections={sections} currentPath={currentPath} />
       </div>
     </div>
 
-    <div class="w-fit hidden max-md:block">
+    <div class="hidden w-fit max-md:block">
       <MobileNavModal sections={sections}>
-        {
-          sections.map((section) => (
-            <button class="px-2 pb-1 min-w-fit font-brandFont text-5xl underline text-link hover:text-blue-500 animate-bgSlideBottom hover:animate-bgSlideTop bg-no-repeat bg-y-3rem bg-gradient-to-t from-brandMain from-100% to-white to-200%">
-              {section}
-            </button>
-          ))
-        }
+        <NavLinks sections={sections} currentPath={currentPath} />
       </MobileNavModal>
     </div>
   </div>
 </nav>
 <div
   id="nav-border"
-  class="h-0.75 bg-brandMain w-screen fixed top-24 max-md:top-18 left-0 z-30 origin-left transition-transform duration-300 scale-x-100"
+  class="fixed left-0 top-24 z-30 h-0.75 w-screen origin-left scale-x-0 bg-brandMain transition-transform duration-300 max-md:top-18"
 >
 </div>
 
-<script define:vars={{ sections }}>
+<script define:vars={{ sections, currentPath }}>
   const navBorder = document.getElementById("nav-border");
   const nav = document.querySelector("#nav-links");
 
   nav.addEventListener("click", (event) => {
-    const clicked = event.target.innerText;
-    if (sections.includes(clicked)) {
-      const section = document.querySelector(`#${clicked.replace(" ", "-")}`);
+    const clicked = event.target.innerText.replaceAll(" ", "_");
+    if (
+      sections.find(
+        (section) =>
+          section.value === clicked && section.redirect === currentPath,
+      )
+    ) {
+      const section = document.querySelector(`#${clicked}`);
       section.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   });
 
+  let borderState = false;
   const addBorderOnScrollDown = () => {
-    if (window.scrollY > Math.max(448, window.innerHeight / 2)) {
+    if (
+      !borderState &&
+      window.scrollY > Math.max(448, window.innerHeight / 2)
+    ) {
       navBorder.classList.remove("scale-x-0");
       navBorder.classList.add("scale-x-100");
-    } else {
+      borderState = true;
+    } else if (
+      borderState &&
+      window.scrollY < Math.max(448, window.innerHeight / 2)
+    ) {
       navBorder.classList.remove("scale-x-100");
       navBorder.classList.add("scale-x-0");
+      borderState = false;
     }
   };
 

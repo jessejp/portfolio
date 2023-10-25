@@ -1,24 +1,52 @@
 ---
-import ArticleModal from "./ArticleModal.astro";
-const { frontmatter } = Astro.props;
-const title = frontmatter.title.toUpperCase();
 const githubIcon = await import("/assets/icons/github.svg?raw");
 const externalIcon = await import("/assets/icons/open-external.svg?raw");
+
+type Props = {
+  title: string;
+  description: string;
+  slug: string;
+  blogLink: string;
+  projectLink: string;
+  gitLink: string;
+  techStack: string[];
+  thumbnail: string;
+  altText: string;
+};
+
+const {
+  title,
+  description,
+  slug,
+  blogLink,
+  projectLink,
+  gitLink,
+  techStack,
+  thumbnail,
+  altText,
+} = Astro.props as Props;
+
+title.toUpperCase();
 ---
 
-<article class="w-1/2 max-w-2xl order-2 max-lg:self-start max-lg:w-full">
+<article class="order-2 w-1/2 max-w-2xl max-lg:w-full max-lg:self-start">
   <div class="max-lg:mt-4"></div>
   <h3 class="text-3xl">{title}</h3>
-  <div class="flex flex-col gap-4 text-lg max-w-xl"><slot /></div>
+  <div class="flex max-w-xl flex-col gap-4 text-lg">{description}</div>
   <div class="mt-4"></div>
   <div class="flex flex-wrap gap-4 max-xs:gap-2">
     <a
-      class="relative flex items-center h-12 w-fit py-1 px-8 max-sm:px-4 font-brandFont text-brandMain border-brandMain fill-brandMain border-2 text-2xl font-medium animate-bgSlideLeft hover:animate-bgSlideRight bg-no-repeat bg-x--10rem bg-gradient-to-r from-brandMain from-100% to-white to-200%"
-      href={frontmatter.href}
+      href={blogLink}
+      class="flex h-12 w-fit animate-bgSlideTopAlt items-center border-2 border-brandMain bg-gradient-to-t from-brandMain from-100% to-white to-200% bg-no-repeat fill-brandMain px-8 py-1 font-brandFont text-2xl font-medium text-brandMain hover:animate-bgSlideBottomAlt max-sm:px-4"
+      >Read More</a
+    >
+    <a
+      class="bg-x--10rem relative flex h-12 w-fit animate-bgSlideLeft items-center border-2 border-brandMain bg-gradient-to-r from-brandMain from-100% to-white to-200% bg-no-repeat fill-brandMain px-8 py-1 font-brandFont text-2xl font-medium text-brandMain hover:animate-bgSlideRight max-sm:px-4"
+      href={projectLink}
       target="_blank"
       >Visit Page <svg
         viewBox="0 0 512 512"
-        class="w-6 h-full stroke-none fill-inherit relative left-2"
+        class="relative left-2 h-full w-6 fill-inherit stroke-none"
         set:html={`
       <title>External Page Link</title>
       ${externalIcon.default}
@@ -26,15 +54,15 @@ const externalIcon = await import("/assets/icons/open-external.svg?raw");
       /></a
     >
     {
-      !!frontmatter.github && (
+      !!gitLink && (
         <a
-          class="flex items-center h-12 w-fit py-1 px-3 font-brandFont text-brandMain border-brandMain fill-brandMain border-2 text-2xl font-medium animate-bgSlideLeft hover:animate-bgSlideRight bg-no-repeat bg-x--10rem bg-gradient-to-r from-brandMain from-100% to-white to-200%"
-          href={frontmatter.github}
+          class="bg-x--10rem flex h-12 w-fit animate-bgSlideLeft items-center border-2 border-brandMain bg-gradient-to-r from-brandMain from-100% to-white to-200% bg-no-repeat fill-brandMain px-3 py-1 font-brandFont text-2xl font-medium text-brandMain hover:animate-bgSlideRight"
+          href={gitLink}
           target="_blank"
         >
           <svg
             viewBox="0 0 24 24"
-            class="w-6 h-full stroke-none fill-inherit"
+            class="h-full w-6 fill-inherit stroke-none"
             set:html={`
         <title>GitHub Link</title>
         ${githubIcon.default}
@@ -45,21 +73,21 @@ const externalIcon = await import("/assets/icons/open-external.svg?raw");
     }
   </div>
   <div class="mt-8"></div>
-  <div class="flex flex-wrap gap-x-4 gap-y-2 max-w-lg">
+  <div class="flex max-w-lg flex-wrap gap-x-4 gap-y-2">
     {
-      !!frontmatter.stack &&
-        frontmatter.stack.map((item) => (
+      !!techStack &&
+        techStack.map((item) => (
           <span class="text-sm text-gray-600">{item}</span>
         ))
     }
   </div>
 </article>
 <div
-  class="relative w-1/2 h-[19rem] max-lg:h-fit max-w-sm max-lg:w-full max-lg:self-start"
+  class="relative h-[19rem] w-1/2 max-w-sm max-lg:h-fit max-lg:w-full max-lg:self-start"
 >
   <img
-    class="z-10 relative sm:top-auto aspect-square max-h-[19rem] shadow-hard-right shadow-superYellow"
-    src={frontmatter.thumbnail}
-    alt={frontmatter.alt}
+    class="shadow-hard-right relative z-10 aspect-square max-h-[19rem] shadow-superYellow sm:top-auto"
+    src={thumbnail}
+    alt={altText}
   />
 </div>

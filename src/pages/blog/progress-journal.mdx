@@ -1,0 +1,41 @@
+---
+  layout: ../../layouts/Layout.astro
+  date: 2023-9-25
+  slug: progress-journal
+  title: Progress Journal
+  projectLink: http://progress-journal.vercel.app/
+  thumbnail: /assets/thumbnails/progress-journal-v3.webp
+  thumbnailAnimated: "/assets/thumbnails/progress-journal-video.webm"
+  altText: "smartphone with progress journal web app open"
+  gitLink: https://github.com/jessejp/progress-journal
+  techStack: ["React", "Next.js", "TypeScript", "Prisma", "trpc", "zod", "TailwindCSS", "React Hook Form", "Recharts", "Figma"]
+  description: "A full-stack training progress application built on the T3-stack."
+  highlightEnabled: true
+  hightlightOrder: 1
+  hightlightAltStyle: false
+---
+
+import Duo from "../../components/Duo.astro";
+import SectionText from "../../components/ui/SectionText.astro";
+import SectionImage from "../../components/ui/SectionImage.astro";
+
+<Duo>
+  <SectionText>
+    ## Project summary
+    Goal of this project was to make a training journaling app that has a generic data structure, so that it can be used for any kind of training. This is achieved by letting the user create subjects, which contain fields and inputs. The user can then create entries for the subject and view training history through reading entries and viewing charts of training data.
+
+    Progress Journal doesn't hold the hand of the user, this app is a tool with fully customizable subjects for the user to configure.
+  </SectionText>
+  <SectionImage src="/assets/thumbnails/progress-journal-v3.webp" alt="progress journal" />
+</Duo>
+## Development
+The project is built on the <a class="accessible" href="https://create.t3.gg/">T3-stack</a>, a Next.js project with TypeScript, trpc, TailwindCSS and Prisma. The project is hosted on Vercel, and uses a MySQL database hosted on PlanetScale.
+
+## Work-in-progress, currently supported features
+<ul>
+  <li>Discord authentication</li>
+  <li>Create subjects containing fields and inputs</li>
+  <li>Create entries for the subject</li>
+  <li>View previous entries</li>
+  <li>View progress in a chart (only for weight/rep/set fields)</li>
+</ul>

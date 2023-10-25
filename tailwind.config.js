@@ -58,7 +58,7 @@ export default {
       },
       colors: {
         brandMain: "#0000ff",
-        link: "#0000ee",
+        link: "#2929ff",
         visited: "#551A8B",
         superYellow: "#ffff00",
       },
@@ -75,7 +75,6 @@ export default {
         copied: "copied 0.7s linear 0s forwards",
         copiedFloatingText: "copiedFloatingText 0.7s ease-in 0s normal",
         bgSlideTop: "bgSlideTop 0.11s linear forwards",
-        bgSlideBottom: "bgSlideBottom 0.11s linear forwards",
         bgSlideTopAlt: "bgSlideTopAlt 0.11s linear forwards",
         bgSlideBottomAlt: "bgSlideBottomAlt 0.11s linear forwards",
         bgSlideRight: "bgSlideRight 0.09s linear forwards",
@@ -108,18 +107,6 @@ export default {
             backgroundPosition: "0 0rem",
             color: "#ffffff",
             fill: "#ffffff",
-          },
-        },
-        bgSlideBottom: {
-          "0%": {
-            backgroundPosition: "0 0rem",
-            color: "#ffffff",
-            fill: "#ffffff",
-          },
-          "100%": {
-            backgroundPosition: "0 6rem",
-            color: "#0000ff",
-            fill: "#0000ff",
           },
         },
         bgSlideTopAlt: {
@@ -197,5 +184,5 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/typography"), "prettier-plugin-tailwindcss"],
 };

@@ -1,24 +1,54 @@
 ---
 import ArticleModal from "./ArticleModal.astro";
-const { frontmatter } = Astro.props;
-const title = frontmatter.title.toUpperCase();
 const githubIcon = await import("/assets/icons/github.svg?raw");
 const externalIcon = await import("/assets/icons/open-external.svg?raw");
+
+type Props = {
+  title: string;
+  description: string;
+  slug: string;
+  blogLink: string;
+  projectLink: string;
+  gitLink: string;
+  techStack: string[];
+  thumbnail: string;
+  thumbnailAnimated: string;
+  altText: string;
+};
+
+const {
+  title,
+  description,
+  slug,
+  blogLink,
+  projectLink,
+  gitLink,
+  techStack,
+  thumbnail,
+  thumbnailAnimated,
+  altText,
+} = Astro.props as Props;
+
+title.toUpperCase();
 ---
 
-<div class="w-1/2 max-w-2xl max-md:self-start max-md:w-full max-md:order-2">
+<div class="w-1/2 max-w-2xl max-md:order-2 max-md:w-full max-md:self-start">
   <h3 class="text-3xl">{title}</h3>
-  <div class="text-lg max-w-xl">{frontmatter.description}</div>
+  <div class="max-w-xl text-lg">{description}</div>
   <div class="mt-4"></div>
   <div class="flex flex-wrap gap-4 max-xs:gap-2">
-    <ArticleModal id={frontmatter.slug} title={title}><slot /></ArticleModal>
     <a
-      class="relative flex items-center h-12 w-fit py-1 px-8 max-sm:px-4 font-brandFont text-brandMain border-brandMain fill-brandMain border-2 text-2xl font-medium animate-bgSlideLeft hover:animate-bgSlideRight bg-no-repeat bg-x--10rem bg-gradient-to-r from-brandMain from-100% to-white to-200%"
-      href={frontmatter.href}
+      href={blogLink}
+      class="flex h-12 w-fit animate-bgSlideTopAlt items-center border-2 border-brandMain bg-gradient-to-t from-brandMain from-100% to-white to-200% bg-no-repeat fill-brandMain px-8 py-1 font-brandFont text-2xl font-medium text-brandMain hover:animate-bgSlideBottomAlt max-sm:px-4"
+      >Read More</a
+    >
+    <a
+      class="bg-x--10rem relative flex h-12 w-fit animate-bgSlideLeft items-center border-2 border-brandMain bg-gradient-to-r from-brandMain from-100% to-white to-200% bg-no-repeat fill-brandMain px-8 py-1 font-brandFont text-2xl font-medium text-brandMain hover:animate-bgSlideRight max-sm:px-4"
+      href={projectLink}
       target="_blank"
       >Visit Page <svg
         viewBox="0 0 512 512"
-        class="w-6 h-full stroke-none fill-inherit relative left-2"
+        class="relative left-2 h-full w-6 fill-inherit stroke-none"
         set:html={`
       <title>External Page Link</title>
       ${externalIcon.default}
@@ -26,15 +56,15 @@ const externalIcon = await import("/assets/icons/open-external.svg?raw");
       /></a
     >
     {
-      !!frontmatter.github && (
+      !!gitLink && (
         <a
-          class="flex items-center h-12 w-fit py-1 px-3 font-brandFont text-brandMain border-brandMain fill-brandMain border-2 text-2xl font-medium animate-bgSlideLeft hover:animate-bgSlideRight bg-no-repeat bg-x--10rem bg-gradient-to-r from-brandMain from-100% to-white to-200%"
-          href={frontmatter.github}
+          class="bg-x--10rem flex h-12 w-fit animate-bgSlideLeft items-center border-2 border-brandMain bg-gradient-to-r from-brandMain from-100% to-white to-200% bg-no-repeat fill-brandMain px-3 py-1 font-brandFont text-2xl font-medium text-brandMain hover:animate-bgSlideRight"
+          href={gitLink}
           target="_blank"
         >
           <svg
             viewBox="0 0 24 24"
-            class="w-6 h-full stroke-none fill-inherit"
+            class="h-full w-6 fill-inherit stroke-none"
             set:html={`
         <title>GitHub Link</title>
         ${githubIcon.default}
@@ -45,114 +75,114 @@ const externalIcon = await import("/assets/icons/open-external.svg?raw");
     }
   </div>
   <div class="mt-8"></div>
-  <div class="flex flex-wrap gap-x-4 gap-y-2 max-w-lg">
+  <div class="flex max-w-lg flex-wrap gap-x-4 gap-y-2">
     {
-      !!frontmatter.stack &&
-        frontmatter.stack.map((item) => (
+      !!techStack &&
+        techStack.map((item) => (
           <span class="text-sm text-gray-600">{item}</span>
         ))
     }
   </div>
 </div>
-<div class="relative max-md:self-start max-w-sm max-md:w-11/12 max-md:mt-6">
+<div class="relative max-w-sm max-md:mt-6 max-md:w-11/12 max-md:self-start">
   <a
-    id=`thumbnain-container-${frontmatter.slug}`
-    class="relative border-brandMain border-2 aspect-square flex items-center overflow-hidden"
-    href={frontmatter.href}
+    id=`thumbnain-container-${slug}`
+    class="relative flex aspect-square items-center overflow-hidden border-2 border-brandMain"
+    href={projectLink}
     target="_blank"
   >
     <img
-      id=`img-thumbnail-${frontmatter.slug}`
-      class="w-96 h-auto block"
-      src={frontmatter.thumbnail}
-      alt={frontmatter.alt}
+      id=`img-thumbnail-${slug}`
+      class="block h-auto w-96"
+      src={thumbnail}
+      alt={altText}
     />
     <video
-      id=`video-thumbnail-${frontmatter.slug}`
-      class="w-96 h-auto scale-114 hidden"
+      id=`video-thumbnail-${slug}`
+      class="hidden h-auto w-96 scale-114"
       autoplay
       loop
       muted
     >
-      <source src={frontmatter.thumbnailAnimated} type="video/webm" />
+      <source src={thumbnailAnimated} type="video/webm" />
     </video>
   </a>
   <div
-    class="absolute -top-2 left-2 -z-10 aspect-square bg-transparent border-brandMain border-2 w-full h-full"
+    class="absolute -top-2 left-2 -z-10 aspect-square h-full w-full border-2 border-brandMain bg-transparent"
   >
   </div>
 </div>
 
-<script define:vars={{ slug: frontmatter.slug }}>
-const thumbnailContainer = document.getElementById(
-  `thumbnain-container-${slug}`
-);
-const videoThumbnail = document.getElementById(`video-thumbnail-${slug}`);
-const imgThumbnail = document.getElementById(`img-thumbnail-${slug}`);
-const viewportWidth =
-  window.innerWidth || document.documentElement.clientWidth;
-const mobileScreenWidth = viewportWidth <= 768;
-let animationPlaying = false;
-
-function isInViewport(el) {
-  const rect = el.getBoundingClientRect();
-  return (
-    rect.top >= 0 &&
-    rect.left >= 0 &&
-    rect.bottom <=
-    (window.innerHeight || document.documentElement.clientHeight) &&
-    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+<script define:vars={{ slug }}>
+  const thumbnailContainer = document.getElementById(
+    `thumbnain-container-${slug}`,
   );
-}
+  const videoThumbnail = document.getElementById(`video-thumbnail-${slug}`);
+  const imgThumbnail = document.getElementById(`img-thumbnail-${slug}`);
+  const viewportWidth =
+    window.innerWidth || document.documentElement.clientWidth;
+  const mobileScreenWidth = viewportWidth <= 768;
+  let animationPlaying = false;
 
-function playVideo() {
-  animationPlaying = true;
-  videoThumbnail.play();
-  imgThumbnail.classList.add("hidden");
-  videoThumbnail.classList.remove("hidden");
-}
-
-function pauseVideo() {
-  animationPlaying = false;
-  videoThumbnail.pause();
-  videoThumbnail.currentTime = 0;
-  imgThumbnail.classList.remove("hidden");
-  videoThumbnail.classList.add("hidden");
-}
-
-thumbnailContainer.addEventListener("mouseenter", () => {
-  if (!animationPlaying && videoThumbnail.canPlayType("video/webm") !== "") {
-    playVideo();
+  function isInViewport(el) {
+    const rect = el.getBoundingClientRect();
+    return (
+      rect.top >= 0 &&
+      rect.left >= 0 &&
+      rect.bottom <=
+        (window.innerHeight || document.documentElement.clientHeight) &&
+      rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
   }
-});
 
-thumbnailContainer.addEventListener("mouseleave", () => {
-  if (animationPlaying && videoThumbnail.canPlayType("video/webm") !== "") {
-    pauseVideo();
+  function playVideo() {
+    animationPlaying = true;
+    videoThumbnail.play();
+    imgThumbnail.classList.add("hidden");
+    videoThumbnail.classList.remove("hidden");
   }
-});
 
-document.addEventListener(
-  "scroll",
-  function () {
-    if (!mobileScreenWidth) return;
-    let timeout;
-    if (isInViewport(thumbnailContainer)) {
-      if (animationPlaying) return;
-      timeout = setTimeout(() => {
-        if (videoThumbnail.canPlayType("video/webm") !== "") {
-          playVideo();
-        }
-      }, 750);
-    } else {
-      if (animationPlaying) {
-        pauseVideo();
-        clearTimeout(timeout);
-      }
+  function pauseVideo() {
+    animationPlaying = false;
+    videoThumbnail.pause();
+    videoThumbnail.currentTime = 0;
+    imgThumbnail.classList.remove("hidden");
+    videoThumbnail.classList.add("hidden");
+  }
+
+  thumbnailContainer.addEventListener("mouseenter", () => {
+    if (!animationPlaying && videoThumbnail.canPlayType("video/webm") !== "") {
+      playVideo();
     }
-  },
-  {
-    passive: true,
-  }
-);
+  });
+
+  thumbnailContainer.addEventListener("mouseleave", () => {
+    if (animationPlaying && videoThumbnail.canPlayType("video/webm") !== "") {
+      pauseVideo();
+    }
+  });
+
+  document.addEventListener(
+    "scroll",
+    function () {
+      if (!mobileScreenWidth) return;
+      let timeout;
+      if (isInViewport(thumbnailContainer)) {
+        if (animationPlaying) return;
+        timeout = setTimeout(() => {
+          if (videoThumbnail.canPlayType("video/webm") !== "") {
+            playVideo();
+          }
+        }, 750);
+      } else {
+        if (animationPlaying) {
+          pauseVideo();
+          clearTimeout(timeout);
+        }
+      }
+    },
+    {
+      passive: true,
+    },
+  );
 </script>

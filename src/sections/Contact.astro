@@ -1,6 +1,6 @@
 ---
 import Canvas3D from "../components/Canvas3D/Canvas3D.jsx";
-import SubHBoxLeft from "../components/ui/SubHBoxLeft.astro";
+import SubHBox from "../components/ui/SubHBox.astro";
 const githubIcon = await import("/assets/icons/github.svg?raw");
 const linkedinIcon = await import("/assets/icons/linkedin.svg?raw");
 const contactEmailAddress = "connect.jessep@gmail.com";
@@ -8,7 +8,7 @@ const contactEmailAddress = "connect.jessep@gmail.com";
 
 <section
   id="CONNECT"
-  class="relative flex justify-center items-center w-full min-h-132 h-halfScreen max-w-9xl"
+  class="relative flex h-halfScreen min-h-132 w-full max-w-9xl items-center justify-center"
 >
   <Canvas3D
     cameraPosition={[2, -0.1, 2.4]}
@@ -21,11 +21,11 @@ const contactEmailAddress = "connect.jessep@gmail.com";
     client:visible
   />
   <div
-    class="absolute w-10/12 max-xs:w-11/12 self-center max-sm:self-end max-sm:mb-10 min-h-56 max-w-lg bg-gradient-to-t from-violet-700 from-20% to-100% to-brandMain"
+    class="absolute min-h-56 w-10/12 max-w-lg self-center bg-gradient-to-t from-violet-700 from-20% to-brandMain to-100% max-sm:mb-10 max-sm:self-end max-xs:w-11/12"
   >
-    <SubHBoxLeft>Connect</SubHBoxLeft>
+    <SubHBox side="left">Connect</SubHBox>
     <div
-      class="flex flex-col m-0.75 relative p-6 pt-8 bg-white min-h-56 items-center justify-center self-center"
+      class="relative m-0.75 flex min-h-56 flex-col items-center justify-center self-center bg-white p-6 pt-8"
     >
       <div class="mt-8"></div>
       <p class="text-lg">
@@ -35,35 +35,35 @@ const contactEmailAddress = "connect.jessep@gmail.com";
       <div
         title="Copy to clipboard"
         id="CONTACT-EMAIL"
-        class="relative cursor-pointer h-7 w-fit"
+        class="relative h-7 w-fit cursor-pointer"
       >
         <button
-          class="text-lg max-xs:text-base text-brandMain flex items-center gap-3 w-fit h-7 hover:font-bold"
+          class="flex h-7 w-fit items-center gap-3 text-lg text-brandMain hover:font-bold max-xs:text-base"
           id="COPY-EMAIL"
         >
           <span>{contactEmailAddress}</span>
           <img
             title="Copy to clipboard"
             alt="Copy to clipboard"
-            class="w-6 h-fit select-none"
+            class="h-fit w-6 select-none"
             src="/assets/icons/copy-to-clipboard.svg"
           /><span
             role="presentation"
             id="COPY-ANIMATION-TEXT"
-            class="absolute -top-4 right-4 text-green-500 font-bold font-brandFont text-3xl block whitespace-nowrap opacity-0 select-none"
+            class="absolute -top-4 right-4 block select-none whitespace-nowrap font-brandFont text-3xl font-bold text-green-500 opacity-0"
             >Copied to Clipboard!</span
           >
         </button>
       </div>
       <div class="mt-8"></div>
-      <div class="flex justify-center flex-wrap gap-4 w-full">
+      <div class="flex w-full flex-wrap justify-center gap-4">
         <a
-          class="relative flex items-center h-12 w-fit py-1 px-8 max-sm:px-4 font-brandFont text-brandMain border-brandMain fill-brandMain border-2 text-2xl font-medium animate-bgSlideLeft hover:animate-bgSlideRight bg-no-repeat bg-x--10rem bg-gradient-to-r from-brandMain from-100% to-white to-200%"
+          class="bg-x--10rem relative flex h-12 w-fit animate-bgSlideLeft items-center border-2 border-brandMain bg-gradient-to-r from-brandMain from-100% to-white to-200% bg-no-repeat fill-brandMain px-8 py-1 font-brandFont text-2xl font-medium text-brandMain hover:animate-bgSlideRight max-sm:px-4"
           href="https://www.linkedin.com/in/jesse-pernil%C3%A4-52a9b8192/"
           target="_blank"
           >LinkedIn <svg
             viewBox="0 0 24 24"
-            class="w-8 h-full stroke-none fill-inherit relative left-2"
+            class="relative left-2 h-full w-8 fill-inherit stroke-none"
             set:html={`
       <title>Linkedin Profile Link</title>
       ${linkedinIcon.default}
@@ -71,12 +71,12 @@ const contactEmailAddress = "connect.jessep@gmail.com";
           /></a
         >
         <a
-          class="relative flex items-center h-12 w-fit py-1 px-8 max-sm:px-4 font-brandFont text-brandMain border-brandMain fill-brandMain border-2 text-2xl font-medium animate-bgSlideLeft hover:animate-bgSlideRight bg-no-repeat bg-x--10rem bg-gradient-to-r from-brandMain from-100% to-white to-200%"
+          class="bg-x--10rem relative flex h-12 w-fit animate-bgSlideLeft items-center border-2 border-brandMain bg-gradient-to-r from-brandMain from-100% to-white to-200% bg-no-repeat fill-brandMain px-8 py-1 font-brandFont text-2xl font-medium text-brandMain hover:animate-bgSlideRight max-sm:px-4"
           href="https://github.com/jessejp"
           target="_blank"
           >GitHub <svg
             viewBox="0 0 24 24"
-            class="w-6 h-full stroke-none fill-inherit relative left-2"
+            class="relative left-2 h-full w-6 fill-inherit stroke-none"
             set:html={`
   <title>GitHub Profile Link</title>
   ${githubIcon.default}
@@ -89,20 +89,20 @@ const contactEmailAddress = "connect.jessep@gmail.com";
 </section>
 
 <script define:vars={{ contactEmailAddress }}>
-const copyEmail = document.getElementById("COPY-EMAIL");
-const email = document.getElementById("CONTACT-EMAIL");
-const copyAnimation = document.getElementById("COPY-ANIMATION-TEXT");
-let animationRemoveTimeout = null;
+  const copyEmail = document.getElementById("COPY-EMAIL");
+  const email = document.getElementById("CONTACT-EMAIL");
+  const copyAnimation = document.getElementById("COPY-ANIMATION-TEXT");
+  let animationRemoveTimeout = null;
 
-copyEmail.addEventListener("click", () => {
-  clearTimeout(animationRemoveTimeout);
-  navigator.clipboard.writeText(contactEmailAddress);
-  email.classList.add("animate-copied");
-  copyAnimation.classList.add("animate-copiedFloatingText");
+  copyEmail.addEventListener("click", () => {
+    clearTimeout(animationRemoveTimeout);
+    navigator.clipboard.writeText(contactEmailAddress);
+    email.classList.add("animate-copied");
+    copyAnimation.classList.add("animate-copiedFloatingText");
 
-  animationRemoveTimeout = setTimeout(() => {
-    email.classList.remove("animate-copied");
-    copyAnimation.classList.remove("animate-copiedFloatingText");
-  }, 800);
-});
+    animationRemoveTimeout = setTimeout(() => {
+      email.classList.remove("animate-copied");
+      copyAnimation.classList.remove("animate-copiedFloatingText");
+    }, 800);
+  });
 </script>

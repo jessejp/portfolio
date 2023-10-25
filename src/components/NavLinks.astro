@@ -1,0 +1,38 @@
+---
+type Props = {
+  sections: {
+    value: string;
+    redirect: string;
+  }[];
+  currentPath: string;
+};
+
+const { sections, currentPath } = Astro.props as Props;
+const PageMainSection = sections.findIndex(
+  (section) => section.redirect !== currentPath,
+);
+---
+
+{
+  sections.map((section, index) => {
+    if (section.redirect !== currentPath) {
+      const isMainSection = index === PageMainSection;
+      return (
+        <a
+          href={`${section.redirect}${
+            isMainSection ? "" : `#${section.value}`
+          }`}
+          class="hover:animate-bgSlideTop min-w-fit bg-gradient-to-t from-brandMain from-100% to-white to-200% bg-y-6rem bg-no-repeat px-2 pb-1 font-brandFont text-3xl text-link underline hover:text-blue-500 max-md:text-5xl"
+        >
+          {section.value.replaceAll("_", " ")}
+        </a>
+      );
+    } else {
+      return (
+        <button class="hover:animate-bgSlideTop min-w-fit bg-gradient-to-t from-brandMain from-100% to-white to-200% bg-y-6rem bg-no-repeat px-2 pb-1 font-brandFont text-3xl text-link underline hover:text-blue-500 max-md:text-5xl">
+          {section.value.replaceAll("_", " ")}
+        </button>
+      );
+    }
+  })
+}

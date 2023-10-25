@@ -1,0 +1,62 @@
+---
+import dayjs from "dayjs";
+import relativeTime from "dayjs/plugin/relativeTime";
+dayjs.extend(relativeTime);
+import SubHBox from "../ui/SubHBox.astro";
+const CTAarrow = await import("/assets/icons/arrow-right.svg?raw");
+type Props = {
+  slug: string;
+  image: string;
+  title: string;
+  description: string;
+  date: string;
+};
+const { slug, image, title, description, date } = Astro.props as Props;
+
+const cutTitle =
+  title.length > 30
+    ? title.slice(0, 30).split(" ").slice(0, -1).join(" ") + "..."
+    : title;
+
+const cutDescription =
+  description.length > 60
+    ? description.slice(0, 60).split(" ").slice(0, -1).join(" ") + "..."
+    : description;
+---
+
+<div
+  id={slug}
+  class="relative flex w-72 scale-100 cursor-pointer flex-col gap-6 border-3 border-brandMain transition-transform duration-75 hover:scale-105"
+>
+  <SubHBox side="right" variant="smallgap">{dayjs(date).fromNow()}</SubHBox>
+  <img src={image} alt={title} class="h-40 w-full object-cover" />
+  <div class="flex h-full flex-col gap-6 px-3 pb-4">
+    <h3 class="max-h-18 min-h-[2.25rem] overflow-hidden text-3xl">
+      {cutTitle}
+    </h3>
+    <p class="max-h-12 overflow-hidden">{cutDescription}</p>
+    <div class="flex flex-grow flex-col justify-end">
+      <a
+        href={`/blog/${slug}`}
+        class="flex h-8 w-fit items-end gap-2 border-b-2 border-transparent font-brandFont text-2xl text-brandMain hover:border-brandMain"
+      >
+        Start Reading <svg
+          viewBox="0 0 16 16"
+          class="h-7 w-4 fill-inherit stroke-none"
+          set:html={`
+    <title>Start Reading Arrow</title>
+    ${CTAarrow.default}
+    `}
+        />
+      </a>
+    </div>
+  </div>
+</div>
+
+<script define:vars={{ slug }}>
+  const blogContainer = document.querySelector(`#${slug}`);
+
+  blogContainer.addEventListener("click", () => {
+    window.location.href = `/blog/${slug}`;
+  });
+</script>

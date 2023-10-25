@@ -1,0 +1,35 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Nav from "../sections/Nav.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import BlogPostCard from "../components/blog/BlogPostCard.astro";
+
+const posts = await Astro.glob("../pages/blog/*.mdx");
+---
+
+<Layout title="Jesse Pernilä – Blog">
+  <div class="flex w-full flex-col items-center">
+    <Nav currentPath="/blog" />
+  </div>
+  <main class="flex w-full flex-col items-center">
+    <section class="flex w-11/12 max-w-9xl flex-col gap-8 pt-8">
+      <SectionHeading>Blog Posts</SectionHeading>
+      <div class="mt-4"></div>
+      <div class="flex w-full flex-wrap gap-x-4 gap-y-12">
+        {
+          posts.map(({ frontmatter }) => {
+            return (
+              <BlogPostCard
+                slug={frontmatter.slug}
+                image={frontmatter.thumbnail}
+                title={frontmatter.title}
+                description={frontmatter.description}
+                date={frontmatter.date}
+              />
+            );
+          })
+        }
+      </div>
+    </section>
+  </main>
+</Layout>

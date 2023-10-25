@@ -1,0 +1,17 @@
+---
+type Props = {
+  src: string;
+  alt: string;
+};
+const { src, alt } = Astro.props;
+---
+
+<div
+  class="relative mt-2 flex aspect-square max-w-sm justify-center border-2 border-brandMain"
+>
+  <img class="z-10 m-0 h-auto w-full" src={src} alt={alt} />
+  <div
+    class="absolute -top-2 left-2 -z-0 aspect-square w-full border-2 border-brandMain bg-transparent"
+  >
+  </div>
+</div>

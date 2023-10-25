@@ -1,0 +1,31 @@
+---
+  layout: ../../layouts/Layout.astro
+  date: 2023-10-25
+  slug: pomodoro-pets
+  title: Pomodoro Pets
+  projectLink: https://pomodoro-pet.vercel.app/
+  gitLink: https://github.com/jessejp/pomodoro-pet
+  thumbnail: /assets/thumbnails/pomodoropets.webp
+  altText: "cartoony 3D study room screenshot"
+  description: "I'm building this fun WebGL-based app for focused work and study sessions using the pomodoro-technique."
+  techStack: ["React (Vite)","TailwindCSS", "TypeScript", "React-Three-Fiber", "Blender", "Figma"]
+  highlightEnabled: true
+  hightlightOrder: 3
+  hightlightAltStyle: true
+---
+import Duo from "../../components/Duo.astro";
+import SectionText from "../../components/ui/SectionText.astro";
+import SectionImage from "../../components/ui/SectionImage.astro";
+
+After <a class="accessible" href="https://threejs-journey.com/certificate/view/27153" target="_blank">completing the three.js journey course</a>, I'm developing a WebGL-based <a class="accessible" href="https://en.wikipedia.org/wiki/Pomodoro_Technique" target="_blank">pomodoro</a> timer app where the user can study with a study pal.
+
+<Duo>
+<SectionText>
+## Implemented features
+The user can select a duration for the work and break phases of the session as well as the amount of rounds for the session. Upon starting the timer the 3D room of the Pomodoro Pet will start playing its animations.
+
+### Session log
+The bottom menu includes a tab for the session log, where the user can write down their current point of focus, time will be allocated for the selected task after the work round is over.
+</SectionText>
+<SectionImage src="/assets/images/blog/pomodoro-pets.webp" alt="pomodoro pets app" />
+</Duo>

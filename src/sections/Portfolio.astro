@@ -1,29 +1,53 @@
 ---
 import Duo from "../components/Duo.astro";
 import CustomBorderContainer from "../components/CustomBorderContainer.astro";
+import Article from "../components/Article.astro";
+import CurrentlyBuildingArticle from "../components/CurrentlyBuildingArticle.astro";
 import SectionHeading from "../components/SectionHeading.astro";
-const posts = await Astro.glob("../portfolio-article/*.md");
-
-// const colors = ["teal-200", "emerald-400", "yellow-200"];
+const posts = await Astro.glob("../pages/blog/*.mdx");
 ---
 
 <SectionHeading>Recent Personal Projects</SectionHeading>
 
-<div class="mt-4 md:mt-8 w-full"></div>
+<div class="mt-4 w-full md:mt-8"></div>
 {
   posts
-    .sort((a, b) => a.frontmatter.order - b.frontmatter.order)
-    .map((post, index) => {
-      if (!!post.frontmatter.currentlyBuilding) {
+    .filter((p) => p.frontmatter.highlightEnabled)
+    .sort(
+      (a, b) => a.frontmatter.hightlightOrder - b.frontmatter.hightlightOrder,
+    )
+    .map((post) => {
+      if (post.frontmatter.hightlightAltStyle) {
         return (
           <CustomBorderContainer subheading="Currently Building">
-            <post.Content />
+            <CurrentlyBuildingArticle
+              title={post.frontmatter.title}
+              description={post.frontmatter.description}
+              slug={post.frontmatter.slug}
+              blogLink={post.url}
+              projectLink={post.frontmatter.projectLink}
+              gitLink={post.frontmatter.gitLink}
+              techStack={post.frontmatter.techStack}
+              thumbnail={post.frontmatter.thumbnail}
+              altText={post.frontmatter.altText}
+            />
           </CustomBorderContainer>
         );
       } else {
         return (
           <Duo>
-            <post.Content />
+            <Article
+              title={post.frontmatter.title}
+              description={post.frontmatter.description}
+              slug={post.frontmatter.slug}
+              blogLink={post.url}
+              projectLink={post.frontmatter.projectLink}
+              gitLink={post.frontmatter.gitLink}
+              techStack={post.frontmatter.techStack}
+              thumbnail={post.frontmatter.thumbnail}
+              thumbnailAnimated={post.frontmatter.thumbnailAnimated}
+              altText={post.frontmatter.altText}
+            />
           </Duo>
         );
       }
