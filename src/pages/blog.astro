@@ -1,5 +1,4 @@
 ---
-import "../styles/main.css";
 import Layout from "../layouts/Layout.astro";
 import Nav from "../sections/Nav.astro";
 import SectionHeading from "../components/SectionHeading.astro";
@@ -8,9 +7,9 @@ import BlogPostCard from "../components/blog/BlogPostCard.astro";
 
 <Layout title="Jesse Pernilä – Blog">
   <div class="flex w-full flex-col items-center">
-    <Nav transition:persist currentPath="/blog" />
+    <Nav currentPath="/blog" />
   </div>
-  <main class="flex w-full flex-col items-center" transition:animate="slide">
+  <main class="flex w-full flex-col items-center">
     <section class="flex w-11/12 max-w-9xl flex-col gap-8 pt-8">
       <SectionHeading>Blog Posts</SectionHeading>
       <div class="mt-4"></div>

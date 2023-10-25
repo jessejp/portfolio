@@ -1,5 +1,5 @@
 ---
-  layout: ../../layouts/BlogPostLayout.astro
+  layout: ../../layouts/Layout.astro
   slug: progress-journal
   title: Progress Journal
   projectLink: http://progress-journal.vercel.app/
@@ -13,15 +13,17 @@
   hightlightOrder: 1
   hightlightAltStyle: false
 ---
-import Duo from "../../components/Duo.astro"
 
-<Duo>
+import Duo from "../../components/Duo.astro";
+
+<Duo alignItems="start">
   <div class="w-1/2 max-w-2xl max-lg:w-2/3 max-md:order-2 max-md:w-full max-md:self-start">
     I made the <a class="text-brandMain" href="https://www.figma.com/file/PVcrJV05Z5n0GSwusOl4jN/Progress-Journal---%40shadcn%2Fui?type=design&node-id=103-985&mode=design" target="_blank">Figma layout</a> for this project using the @shadcn/ui design system. The components I built myself instead of using the ui library.
 
     The purpose of the app is to have a general design for the data so that it could be used in multiple contexts or hobbies.
 
     I was excited to try making a web application using the <a class="text-brandMain" href="https://create.t3.gg/" target="_blank">T3-stack</a>, a full-stack, typesafe Next.js developement environment. The development experience was nice, felt quite fast and bug-free to ship features. 🙂
+
   </div>
   <div class="relative flex aspect-square w-full max-w-sm justify-center border-2 border-brandMain max-lg:w-2/5 max-lg:self-end max-md:w-11/12 max-md:self-start">
       <img class="w-full h-auto m-0 z-10" src="/assets/thumbnails/progress-journal-v3.webp" />

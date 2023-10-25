@@ -1,5 +1,19 @@
+---
+import clsx from "clsx";
+type Props = {
+  alignItems: "start" | "center";
+};
+const { alignItems = "center" } = Astro.props as Props;
+---
+
 <div
-  class="flex gap-8 w-11/12 max-lg:w-full max-w-6xl mb-8 items-center max-lg:items-start justify-between self-center flex-col md:flex-row"
+  class={clsx(
+    "mb-8 flex w-11/12 max-w-6xl flex-col justify-between gap-8 self-center max-lg:w-full max-lg:items-start md:flex-row",
+    {
+      "items-start": alignItems === "start",
+      "items-center": alignItems === "center",
+    },
+  )}
 >
   <slot />
 </div>

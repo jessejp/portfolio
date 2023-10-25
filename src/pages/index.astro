@@ -1,5 +1,4 @@
 ---
-import "../styles/main.css";
 import Layout from "../layouts/Layout.astro";
 import About from "../sections/About.astro";
 import Contact from "../sections/Contact.astro";
@@ -11,9 +10,9 @@ import Hero from "../sections/Hero.astro";
 
 <Layout title="Jesse Pernilä – Frontend Developer">
   <div class="flex w-full flex-col items-center">
-    <Nav transition:persist currentPath="/" />
+    <Nav currentPath="/" />
   </div>
-  <main class="flex w-full flex-col items-center" transition:animate="slide">
+  <main class="flex w-full flex-col items-center">
     <div id="HOME"></div>
     <section class="flex min-h-halfScreen w-full max-w-9xl">
       <Hero />
