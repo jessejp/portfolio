@@ -1,5 +1,5 @@
 ---
-import Canvas3D from "../components/Canvas3D/Canvas3D.jsx";
+import HeroArt from "../components/canvas/hero/HeroArt.jsx"
 import SubHBox from "../components/ui/SubHBox.astro";
 ---
 
@@ -7,7 +7,7 @@ import SubHBox from "../components/ui/SubHBox.astro";
   class="relative flex min-h-112 w-full items-center justify-start max-md:flex-col max-md:gap-2"
 >
   <div class="min-h-halfScreen w-full">
-    <Canvas3D client:load />
+    <HeroArt client:load />
   </div>
   <div
     class="absolute bottom-1/5 right-4 w-fit bg-gradient-to-t from-violet-700 from-20% to-brandMain to-100% max-md:relative max-md:bottom-0 max-md:right-0 max-md:w-11/12 xl:right-46"
