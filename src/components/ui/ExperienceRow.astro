@@ -1,0 +1,29 @@
+---
+type Props = {
+  year: { from: number; to?: number | "" };
+  employer: string;
+  role: string;
+  description: string;
+  skills: string[];
+};
+
+const { year, description, employer, role, skills } = Astro.props as Props;
+---
+
+<div class="flex flex-row gap-5 font-brandBread max-sm:flex-col max-sm:gap-2">
+  <span class="w-24 whitespace-nowrap text-base">{year.from}—{year.to}</span>
+  <div class="mb-4 max-w-xl">
+    <p class="text-lg">
+      <span class="font-bold">{employer} · {role}</span>
+      <br />
+      {description}
+    </p>
+    <div class="mt-4 flex max-w-lg flex-wrap gap-x-4 gap-y-2">
+      {
+        skills.map((skill) => (
+          <span class="text-sm text-gray-600">{skill}</span>
+        ))
+      }
+    </div>
+  </div>
+</div>

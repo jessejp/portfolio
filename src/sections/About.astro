@@ -1,12 +1,13 @@
 ---
 import Duo from "../components/Duo.astro";
 import SectionHeading from "../components/SectionHeading.astro";
+import ExperienceRow from "../components/ui/ExperienceRow.astro";
 ---
 
 <section id="ABOUT_JESSE" class="flex w-11/12 max-w-9xl flex-col gap-8 pt-8">
   <SectionHeading>About Jesse</SectionHeading>
 
-  <Duo>
+  <Duo alignItems="start">
     <div
       class="w-1/2 max-w-2xl max-lg:w-2/3 max-md:order-2 max-md:w-full max-md:self-start"
     >
@@ -41,54 +42,39 @@ import SectionHeading from "../components/SectionHeading.astro";
   </Duo>
   <div class="-mt-8 w-11/12 max-w-6xl self-center max-lg:w-full">
     <h3 class="mb-4 text-3xl">EXPERIENCE</h3>
-    <div
-      class="flex flex-row gap-5 font-brandBread max-sm:flex-col max-sm:gap-2"
-    >
-      <span class="whitespace-nowrap text-base">2022—2023</span>
-      <div class="mb-4 max-w-xl">
-        <p class="text-lg">
-          <span class="font-bold">Crasman · Developer</span>
-          <br />
-           Developer for e-commerce clients from websites to product information
-          management environments
-        </p>
-        <div class="mt-4 flex max-w-lg flex-wrap gap-x-4 gap-y-2">
-          <span class="text-sm text-gray-600">JavaScript</span>
-          <span class="text-sm text-gray-600">HTML</span>
-          <span class="text-sm text-gray-600">mustache.js</span>
-          <span class="text-sm text-gray-600">SCSS</span>
-          <span class="text-sm text-gray-600">SQL</span>
-          <span class="text-sm text-gray-600">Miro</span>
-          <span class="text-sm text-gray-600">Kanban</span>
-          <span class="text-sm text-gray-600">REST</span>
-          <span class="text-sm text-gray-600">Prince XML</span>
-        </div>
-      </div>
-    </div>
+    <ExperienceRow
+      year={{ from: 2022, to: 2023 }}
+      employer="Crasman"
+      role="Developer"
+      description="Developer for e-commerce clients from websites to product information management environments"
+      skills={[
+        "JavaScript",
+        "HTML",
+        "mustache.js",
+        "SCSS",
+        "SQL",
+        "Miro",
+        "Kanban",
+        "REST",
+        "Prince XML",
+      ]}
+    />
     <div class="mt-4"></div>
-    <div
-      class="flex flex-row gap-5 font-brandBread max-sm:flex-col max-sm:gap-2"
-    >
-      <span class="whitespace-nowrap text-base">2016—2020</span>
-      <div class="mb-4 max-w-xl">
-        <p class="text-lg">
-          <span class="font-bold">Frantic · Junior Developer</span>
-          <br />
-           Development and maintenance for an international client and
-          Salesforce Marketing Cloud development
-        </p>
-        <div class="mt-4 flex max-w-lg flex-wrap gap-x-4 gap-y-2">
-          <span class="text-sm text-gray-600">JavaScript</span>
-          <span class="text-sm text-gray-600">HTML</span>
-          <span class="text-sm text-gray-600">CSS</span>
-          <span class="text-sm text-gray-600">FreeMarker</span>
-          <span class="text-sm text-gray-600">Salesforce Marketing Cloud</span>
-          <span class="text-sm text-gray-600">AMPScript</span>
-          <span class="text-sm text-gray-600">Excel</span>
-        </div>
-      </div>
-    </div>
+    <ExperienceRow
+      year={{ from: 2016, to: 2020 }}
+      employer="Frantic"
+      role="Junior Developer"
+      description="Development and maintenance for an international client and Salesforce Marketing Cloud development"
+      skills={[
+        "JavaScript",
+        "HTML",
+        "CSS",
+        "FreeMarker",
+        "Salesforce Marketing Cloud",
+        "AMPScript",
+        "Excel",
+      ]}
+    />
+    <div class="mt-8"></div>
   </div>
-
-  <div class="mt-8"></div>
 </section>
