@@ -43,6 +43,17 @@ import ExperienceRow from "../components/ui/ExperienceRow.astro";
   <div class="-mt-8 w-11/12 max-w-6xl self-center max-lg:w-full">
     <h3 class="mb-4 text-3xl">EXPERIENCE</h3>
     <ExperienceRow
+      year={{ from: 2024, to: "" }}
+      employer="Aallon Group"
+      role="Developer"
+      description="Frontend developer for SaaS-product from UI/UX-design to implementation"
+      skills={[
+        "JavaScript",
+        "React",
+        "Figma"
+      ]}
+    />
+    <ExperienceRow
       year={{ from: 2022, to: 2023 }}
       employer="Crasman"
       role="Developer"
